@@ -1,1477 +1,4080 @@
-﻿## INDICE
-1. Introducción.
-2. Superficies Cuádricas.
-3. Supercuádricos.
+## INDICE
+</br>
+<p align="left"> 1. Introducción.
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-4. Representaciones de Spline.
+<p align="left"> 2. Superficies Cuádricas.
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-5. Metodos de Interpolación de Spline.
-6. Spline Racionales.
+<p align="left"> 3. Supercuádricos.
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
-7. Conversión entre representaciones de Spline.
+<p align="left"> 4. Representaciones de Spline.
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
-8. Despliegue de curvas  y superficies de Spline.
+<p align="left"> 5. Metodos de Interpolación de Spline.
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+<p align="left"> 6. Spline Racionales.
+</p><!-- .element: class="fragment" data-fragment-index="6"-->
+
+<p align="left"> 7. Conversión entre representaciones de Spline.
+</p><!-- .element: class="fragment" data-fragment-index="7"-->
+
+<p align="left"> 8. Despliegue de curvas  y superficies de Spline.
+</p><!-- .element: class="fragment" data-fragment-index="8"-->
 
 
-H: ### INTRODUCCIÓN: Líneas y Superficies Curvas
 
-Entrada: 
-Conjunto de funciones matemáticas
-<img height="500" src="fig/intro1.jpg">
+### INTRODUCCIÓN: Líneas y Superficies Curvas
+</br>
+
+<p align="left">
+	<font color="blue">Entrada: </font> 
+	<font color="green">Conjunto de funciones matemáticas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<img height="500" src="fig/intro1.jpg"> <!-- .element: class="fragment" data-fragment-index="2"-->
 
 
-V: 
 ### INTRODUCCIÓN: Líneas y Superficies Curvas
 
+<p align="left">
+	<font color="blue">Entrada: </font>
+	<font color="green">Conjunto de Puntos de Coordenadas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-Entrada:  Conjunto de Puntos de Coordenadas
-
-
-<img height="500" src="fig/intro2.jpg"/> 
-
-
-
-
-H: 
-## SUPERFICIES CUADRICAS
-
-<table>
-<tr>
-	<td>
-Esfera
-<br/>
-<img height="350" src="fig/superfic1.jpg" >
-<br/>
-Parametros:
-r, $\theta$, $\varphi$
-	</td>
-	<td>
-
-Representación Cartesiana
-\\[x^{2} + y^{2} + z^{2} = r^{2}\\]
-<br/>
-Representación Paramétrica
-\\[ x= r \times \cos \varphi \times \cos \theta \\]
-\\[y=r \times \cos \varphi \times \sin \theta \\]
-\\[z=r \times \sin \varphi \\]
-\\[-\pi/2 \leq \varphi \leq \pi/2 \\]
-\\[-\pi \leq \theta \leq \pi \\]
-	</td>
-</tr>
-</table>
+<img height="500" src="fig/intro2.jpg"> <!-- .element: class="fragment" data-fragment-index="2"-->
 
 
-
-V: 
 
 ## SUPERFICIES CUADRICAS
 
-<table>
-<tr>
-	<td>
-Elipsoide
-<br/>
-
-<img height="350" src="fig/superfic2.jpg">
-No Olvidar el Toro
-	</td>
-	<td>
-Representación Cartesiana:
-\\[(x/r_x)^{2}+(y/r_y)^{2} + (z/r_z)^{2} = 1 \\]
-<br/>
-Representación Paramétrica:
-\\[x=r_x \times \cos \varphi \times \cos \theta \\]
-\\[y=r_y \times \cos \varphi \times \sin \theta \\]
-\\[z=r_z \times \sin \varphi \\]
-\\[-\pi/2 \leq \varphi \leq \pi/2 \\]
-\\[-\pi \leq \theta \leq \pi \\]
-	</td>
-</tr>
-
-</table> 
-
-H: 
-
-
-
-## SUPERCUADRICOS
-###Concepto: 
-
-<img height="500" src="fig/supercuad1.jpg">
-
-
-
-V: 
-## SUPERCUADRICOS
-### Superelipse 
-Representación Cartesiana:
-\\[ (x/r_x)^{2/S} + (y/r_y)^{2/S}=1\\]
-<br/>
-Representación Paramétrica:
-\\[x= r_x \times \cos ^{S} \theta \\]
-\\[y= r_y \times \sin ^{S} \theta \\]
-
-
-\\[-\pi \leq \theta \leq \pi \\]
-
-Con $S = 1$ obtenemos una elipse ordinaria.
-
-
-
-V: 
-## SUPERCUADRICOS
-
-
-###Superelipsoide
-<table><tr>
-	<td>
-Con $S_1=S_2=1$ obtenemos una elipsoide ordinaria. 
-	</td>
-	<td>
-Representación Cartesiana:
-\\[((x/r_x)^{2/S2} + (y/r_y)^{2/S2})^{S2/S1} (z/r_z)^{2/S1} = 1\\]
-<br/>
-Representación Paramétrica:
-<table>
+<table width="550" heigth="500" border="0" align ="right">
 <tr>
 <td>
-\\[x= r_x \times \cos^{S1} \varphi \times \cos^{S2} \theta\\]
-\\[y= r_y \times \cos^{S1} \varphi \times \sin ^{S2} \theta\\]
-\\[z= r_z \times \sin^{S1} \varphi \\]
-</td>
-<td>
 <br/>
-\\[-\pi/2 \leq \varphi \leq \pi/2\\]
-\\[-\pi \leq \theta \leq \pi\\]
+
+<p align="left">
+	<font color="blue">Representación Cartesiana</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="bottom">
+	<font size = 5>$x^{2}$ + $y^{2}$ + $z^{2}$ $=$ </font>
+	<font size = 5 color="red">$r^{2}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font color="blue">Representación Paramétrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<p align="left">
+	<font size = 5>$x=$</font>
+	<font size = 5 color="red">$r$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5  color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align ="right">
+	<font size = 5>$-\pi$$\leq$</font>
+	<font color="yellow">$\varphi$</font>
+	<font size = 5>$\leq$$\pi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$y=$</font>
+	<font size = 5 color="red"></font>
+	<font size = 5 color ="red">$r$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5  color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="right">
+	<font size = 5>$-\pi/2$$\leq$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+	<font size = 5>$\leq$$\pi/2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$z=$</font>
+	<font size = 5 color="red">$r$</font>
+	<font size = 5>sen</font>
+	<font size = 5  color="yellow">$\varphi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
 </td>
 </tr>
 </table>
-	</td>
-</tr><table>
 
-	
+<br/>
+<p align="left">
+	<font color="blue">Esfera</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<img height="350" src="fig/superfic1.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font color="blue">Parametros:</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>1. </font>
+	<font size = 5 color="red">r</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>2. </font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>3. </font>
+	<font size = 5 color="yellow">$\varphi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+
+## SUPERFICIES CUADRICAS
+
+<table width="540" heigth="500" border="0" align ="right">
+<tr>
+<td>
+<br/>
+<p align="left">
+	<font color="blue">Representación Cartesiana</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="bottom">
+	<font size = 5>$(x/$</font>
+	<font size = 5 color="green">$r_x$</font>
+	<font size = 5>$)^{2}$ + $(y/$</font>
+	<font size = 5 color="green">$r_y$</font>
+	<font size = 5>$)^{2}$ + $(z/$</font>
+	<font size = 5 color="green">$r_z$</font>
+	<font size = 5>$)^{2}$ $= 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font color="blue">Representación Paramétrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<p align="left">
+	<font size = 5>$x=$</font>
+	<font size = 5 color="red">$r_x$</font>
+	<font size = 5>cos</font>
+	<font size = 5  color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align ="right">
+	<font size = 5>$-\pi$$\leq$</font>
+	<font size = 5 color="yellow">$\varphi$</font>
+	<font size = 5>$\leq$$\pi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$y=$</font>
+	<font size = 5 color="red">$r_x$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5  color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="right">
+	<font size = 5>$-\pi/2$$\leq$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+	<font size = 5>$\leq$$\pi/2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$z=$</font>
+	<font size = 5 color="red">$r_x$</font>
+	<font size = 5>sen<font size = 5 color="yellow">$\varphi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+</td>
+</tr>
+</table>
+
+<p align="left">
+	<font color="blue">Elipsoide</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<img height="350" src="fig/superfic2.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left">
+	<font color="RED">$\quad $No Olvidar el Toro</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
 
-H:## REPRESENTACIONES DE SPLINE
+## SUPERCUADRICOS
+
+<p align ="left">
+	<font color="blue">Concepto</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<img height="500" src="fig/supercuad1.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="2"-->
 
 
-EJEMPLO
+## SUPERCUADRICOS
+
+<p align ="left">
+	<font color="#00FFFF">Superelipse</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align ="center">
+	<font color="blue">Representación Cartesiana</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="center">
+	<font size = 5>$(x/$</font>
+	<font size = 5 color="green">$r_x$</font>
+	<font size = 5>$)^{2/}$</font>
+	<font size = 5 color="red">$^{S}$</font>
+	<font size = 5> + $(y/$</font>
+	<font size = 5 color="green">$r_y$</font>
+	<font size = 5>$)^{2/}$</font>
+	<font size = 5 color="red">$^{S}$</font>
+	<font size = 5> $=$ 1</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="center">
+	<font color="blue">Representación Paramétrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<p align="center">
+	<font size = 5>$x=$</font>
+	<font size = 5 color="green">$r_x$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S}$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="center">
+	<font size = 5>$y=$</font>
+	<font size = 5 color="green">$r_y$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S}$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align ="center">
+	<font size = 5>$-\pi$$\leq$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+	<font size = 5>$\leq$$\pi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<p align ="center">
+	<font>Con </font>
+	<font color="red">$S$</font>
+	<font> $= 1$ obtenemos una elipse ordinaria.</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
+## SUPERCUADRICOS
+
+<table width="650" heigth="500" border="0" align ="right">
+<tr>
+<td>
+
+<br/>
+<p align="left">
+	<font color="blue">Representación Cartesiana</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font size = 5>$((x/$</font>
+	<font size = 5 color="green">$r_x$</font>
+	<font size = 5>$)^{2/}$</font>
+	<font size = 5 color="red">$^{S2}$</font>
+	<font size = 5>+$(y/$</font>
+	<font size = 5 color="green">$r_y$</font>
+	<font size = 5>$)^{2/}$</font>
+	<font size = 5 color="red">$^{S2}$</font>
+	<font size = 5>$)$</font>
+	<font size = 5 color="red">$^{S2/S1}$</font>
+	<font size = 5>+$(z/ $</font>
+	<font size = 5 color="green">$r_z$</font>
+	<font size = 5>$)^{2/}$</font>
+	<font size = 5 color="red">$^{S1}$</font>
+	<font size = 5>$= 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font color="blue">Representación Paramétrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<p align="left">
+	<font size = 5>$x=$</font>
+	<font size = 5 color="green">$r_x$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S1}$</font>
+	<font size = 5 color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S2}$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align ="right">
+	<font size = 5>$-\pi/2$$\leq$</font>
+	<font size = 5 color="yellow">$\varphi$</font>
+	<font size = 5>$\leq$$\pi/2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$y=$</font>
+	<font size = 5 color="green">$r_y$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S1}$</font>
+	<font size = 5 color="yellow">$\varphi$</font>
+	<font size = 5>$\cos$</font>
+	<font size = 5 color="red">$^{S2}$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align ="right">
+	<font size = 5>$-\pi$$\leq$</font>
+	<font size = 5 color="#00FFFF">$\theta$</font>
+	<font size = 5>$\leq$$\pi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>$z=$</font>
+	<font size = 5 color="green">$r_z$</font>
+	<font size = 5>sen</font>
+	<font size = 5  color="red">$^{S1}$</font>
+	<font size = 5 color="yellow">$\varphi$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+</td>
+</tr>
+</table>
+
+<p align="left">
+	<font color="blue">Superelipsoide</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font size = 5>Con</font>
+	<font size = 5 color="red">$S1$</font>
+	<font size = 5> $=$ </font>
+	<font size = 5 color="red">$S2$</font>
+	<font size = 5> $= 1$ </font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left"><font size = 5>$\ $ obtenemos  una </font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left"><font size = 5>elipsoide ordinaria.</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+
+
+<!-- .slide: data-state="splines-state" -->
+## REPRESENTACIONES DE SPLINE
+
+</br>
+<p align="left">
+	<font color="green">EJEMPLO</font>
+</p>
 <canvas id="canvas1" width="600" height="400"></canvas>
 
 
+<!-- .slide: data-state="cardinal-state" -->
+## REPRESENTACIONES DE SPLINE
 
-
-
-V:## REPRESENTACIONES DE SPLINE
-
-
-EJEMPLO
+</br>
+<p align="left">
+	<font color="green">EJEMPLO</font>
+</p>
 <canvas id="canvas2"></canvas>
 
 
-
-V:
-## REPRESENTACIONES DE SPLINE
-1. Introducción.
-2. Definición del Problema.
-3. Continuidad.
-4. Modos de Especificación.
-
-
-
-V:## REPRESENTACIONES DE SPLINE
-###Introducción
-
-<img height="500" src="fig/repSpline1.jpg"/>
-
-
-V:## REPRESENTACIONES DE SPLINE
-###Introducción
-Usos:
-
-1. Digitacilación de trazos (Curvas de Interpolación)
-1. Especificación de trayectorias de animación (Curvas de Interpolación)
-1. Herramienta de diseño para superficies de los objetos CAD (Curvas de aproximación)
-
-Ventaja:
-
-La curva se modifica y manipula (trasladar, girar y escalar) solo en los puntos de control.
-
-
-
-
-V:## REPRESENTACIONES DE SPLINE
-
-
-###Introducción
-<img height="250" src="fig/nociones.png">
-
-1. La curva realiza la interpolación.
-2. La curva  aproxima la interpolación.
-3. Casco convexo.
-4. Grafica de control.
-
-
-
-V:
-## REPRESENTACIONES DE SPLINE
-###Definición del problema
-<img height="200" src="fig/repSpline4.jpg">
-
-Se pueden tener 1 o varias secciones de spline.
-Cada sección de la Spline se puede definir paramétricamente así: $P(u) = ( x(u), y(u), z(u) )^{T}$ , $u_1 \leq u \leq u_2$
-
-La derivada de $P(u)$ es el vector tangente paramétrico de la curva: $P'(u) = ( x'(u), y'(u), z'(u) )^{T} $ , $u_1 \leq u \leq u_2$
-
-
-
-V:
 ## REPRESENTACIONES DE SPLINE
 
+</br>
+</br>
+<p align="left">
+	<font color="blue">1. Introducción.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
 
-###Continuidad 
-####Geométrica
-<table>
-<tr>
-	<td>
-$G^{0}$: Si los segmentos se unen. 
-$G^{1}$: Si (ademas de $G^{0}$) las direcciones de los vectores tangentes, aunque no necesariamente las magnitudes, son iguales.
-	</td>
-	<td>
-Cada sección: $P(u) = (x(u), y(u), z(u))^{T}$
-$u_1 \leq u \leq u_2$
-	</td>
-<tr>
-</table>
+</br>
+<p align="left">
+	<font color="blue">2. Definición del Problema.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+</br>
+<p align="left">
+	<font color="blue">3. Continuidad.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+</br>
+<p align="left">
+	<font color="blue">4. Modos de Especificación.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-V:
 ## REPRESENTACIONES DE SPLINE
 
+<p align="left">
+	<font color="blue"> Introducción</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
 
-###Continuidad
-####Paramétrica
-<table>
-<tr>
-	<td>
-$C^{n}$: Si $d^{n}/d u^{n}P(u)$, son iguales (la enésima derivada en magnitud y dirección)
-	</td>
-	<td>
-Cada sección: $P'(u) = (x'(u), y'(u), z'(u))^{T}$
-$u_1 \leq u \leq u_2$
-	</td>
-<tr>
-</table>
+<img height="250" src="fig/repSpline1.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="2"-->
 
-V:## REPRESENTACIONES DE SPLINE
-###Continuidad
-Reglas:
+<p align="left">
+	<font color="green"> Usos:</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
 
-1. $C^{1} \rightarrow G^{1}$ pero no al revés.
-1. Si $n > m$ entonces $C^{n} \rightarrow C^{m}$
+<p align="left">
+	<font size = 5> 1. Digitacilación de trazos.</font>
+	<font size = 5 color="green">(Curvas de Interpolación)</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
 
-Excepción de la R1:
-<center>
-<table>
+<p align="left">
+	<font size = 5> 2. Especificación de trayectorias de animación. </font>
+	<font size = 5 color="green">(Curvas de Interpolación)</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5> 3. Herramienta de diseño para superficies de los objetos. </font><font size = 5 color="green">CAD(Curvas de aproximación)</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font color="green"> Ventaja</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5> La curva se modifica y manipula (trasladar, girar y escalar) solo en los puntos de control.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="4"-->
+
+
+## REPRESENTACIONES DE SPLINE
+
+<p align="left">
+	<font color="blue"> Introducción</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<img height="250" src="fig/intro2.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+</br>
+<p align="left">
+	<font>1.$ \ $ La curva </font>
+	<font color="yellow">realiza la interpolación.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font>2.$ \ $ La curva </font>
+	<font color="yellow">aproxima la interpolación.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font>3.$ \ $</font>
+	<font color="#00FFFF"> Casco convexo.</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font>4.$ \ $</font>
+	<font color="red"> Grafica de control.</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+
+## REPRESENTACIONES DE SPLINE
+
+<p align="left">
+	<font color="blue"> Deficición del problema</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<img height="200" src="fig/repSpline4.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5> Se pueden tener $1$ o varias</font>
+	<font size = 5 color="green"> secciones</font>
+	<font size = 5> de spline.</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5> Cada </font>
+	<font size = 5 color="green"> sección</font>
+	<font size = 5> de la Spline se puede definir </font>
+	<font size = 5 color="green">paramétricamente</font>
+	<font size = 5> así:</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = ( x($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) )^{T} \qquad \qquad \quad \ $</font>
+	<font size = 5 color="green">$u_1$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+</br>
+<p align="left">
+	<font size = 5> La derivada de $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)$ es el </font>
+	<font size = 5 color="green">vector tangente paramétrico</font>
+	<font size = 5> de la curva:</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5> $P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = ( x'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), y'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), z'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) )^{T} \qquad \qquad$</font>
+	<font size = 5 color="green">$u_1$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+
+## REPRESENTACIONES DE SPLINE
+
+<br/>
+<p align="left">
+	<font color="blue"> Continuidad</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="450" heigth="500" border="0" align ="right">
 <tr>
 <td>
-<img height="280" src="fig/repSpline5.jpg">
-</td>
-<td>
-<img height="280" src="fig/repSpline6.jpg">
+
+<br/>
+<p align="right">
+	<font size = 5>Cada </font>
+	<font size = 5 color="green">sección:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="right">
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = ( x($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) )^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="right">
+	<font size = 5 color="green">$u_1$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<br/>
+<br/>
+<p align="right">
+	<font size = 5>Cada </font>
+	<font size = 5 color="green">sección:</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="right">
+	<font size = 5> $P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = ( x'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), y'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$), z'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) )^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="right">
+	<font size = 5 color="green">$u_1$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
 </td>
 </tr>
 </table>
-</center>
+
+<br/>
+<p align="left">
+	<font size = 5 color="gray"> Continuidad Geométrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 color="gray"> $G^{0}$: </font>
+	<font size = 5> Si los segmentos se unen.</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 color="gray"> $G^{1}$: </font>
+	<font size = 5> Si $($ademas de </font>
+	<font size = 5 color="gray"> $G^{0}$</font>
+	<font size = 5>$)$ las direcciones de los vectores tangentes, aunque no necesariamente las magnitudes, son iguales.</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font size = 5 color="yellow"> Continuidad Paramétrica</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5 color="yellow"> $C^{n}$: </font>
+	<font size = 5> Si $d^{n}/d$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{n}$</font>
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)$, son iguales $($la enésima derivada en magnitud y dirección$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
 
-V:## REPRESENTACIONES DE SPLINE
+## REPRESENTACIONES DE SPLINE
+
+<p align="left">
+	<font color="blue"> Continuidad</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="900" heigth="500" border="0" align ="right">
+<tr>
+<td>
+
+<br/>
+<p align="left">
+	<font size = 5>Reglas:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 color="green">R1. </font>
+	<font size = 5 color="yellow">$C^{1}$</font>
+	<font size = 5  color="green">$\rightarrow$</font>
+	<font size = 5 color="gray">$G^{1}$</font>
+	<font size = 5> pero no al revés:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 color="green">R2. </font>
+	<font size = 5>Si </font>
+	<font size = 5 color="yellow">$n$</font>
+	<font size = 5>$>$</font>
+	<font size = 5 color="yellow">$m$</font>
+	<font size = 5> entonces </font>
+	<font size = 5 color="yellow">$C^{n}$</font>
+	<font color="green">$\rightarrow$</font>
+	<font size = 5 color="yellow">$C^{m}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5>Expresión de la </font>
+	<font size = 5 color="green">R1. </font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+</td>
+</tr>
+</table>
+
+<img height="280" src="fig/repSpline5.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="3"-->
+<img height="280" src="fig/repSpline5.jpg" align ="right"><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-###Continuidad
-Existen 3 modos equivalentes:
+## REPRESENTACIONES DE SPLINE
 
-1. Conjunto de condiciones de frontera
-2. Matriz característica de la Spline
-3. Funciones de combinación
+<br/>
+<p align="left">
+	<font color="blue"> Continuidad</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<br/>
+<br/>
+
+<table width="800" heigth="500" border="0" align ="right">
+<tr>
+<td>
+
+<p align="left">
+	<font>Existen 3 modos</font>
+	<font color="green"> equivalentes</font>
+	<font>:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font>1. Conjunto de </font>
+	<font color="green">condiciones de frontera</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font>2. </font>
+	<font color="green">Matriz característica </font>
+	<font>de la Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font>3. </font>
+	<font color="green">Funciones de combinación</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+</td>
+</tr>
+</table>
 
 
-
-H:
 
 ## TIPOS DE INTERPOLACIÓN DE SPLINE
 
-1. Spline Cúbicas
-2. Curvas y Superficies de Bezier
-3. Curvas y Superficies de B-Spline
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 1. Spline Cúbicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 2. Curvas y Superficies de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 3. Curvas y Superficies de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
 
-
-V:
 
 ## SPLINE CÚBICAS
 
+<br/>
+<p align="left">
+	<font color="blue"> 1. Spline Cúbicas Naturales</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 2. Hermite</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 3. Spline Cardinales</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<br/>
+<br/>
+<p align="left">
+	<font color="blue"> 4. Splines de Kochanek-Bartels</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-1. Spline Cúbicas Naturales
-2. Hermite
-3. Spline Cardinales
-4. Splines de Kochanek-Bartels
-
-
-
-V:
 ## SPLINE CÚBICAS
 
+<p align="left">
+	<font color="blue">Definicion del $P_b$. en el caso </font>
+	<font size = 5>$ \qquad \qquad P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=x($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$),y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$),z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$))^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
+<p align="left">
+	<font color="blue">de polinonios cúbicos</font>
+	<font size = 5 color="green">$ \qquad \qquad \qquad \qquad u_1$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-Definicion del $P_b$. en el caso de polinonios cúbicos. $P(u)=(x(u),y(u),z(u))^{T}$, $u_1 \leq u \leq u_2$
+<p align="left">
+	<font size = 5>Para cada </font>
+	<font size = 5 color="green">sección </font>
+	<font size = 5>de la Spline:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-Para cada sección de la Spline:
+<p align="center">
+	<font size = 5> $x($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = a_x$</font>
+	<font size = 5 color="green">$u^{3}$</font>
+	<font size = 5>$ + b_x$</font>
+	<font size = 5 color="green">$u^{2}$</font>
+	<font size = 5>$ + c_x$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ + d_x$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
-\\[x(u) = a_x u^{3} + b_x u^{2} + c_x u + d_x\\]
-\\[y(u) = a_y u^{3} + b_y u^{2} + c_y u + d_y\\]
-\\[z(u) = a_z u^{3} + b_z u^{2} + c_z u + d_z\\]
+<p align="center">
+	<font size = 5> $y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = a_y$</font>
+	<font size = 5 color="green">$u^{3}$</font>
+	<font size = 5>$ + b_y$</font>
+	<font size = 5 color="green">$u^{2}$</font>
+	<font size = 5>$ + c_y$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ + d_y$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
-$0 \leq u \leq 1$
+<p align="center">
+	<font size = 5> $z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = a_z$</font>
+	<font size = 5 color="green">$u^{3}$</font>
+	<font size = 5>$ + b_z$</font>
+	<font size = 5 color="green">$u^{2}$</font>
+	<font size = 5>$ + c_z$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ + d_z$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
+<p align="center">
+	<font size = 5>$0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-V:
-## SPLINE CÚBICAS
+<p align="left">
+	<font size = 5>Vectorialmente tenemos: $ \ $</font>
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="#00FFFF">$a$</font>
+	<font size = 5 color="green">$u^{3}$</font>
+	<font size = 5>$+$</font>
+	<font size = 5 color="#00FFFF">$b$</font>
+	<font size = 5 color="green">$u^{2}$</font>
+	<font size = 5>$+$</font>
+	<font size = 5 color="#00FFFF">$c$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$+$</font>
+	<font size = 5 color="#00FFFF">$d$</font>
+	<font size = 5>$,$</font>
+	<font size = 5>$ \qquad \quad  0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
-
-
-Vectorialmente tenemos: 
-$P(u)=a u^{3} + b u^{2} + c u + d , 0 \leq u \leq 1$
-
-Entonces: 
-\\[P(u) = 
-\begin{bmatrix}
+<p align="left">
+	<font size = 5>Entonces:</font>
+	<font size = 5>$ \qquad \qquad \qquad P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+	$
+	\begin{bmatrix}
 	u^{3} & u^{2} & u & 1 \cr
- \end{bmatrix}
-	\bullet	\begin{bmatrix}
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+	$
+	\begin{bmatrix}
 	a & b & c & d \cr
-\end{bmatrix}^{T} = U \bullet C\\]
-\\[ P'(u) = \begin{bmatrix}
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$^{T} = $</font>
+	<font size = 5 color="green">$ U $</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color="#00FFFF">$C$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5> $ \quad \ \ \qquad \qquad \qquad \qquad P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+	$
+	\begin{bmatrix}
 	3u^{2} & 2u & 1 & 0 \cr
 	\end{bmatrix}
-	\bullet \begin{bmatrix}
+	$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+	$
+	\begin{bmatrix}
 	a & b & c & d \cr
 	\end{bmatrix}
-^{T},  0 \leq u \leq 1\\]
+	$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="4"-->
 
-Tenemos $n+1$ puntos de control de coordenadas:  $P_k = (x_k,y_k,z_k),  k = 0,1,2,...,n$
+<p align="left">
+	<font size = 5>$ \quad \ \ \qquad \qquad \qquad \qquad 0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5>Tenemos $n+1$ </font>
+	<font size = 5 color="yellow">puntos de control</font>
+	<font size = 5> de coordenadas: </font>
+	<font size = 4 color="yellow">$ \qquad P_k$</font>
+	<font size = 4>$ = ($</font>
+	<font size = 4 color="yellow">$x_k$</font>
+	<font size = 4>$,$</font>
+	<font size = 4 color="yellow">$y_k$</font>
+	<font size = 4>$,$</font>
+	<font size = 4 color="yellow">$z_k$</font>
+	<font size = 4>$)$</font>
+	<font size = 4 color="yellow">$ \qquad k $</font>
+	<font size = 4>$ = 0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
 
 
-
-V:
 ## SPLINE CÚBICAS
-Definicion del $P_b$. en el caso de polinomios cubicos:
-Ahora:
-\\[C=M \bullet G \\]
-Donde:
-\\[G = \begin{bmatrix} G_x & G_y & G_z \end{bmatrix} = \begin{bmatrix} 
-g_1x & g_1y & g_1z \cr 
+
+<p align="left">
+	<font color="blue">Definicion del $P_b$. en el caso </font>
+		<font size = 5>$ \qquad \qquad P($</font>
+		<font size = 5 color="green">$u$</font>
+		<font size = 5>$)= x($</font>
+		<font size = 5 color="green">$u$</font>
+		<font size = 5>$),y($</font>
+		<font size = 5 color="green">$u$</font>
+		<font size = 5>$),z($</font>
+		<font size = 5 color="green">$u$</font>
+		<font size = 5>$))^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 5>$0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq 1 \qquad \qquad \qquad \ \ $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="650" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+	$
+	\begin{bmatrix}
+	u^{3} & u^{2} & u & 1 \cr
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$^{T} = $</font>
+	<font size = 5 color="green">$ U $</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color="#00FFFF">$C$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5> $P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+	$
+	\begin{bmatrix}
+	3u^{2} & 2u & 1 & 0 \cr
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+	$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5>$0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq 1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+</td>
+</tr>
+</table>
+
+<table width="50" heigth="50" border="0" align ="right">
+<tr>
+<td>
+
+<br/>
+<p align="center">
+	<font size = 5 color = "yellow">$G_x \qquad G_y \qquad G_z$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="center">
+	<font size = 5 color = "yellow">$\downarrow \qquad \downarrow \qquad \downarrow$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+</td>
+</tr>
+</table>
+
+<table width="300" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="right">
+	<font size ="5" color="yellow">
+	$
+	G=\begin{bmatrix} 
+	g_1x & g_1y & g_1z \cr 
 	g_2x & g_2y & g_2z \cr
 	g_3x & g_2y & g_3z \cr
 	g_4x & g_2y & g_4z \cr
-	\end{bmatrix}\\]
+	\end{bmatrix}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
-V:
-## SPLINE CÚBICAS
-\\[
-M=\begin{bmatrix} 
+</td>
+</tr>
+</table>
+
+<table width="150" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="center">
+	<font size ="5" color="#00FFFF">
+	$
+	M=\begin{bmatrix} 
 	m_11 & m_12 & m_13 & m_14 \cr 
 	m_21 & m_22 & m_23 & m_24 \cr
 	m_31 & m_23 & m_33 & m_34 \cr
 	m_41 & m_24 & m_43 & m_44 \cr
-	\end{bmatrix}\\]
+	\end{bmatrix}
+	$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
-Tanto $M$ como $G$ varían para cada tipo de curva. 
-$M$ es la matríz basica y $G$ es la matríz de restricciones o condiciones geométricas
-Se tiene entonces: $P(u) = U \bullet M  \bullet G$
+</td>
+</tr>
+</table>
+
+<table width="180" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 5>Ahora:</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5 color="#00FFFF">$C $</font>
+	<font size = 5 >$= $</font>
+	<font size = 5 color="#00FFFF">$M $</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color = "yellow">$G$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left"><font size = 5>Donde:</font></p><!-- .element: class="fragment" data-fragment-index="5"-->
+</td>
+</tr>
+</table>
+
+<table width="900" heigth="50" border="0" align ="left">
+<tr>
+<td>
+
+<p align="left">
+	<font size = 5>Tanto </font>
+	<font size = 5 color="#00FFFF">$M $</font>
+	<font size = 5 >como </font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 >varían para cada tipo de curva. </font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+<p align="left">
+	<font size = 5 color="#00FFFF">$M $</font>
+	<font size = 5 >es la matríz basica y </font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 >es la matríz de restricciones o condiciones geométricas</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+<p align="left">
+	<font size = 5 >Se tiene entonces: $\qquad P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">$ U $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G $</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+</td>
+</tr>
+</table>
 
 
-
-V:
 ## SPLINE CÚBICAS
-####Superficies paramétricas bicúbicas
 
-Generalización de la curva: 
-\\[P(u) =  U \bullet M  \bullet G \\]
-(donde el vector geométrico $G$ es una constante)
- 
-1. Tomemos $s$ por $u$, $P(s) = S \bullet M  \bullet G$
-2. Dejemos variar los puntos en $G$ en 3D a lo largo de un camino parametrizado en $u$
-:
-\\[P(s,u) = S \bullet M  \bullet G(u)\\]
+<p align="left">
+	<font color="blue">Superficies paramétricas bicúbicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<br/>
+<p align="left">
+	<font size = 5 >Generalización de la curva: $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">$ U $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 > (donde el vector geométrico </font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 > es una constante) </font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 >$i)\ $ Tomemos </font>
+	<font size = 5 color="green">$s$</font>
+	<font size = 5 > por </font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ , \ $</font>
+	<font size = 5 >$P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">$ U $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G $</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="left">
+	<font size = 5 >$ii)\ $ Dejemos variar los puntos en </font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 >en 3D a lo largo de un camino parametrizado en </font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<p align="left">
+	<font size = 5 >$P($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G ($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color = "yellow">$), $</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<table width="320" heigth="100" border="0" align ="left">
+<tr>
+<td>
+
+<p align="center">
+	<font size ="4" color="yellow">
+	$
+	G(u)=\begin{bmatrix} 
+	G_1(u)\cr 
+	G_2(u)\cr 
+	G_3(u)\cr 
+	G_4(u)\end{bmatrix}
+	$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="center">
+	<font size = 5 color="red">$\qquad \ (1)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+</td>
+</tr>
+</table> 
+
+<p align="left">
+	<font size = 5 >Para un valor fijo </font>
+	<font size = 5 color="green">$\ u_1$</font>
+	<font size = 5 >$, P($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$)$ , es una curva porque </font>
+	<font size = 5 color = "yellow">$G ($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color = "yellow">$)$</font>
+	<font size = 5 > es constante. Haciendo $\ 0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq1$ se obtiene la familia de curvas que conforman la superficie.</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-V:
-## SPLINE CÚBICAS
-####Superficies paramétricas bicúbicas
-Donde:
-
-\\[G(u)=\begin{bmatrix} 
-G_1(u)\cr G_2(u)\cr G_3(u)\cr G_4(u)\end{bmatrix}\\]
-Para un valor fijo 
-$u_1 , P(s,u_1)$ es una curva porque
-	$G (u_1)$
- es constante. Haciendo $ 0 \leq u \leq 1 $ se obtiene la familia de curvas que conforman la superficie.
-
-V:
 ## SPLINES CÚBICAS
 
-####Superficies paramétricas bicúbicas
+<p align="left">
+	<font color="blue">Superficies paramétricas bicúbicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-Tomando el caso en que $G_i(u)$ son cúbicas, se tiene que cada una puede ser representada como:
+<br/>
+<p align="left">
+	<font size = 5 >Tomando el caso en que </font>
+	<font size = 5 color = "yellow">$G_i ($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color = "yellow">$)$</font>
+	<font size = 5 > son cúbicas, se tiene que cada una puede ser representada como:</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-$G_i(u) = U \bullet M \bullet G $
+<p align="left">
+	<font size = 5 color = "yellow">$G_i ($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color = "yellow">$) = $</font>
+	<font size = 5 color = "green">$ U $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G $</font>
+	<font size = 5 > (donde el vector geométrico </font>
+	<font size = 5 color = "yellow">$G_i' $</font>
+	<font size = 5 >, donde </font>
+	<font size ="5" color="yellow">$\ G_i'$</font>
+	<font size = 5 >$=$</font>
+	<font size ="5" color="yellow">
+		$\begin{pmatrix} g_i1' \ g_i2' \ g_i3' \ g_i4'\cr \end{pmatrix}$
+	</font>
+	<font size = 5 >$^{T}$ , transponiendo y reemplazando en </font>
+	<font size = 5 color="red">$(1)$</font>
+	<font size = 5 > se obtiene: </font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-donde $G_i = \begin{pmatrix} g_i1' & g_i2' & g_i3' & g_i4' \cr \end{pmatrix}^{T}$ 
+<p align="left">
+	<font size = 5 >$P($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size ="4" color="yellow">
+	$
+	\begin{bmatrix} 
+	g_{11}' & g_12' & g_13' & g_14'\cr 
+	g_21' & g_22' & g_23' & g_24'\cr
+	g_31' & g_22' & g_33' & g_34'\cr
+	g_41' & g_22' & g_43' & g_44'\cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M^{T} $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "green">$ U^{T}$</font>
+	<font size = 5>$=$</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size ="5" color="yellow">$G'$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M^{T} $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "green">$ U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
-V:
+<table width="200" heigth="30" border="0" align ="right">
+<tr>
+<td>
+
+<p align="left">
+	<font size = 5 >$\ 0 \leq$</font>
+	<font size = 5 color="green">$s$</font>
+	<font size = 5 >$,$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+</td>
+</tr>
+</table>
+
+<table width="800" heigth="30" border="0" align ="right">
+<tr>
+<td>
+
+<p align="left">
+	<font size = 5 >Escrito separadamente para cada coordenada se tiene:</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 >$x($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size ="5" color="yellow">$G_x'$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M^{T} $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "green">$ U^{T}$</font>
+	<font size = 5>$,$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 >$y($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size ="4" color="yellow">$G_y'$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M^{T} $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "green">$ U^{T}$</font>
+	<font size = 5>$,$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 >$z($</font>
+	<font size = 5 color="green">$s,u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color = "green">$ S $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size ="5" color="yellow">$G_z'$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M^{T} $</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "green">$ U^{T}$</font>
+	<font size = 5>$,$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+</td>
+</tr>
+</table>
+
+
 ## SPLINES CÚBICAS
 
-####Superficies paramétricas bicúbicas
+<p align="left">
+	<font color="blue">Splines Cúbicas Naturales</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-transponiendo y reemplazando se obtiene:
-$P(s,u)=S \bullet M \bullet \begin{bmatrix} 
-g_11' & g_12' & g_13' & g_14'\cr 
-g_21' & g_22' & g_23' & g_24'\cr
-g_31' & g_22' & g_33' & g_34'\cr
-g_41' & g_22' & g_43' & g_44'\cr
-\end{bmatrix} \bullet
-M^{T} \bullet U^{T} $
+<table width="480" heigth="30" border="0" align ="right">
+<tr>
+<td>
 
-$= S \bullet M \bullet G' \bullet M^{T} \bullet U^{T}$
+<p align="right">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	u^{3} \ u^{2} \ u \ 1 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a \ b \ c \ d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T} = $</font>
+	<font size = 4 color="green">$ U $</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="#00FFFF">$C$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
-$ 0 \leq s,u \leq 1 $
+<p align="right">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	3u^{2} / 2u / 1 / 0 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a \ b \ c \ d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
-V:
+<p align="right">
+	<font size = 4 >$\ 0 \leq$</font>
+	<font size = 4 color="green">$s$</font>
+	<font size = 4 >$,$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+</td>
+</tr>
+</table>
+
+<p align="left">
+	<font size = 5>Especificación con </font>
+	<font size = 5 color = "green">condiciones de frontera: </font>
+	<font size ="5" color="yellow">$C^{2}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<img height="100" src="fig/splineCub1.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 5>Si se tienen </font>
+	<font size = 5 color = "yellow">$n+1$ </font>
+	<font size = 5>puntos de control : </font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 color = "green">$n$</font>
+	<font size = 5> secciones curvas a ajustar</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 color = "green">$4n$</font>
+	<font size = 5> coeficientes polinómicos (incógnitas)</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5 color = "green">$4n-4$</font>
+	<font size = 5> ecuaciones ( las 2 secciones a cada lado de un punto de control deven tener la $1a$ y la $2a$ derivadas iguales: para </font>
+	<font size ="5" color="yellow">$n-1$</font>
+	<font size = 5>puntos,</font>
+	<font size = 5 color = "green">$4$</font>
+	<font size = 5> ecuaciones por punto )</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5>Las posiciones </font>
+	<font size = 5 color = "yellow">$p_0$</font>
+	<font size = 5 > y </font>
+	<font size = 5 color = "yellow">$p_n$</font>
+	<font size = 5> nos dan</font>
+	<font size = 5 color = "green"> $2$ </font>
+	<font size = 5> ecuaciones mas</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+<p align="left">
+	<font size = 5>Las otras </font>
+	<font size = 5 color = "green"> $2$ </font>
+	<font size = 5 > ecuaciones se pueden establecer al definir como $0$ las segundas derivadas en </font>
+	<font size = 5 color = "yellow">$p_0$</font>
+	<font size = 5 > y </font>
+	<font size = 5 color = "yellow"> $p_n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+
+
 ## SPLINES CÚBICAS
 
-####Superficies paramétricas bicúbicas
+<table width="600" heigth="500" border="0" align ="right">
+<tr>
+<td>
+<p align="center">
+	<font size = 4>$P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	u^{3} & u^{2} & u & 1 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T} = $</font>
+	<font size = 4 color="green">$ U $</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="#00FFFF">$M$</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="yellow">$G$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
-Escrito separadamente para cada coordenada se tiene:
- 
-
-\\[x(s,u)=S \bullet M \bullet G_x' \bullet M^{T} \bullet U^{T}\\]
-\\[y(s,u)=S \bullet M \bullet G_y' \bullet M^{T} \bullet U^{T}\\]
-\\[z(s,u)=S \bullet M \bullet G_z' \bullet M^{T} \bullet U^{T}\\]
-
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
-
-
-$P(u) = \begin{bmatrix}
-u^{3} \ u^{2} \ u \ 1 \cr
-\end{bmatrix}
- \bullet \begin{bmatrix}
- a \ b \ c \ d \cr
- \end{bmatrix}
- ^{T} = U \bullet C$
-
-$P'(u) =\begin{bmatrix}
+<p align="center">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
 	3u^{2} & 2u & 1 & 0 \cr
-	\end{bmatrix} \bullet \begin{bmatrix}
- a \ b \ c \ d \cr\end{bmatrix} 
-^{T}$
- 
-$\ 0 \leq s,u \leq 1 $
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T} = $</font>
+	<font size = 4 color="green">$ U $</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="#00FFFF">$M$</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="yellow">$G$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
 
+<p align="center">
+	<font size = 4 >$\qquad  \qquad \qquad  \qquad \qquad  \qquad \qquad  \qquad 0 \leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
+<p align="center">
+	<font size = 4> $ P($</font>
+	<font size = 4 color="green">$0$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "yellow">$p_k$</font>
+	<font size = 4> $\qquad P($</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "yellow">$p_k$+$ \ _1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
+<p align="center">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$0$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "yellow">$Dp_k$</font>
+	<font size = 4> (Derivada en el punto </font>
+	<font size = 4 color = "yellow">$p_k$</font>
+	<font size = 4> )</font> </p><!-- .element: class="fragment" data-fragment-index="2"-->
 
+<p align="center">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "yellow">$Dp_k$+$ \ _1$</font>
+	<font size = 4> (Derivada en el punto </font>
+	<font size = 4 color = "yellow">$p_k$+$ \ _1$</font>
+	<font size = 4> )</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-<img height="100" src="fig/splineCub1.jpg">
+<p align="center">
+	<font size = 5 color = "yellow">$\qquad \qquad  G_H \qquad \qquad  \qquad \qquad \qquad $ </font>
+	<font size = 5 color="#00FFFF">$M_H$</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color="yellow">$G_H$</font></p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-Especificación con 
-condiciones de frontera: $C^{2}$
+<p align="center">
+	<font size = 5 color = "yellow">$\qquad  \qquad \downarrow \qquad  \qquad \qquad  \qquad \qquad  \qquad  \qquad  \quad \downarrow$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-Si se tienen $n+1$ puntos de control: 
-
-1. $n$
- secciones curvas a ajusta
-1. $4n$
- coeficientes polinómicos (incógnitas)
-
-1. $4n-4$
-	 ecuaciones ( las 2 secciones a cada lado de un punto de control deven tener la $1a$ y la $2a$ derivadas iguales: para 
-	$n-1$
-	puntos,
-	$4$
- ecuaciones por punto )
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
-
-
-1. Las posiciones 
-$p_0$
- Y $p_n$
- nos dan
- $2$ ecuaciones mas
-
-1. Las otras 
-$2$ ecuaciones se pueden establecer al definir como $0$ las segundas derivadas en $p_0$
- y $p_n$
-
-V:## SPLINES CÚBICAS
-
-
-
-####Splines de Hermite
-
-
-
-
-Especificación con 
-condiciones de frontera:
- 
-
-
-<img height="150" src="fig/splineCub2.jpg">
-
-1. $p_k = P(0) = d$
-1. $p_{k+1} = P(1) = a+b+c+d$
-1. $Dp_k = P'(0) = c$
-1. $Dp_{k+1}= P'(1) = 3a + 2b + c$
-
-
-V:## SPLINES CÚBICAS
-
-
-
-####Splines de Hermite
-
-1. $ P(0) = p_k$ 
-1. $ P(1) = p_{k+1}$
-1. $P'(0) = Dp_k$ (Derivada en el punto $p_k$)
-
-1. $P'(1) = Dp_k+1 $ (Derivada en el punto $p_k+1$ )
-
-$\begin{bmatrix} p_k \cr p_k+1 \cr
- Dp_k \cr Dp_k+1 \cr \end{bmatrix} = \begin{bmatrix}
+<p align="right"><font size = 5 color="yellow">
+	$
+	\begin{bmatrix} 
+	p_k \cr 
+	p_k+1 \cr
+	Dp_k \cr
+	Dp_k+1 \cr
+	\end{bmatrix}
+	$
+</font>
+<font size = 5>
+	$
+	\quad = \quad  \begin{bmatrix}
 	0 & 0 & 0 & 1 \cr
- 1 & 1 & 1 & 1 \cr
- 0 & 0 & 1 & 0 \cr 4 & 2 & 1 & 0 \cr
- \end{bmatrix}
- \begin{bmatrix} 
+	1 & 1 & 1 & 1 \cr
+	0 & 0 & 1 & 0 \cr
+	4 & 2 & 1 & 0 \cr
+	\end{bmatrix}
+	$
+</font>
+<font size = 5 color="#00FFFF">
+	$
+	\quad \begin{bmatrix} 
 	a \cr 
 	b \cr
 	c \cr
 	d \cr
 	\end{bmatrix}
-$
+	$
+</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-V:
+</td>
+</tr>
+</table>
+ 
+<p align="left">
+	<font color = "blue">Splines de Hermite</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+
+<p align="left">
+	<font size = 5>Especificación con </font>
+	<font size = 5 color = "green">condiciones de frontera: </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<img height="150" src="fig/splineCub2.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4 color = "yellow">$p_k $ </font>
+	<font size = 4> $= P($</font>
+	<font size = 4 color="green">$0$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color="#00FFFF">$a$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="#00FFFF">$b$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="#00FFFF">$c$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="#00FFFF">$d$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4 color = "yellow">$p_k$+$ \ _1$</font>
+	<font size = 4> $= P($</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color="#00FFFF">$d$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4 color = "yellow">$Dp_k $ </font>
+	<font size = 4> $= P'($</font>
+	<font size = 4 color="green">$0$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color="#00FFFF">$c$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4 color = "yellow">$Dp_k$+$ \ _1$</font>
+	<font size = 4> $= P'($</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color="#00FFFF">$3a$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="#00FFFF">$2b$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="#00FFFF">$c$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
 
 ## SPLINES CÚBICAS
 
-
-####Splines de Hermite
-
-
-\\[\begin{bmatrix} 
-a \cr 
-b \cr
- c \cr
- d \cr
- \end{bmatrix}
- = 
-\begin{bmatrix}
- 2 & -2 & 1 & 1 \cr
- -3 & 3 & -2 & -1 \cr
- 0 & 0 & 1 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix} \bullet \begin{bmatrix} 
- p_k \cr 
-p_k+1 \cr
- Dp_k \cr
- Dp_k+1 \cr
- \end{bmatrix}
- \\]
-
-
-V:
-
-## SPLINES CÚBICAS
-
-
-####Splines de Hermite
-
-Matriz de Hermite:
-<table>
+<table width="550" heigth="50" border="0" align ="right">
 <tr>
-	<td>
-\\[M_H =
-\begin{bmatrix}
- 2 & -2 & 1 & 1 \cr
- -3 & 3 & -2 & -1 \cr
+<td>
+<p align="right">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	u^{3} \ u^{2} \ u \ 1 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a \ b \ c \ d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T} = $</font>
+	<font size = 4 color="green">$ U $</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="#00FFFF">$M$</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="yellow">$G$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="right">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = $</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	3u^{2} \ 2u \ 1 \ 0 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix}
+	a \ b \ c \ d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$^{T} = $</font>
+	<font size = 4 color="green">$ U $</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="#00FFFF">$M$</font>
+	<font size = 4>$\bullet $</font>
+	<font size = 4 color="yellow">$G$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="right">
+	<font size = 4 >$\ 0 \leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+<p align="right">
+	<font size = 4 >$P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)=$</font>
+	<font size = 4 color = "green">
+	$
+	\begin{bmatrix}
+	u^{3} \ u^{2} \ u \ 1 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>$\bullet$</font>
+	<font size = 4 color="#00FFFF">$M_H$</font>
+	<font size = 4 >$\bullet$</font>
+	<font size = 4 color="yellow">
+	$
+	\begin{bmatrix} 
+	p_k \cr 
+	p_k+1 \cr
+	Dp_k \cr
+	Dp_k+1 \cr
+	\end{bmatrix}
+	$</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+
+</td>
+</tr>
+</table>
+
+<p align="left">
+	<font color = "blue">Splines de Hermite</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$\qquad Matriz \ de \ Hermite$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$ \qquad  \qquad \qquad \downarrow $ </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4 color="#00FFFF">
+	$
+	\begin{bmatrix} 
+	a \cr 
+	b \cr
+	c \cr
+	d \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4>
+	$
+	=\begin{bmatrix}
+	2 & -2 & 1 & 1 \cr
+	-3 & 3 & -2 & -1 \cr
 	0 & 0 & 1 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix}\\]
-	</td>
-	<td>
-$l=k+1$
-	</td>
-</tr>
-</table>
-$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})$
-$+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$
-$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$
-Donde los polinomios $H_i(u)$ para $k= 0,1,2,3$ son las funciones de combinación.
+	1 & 0 & 0 & 0 \cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 4 color="yellow">
+	$
+	\begin{bmatrix} 
+	p_k \cr 
+	p_k+1 \cr
+	Dp_k \cr
+	Dp_k+1 \cr
+	\end{bmatrix}
+	$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<p align="left">
+	<font size = 4> $P'($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$) = \quad $</font>
+	<font size = 4 color="yellow">$p_k$</font>
+	<font size = 4 >$(2$</font>
+	<font size = 4 color="green">$u^{3}$</font>
+	<font size = 4 >$-3$</font>
+	<font size = 4 color="green">$u^{2}$</font>
+	<font size = 4 >$+$</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4 >$)+$</font>
+	<font size = 4 color="yellow">$p_k$+$ \ _1$</font>
+	<font size = 4 >$(-2$</font>
+	<font size = 4 color="green">$u^{3}$</font>
+	<font size = 4 >$($</font>
+	<font size = 4 color="green">$u^{2}$</font>
+	<font size = 4 >$+$</font>
+	<font size = 4 color="yellow">$Dp_k$</font>
+	<font size = 4 >$($</font>
+	<font size = 4 color="green">$u^{3}$</font>
+	<font size = 4 >$-2$</font>
+	<font size = 4 color="green">$u^{2}$</font>
+	<font size = 4 >$+$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 >$)+$</font>
+	<font size = 4 color="yellow">$Dp_k$+$ \ _1$</font>
+	<font size = 4 >$($</font>
+	<font size = 4 color="green">$u^{3}$</font>
+	<font size = 4 >$-$</font>
+	<font size = 4 color="green">$u^{2}$</font>
+	<font size = 4 >$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="left">
+	<font size = 4> $\qquad \quad = \quad $</font>
+	<font size = 4 color="yellow">$p_k$</font>
+	<font size = 4 color="red">$H_0$</font>
+	<font size = 4>$($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 >$)+$</font>
+	<font size = 4 color="yellow">$p_k$+$ \ _1$</font>
+	<font size = 4 color="red">$H_1$</font>
+	<font size = 4>$($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)$</font>
+	<font size = 4 >$+$</font>
+	<font size = 4 color="yellow">$Dp_k$</font>
+	<font size = 4 color="red">$H_2$</font>
+	<font size = 4>$($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)$</font>
+	<font size = 4 >$)+$</font>
+	<font size = 4 color="yellow">$Dp_k$+$ \ _1$</font>
+	<font size = 4 color="red">$H_3$</font>
+	<font size = 4>$($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+ 
+<br/> 
+<p align="left">
+	<font size = 5>Los polinomios </font>
+	<font size = 5 color="red">$\ H_i$</font>
+	<font size = 5>$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)$ para </font>
+	<font size = 5 color="red">$\ k$</font>
+	<font size = 5 >$= 0,1,2,3$ son las funciones de combinación. </font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
 
-
-V:
 ## SPLINES CÚBICAS 
-####Splines de Hermite / ejemplos / continuidad entre secciones
-<table>
-<tr>
-	<td>
-Familia de curvas:
-	</td>
-	<td colspan=3>
-Continuidad entre curvas:
-	</td>
-</tr>
-<tr>
-	<td>
 
-<img height="250" src="fig/splineCub3.jpg" style="vertical-align: top;">
-	</td>
-	<td>
-Curva 1
+<p align="left">
+	<font color = "blue">Splines de Hermite / ejemplos / continuidad entre secciones</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="550" heigth="500" border="0" align ="right">
+<tr>
+<td>
+
+<br/> 
+<p align="center">
+	<font size = 5 color="yellow">Continuidad entre curvas:</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<br/>
+<p align="left">
+	<font size = 5 > $ \qquad \qquad \ Curva 1 \qquad \quad \ Curva 2$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="center">
+	<font size = 5 color = "green">
+	$
+	\begin{bmatrix} 
+	P(0) \cr 
+	P(1) \cr
+	P'(0) \cr
+	P'(1)\cr
+	\end{bmatrix}
+	$
+	</font>
+	<font size = 5>
+	$\qquad
+	\begin{bmatrix} 
+	P(1) \cr 
+	P(2) \cr
+	k P'(1) \cr
+	P'(2)\cr
+	\end{bmatrix}
+	$
+	</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="center">
+	<font size = 5>Si </font>
+	<font size = 5 color="red">$k$</font>
+	<font size = 5>$ > 0 \rightarrow G^{1}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+<p align="center">
+	<font size = 5>Si </font>
+	<font size = 5 color="red">$k$</font>
+	<font size = 5>$ = 1 \rightarrow $</font>
+	<font size = 5 color="yellow">$C^{1}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+
+</td>
+</tr>
+</table>
+
+<br/>
+<p align="left">
+	<font size = 5 color="yellow">$ \qquad $Familia de curvas:</font>
+</p> <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<br/>
+<br/>
+<img height="250" src="fig/splineCub3.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="3"-->
+
+
+## SPLINES CÚBICAS
+
+<p align="left">
+	<font color = "blue">Superficies de Hermite</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="450" heigth="500" border="0" align ="right">
+<tr>
+<td>
+<p align="right"><font size = 4 >$P($</font><font size = 4 color="green">$s,u$</font><font size = 4>$) = $</font><font size = 4 color = "green">$ S $</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M $</font><font size = 4 >$\bullet$</font><font size = 4 color = "yellow">$G ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$), $</font><font size = 4 >donde</font><font size =4 color="yellow">
 $
-\begin{bmatrix} P(0) \cr P(1) \cr
- P'(0) \cr P'(1)\cr
- \end{bmatrix}$
-
-	</td>
-	<td>
-Curva 2
-$\begin{bmatrix} P(1) \cr P(2) \cr k P'(1) \cr
- P'(2)\cr
-\end{bmatrix}$
-	</td>
-	<td>
-Si $k > 0 \rightarrow G^{1}$ 
-Si $k = 1 \rightarrow C^{1}$
-	</td>
-</tr>
-</table>
-
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-<img height="400" src="fig/splineCub4.jpg">
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-Desarrollando para la coordenada x:
-\\[x(s,u)=S \bullet M_H \bullet G_Hx(u) = S \bullet M_H \bullet 
-\begin{bmatrix} 
-p_k(u)\cr
-p_k+1(u)\cr 
-Dp_k(u)\cr 
-Dp_k+1(u)\end{bmatrix}
-_X \\]
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-
-\\[P(s,u)=S \bullet M_H \bullet G(u)\\]
-Donde 
-\\[G(u)=\begin{bmatrix} 
-G_1(u)\cr 
-G_2(u)\cr 
-G_3(u)\cr 
-G_4(u)\end{bmatrix}\\]
-
-> El parche cúbico es una interpolación cúbica entre $p_k(u) =P(0,u)$ y $P_k+1(u) =P(1,u)$ o, alternativamente, entre $P(s,0)$ y $P(s,1)$
-
-
-
-V:
-## SPLINES CÚBICAS
-#### Superficies de Hermite
-Como:
-$G_i(u)=u \bullet M \bullet G'_i$, donde $G'_i=\begin{array} (( g_i1' \ g_i2' \ g_i3' \ g_i4' )\end{array}^{T}$ Entonces es el vector geométrico  se puede representar en la forma de hermite asi:
-
-
-V:
-## SPLINES CÚBICAS
-#### Superficies de Hermite
-<table>
-<tr>
-	<td>
-
-$P_k (u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_11'\cr
-g_12'\cr 
-g_13'\cr 
-g_11'\end{bmatrix}
-_X$
-	</td>
-	<td>
-
-$P_l (u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_21'\cr
-g_22'\cr 
-g_23'\cr 
-g_21'\end{bmatrix}
-_X$
-	</td>
-</tr>
-<tr>
-	<td>
-$DP_k(u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_31'\cr
-g_32'\cr 
-g_33'\cr 
-g_31'\end{bmatrix}
-_X$
-	</td>
-	<td>
-$DP_l(u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_41'\cr
-g_42'\cr 
-g_43'\cr 
-g_41'\end{bmatrix}
-_X$
-	</td>
-</tr>
-</table>
-
-> $l=k+1$
-
-V:#### Superficies de Hermite
-
-$P(s,u)=S \bullet M \bullet G(u)$ donde $
 G(u)=\begin{bmatrix} 
 G_1(u)\cr 
 G_2(u)\cr 
 G_3(u)\cr 
 G_4(u)\end{bmatrix}
 $
+</font></p><!-- .element: class="fragment" data-fragment-index="2"-->
+<br/>
+<br/>
+<br/>
+<p align="left"><font size = 5>El parche cúbico es una interpolación cúbica entre </font><font size =5 color="yellow">$p_k($</font><font size =5 color="green">$u$</font><font size =5 color="yellow">$) $</font><font size = 5> $= P($</font><font size =5 color="green">$0,u$</font><font size = 5>$) \ $ y</font><font size =5 color="yellow">$\ P_k+1($</font><font size =5 color="green">$u$</font><font size =5 color="yellow">$)$</font><font size = 5> $= P(1$</font><font size =5 color="green">$,u$</font><font size = 5>$)$ o, alternativamente, entre $\quad P( $</font><font size =5 color="green">$s,0$</font><font size = 5>$)$ y $P($</font><font size =5 color="green">$s,1$</font><font size = 5>$)$</font></p><!-- .element: class="fragment" data-fragment-index="3"-->
+</td>
+</tr>
+</table>
 
-$P(s,u) = S  \bullet M \bullet G' \bullet M^{T} \bullet U^{T} , 0 \leq s,u \leq 1$
+<p align="left"><font size = 5>Desarrollando para la coordenada x:</font></p><!-- .element: class="fragment" data-fragment-index="2"-->
+<br/>
+<p align="left"><font size = 4 >$P($</font><font size = 4 color="green">$s,u$</font><font size = 4>$) = $</font><font size = 4 color = "green">$ S $</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size = 4 color = "yellow">$G_Hx ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 4 >$=$<font size =5 color="green">$S$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size =4 color="yellow">
+$
+\begin{bmatrix} 
+p_k(u)\cr
+p_k+1(u)\cr 
+Dp_k(u)\cr 
+Dp_k+1(u)\end{bmatrix}
+_X$
+</font></p><!-- .element: class="fragment" data-fragment-index="2"-->
+<br/>
+<img height="250" src="fig/splineCub4.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="3"-->
 
 
-$G_H = \begin{bmatrix} 
-g_11' & g_12' & g_13' & g_14' \cr 
-g_21' & g_22' & g_23' & g_24' \cr
-g_31' & g_22' & g_33' & g_34' \cr
-g_41' & g_22' & g_43' & g_44' \cr
-\end{bmatrix}$
-
-
-V:
 ## SPLINES CÚBICAS
 
+<p align="left"><font color = "blue">Superficies de Hermite</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-####Superficies de Hermite
-$G_Hx=\begin{bmatrix} 
+<table width="350" heigth="500" border="0" align ="right">
+<tr>
+<td>
+<p align="center"><font size = 4 >$P($</font><font size = 4 color="green">$s,u$</font><font size = 4>$)=$</font><font size = 4 color = "green">$S$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M$</font><font size = 4 >$\bullet$</font><font size = 4 color = "yellow">$G($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$)$</font><font size = 4 > donde </font><font size =4 color="yellow">
+$
+G(u)=\begin{bmatrix} 
+G_1(u)\cr 
+G_2(u)\cr 
+G_3(u)\cr 
+G_4(u)\end{bmatrix}
+$
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<br/>
+<p align="right"><font size = 4 >$P($</font><font size = 4 color="green">$s,u$</font><font size = 4>$) = $</font><font size = 4 color = "green">$ S $</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M $</font><font size = 4 >$\bullet$</font><font size = 4 color = "yellow">$G' $</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M^{T} $</font><font size = 4 >$\bullet$</font><font size = 4 color = "green">$ U' $</font><font size = 4 >$,$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4 >$\ 0 \leq$</font><font size = 4 color="green">$s$</font><font size = 4 >$,$</font><font size = 4 color="green">$u$</font><font size = 4>$\leq1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<p align="right"><font size =4 color="yellow">
+$
+G_Hx=\begin{bmatrix} 
+g_11' & g_12' & g_13' & g_14'\cr 
+g_21' & g_22' & g_23' & g_24'\cr
+g_31' & g_22' & g_33' & g_34'\cr
+g_41' & g_22' & g_43' & g_44'\cr
+\end{bmatrix}
+$
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+</td>
+</tr>
+</table>
+
+<p align="left"><font size = 5>Como:</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4 color = "yellow">$G_i ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) = $</font><font size = 4 color = "green">$ U $</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M $</font><font size = 4 >$\bullet$</font><font size = 4 color = "yellow">$G_i' $</font><font size = 5 > , donde </font><font size = 4 color = "yellow">$ G_i' $</font><font size = 4 >$ = $ </font><font size =4 color="yellow">$\begin{array} (( g_i1' \ g_i2' \ g_i3' \ g_i4' )\end{array}$</font><font size = 4 >$^{T}$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5>Entonces es el vector geométrico </font><font size = 4 color = "yellow">$G_i ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 5> se puede representar en la forma de hermite asi: </font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4 color = "red">$ \qquad \qquad \qquad \qquad s = 0 \qquad \qquad \qquad \qquad s = 1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4 color = "yellow">$P_kx ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 4 >$=$<font size =4 color="green">$U$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size =4 color="yellow">
+$
+\begin{bmatrix} 
+g_11'\cr
+g_12'\cr 
+g_13'\cr 
+g_11'\end{bmatrix}
+_X$
+</font><font size = 4 color = "yellow">$P_kx ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 4 >$=$<font size =4 color="green">$U$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size =4 color="yellow">
+$
+\begin{bmatrix} 
+g_21'\cr
+g_22'\cr 
+g_23'\cr 
+g_21'\end{bmatrix}
+_X$
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<p align="left"><font size = 4 color = "yellow">$DP_kx ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 4 >$=$<font size =4 color="green">$U$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size =4 color="yellow">
+$
+\begin{bmatrix} 
+g_31'\cr
+g_32'\cr 
+g_33'\cr 
+g_31'\end{bmatrix}
+_X$
+</font><font size = 4 color = "yellow">$DP_k+1x ($</font><font size = 4 color="green">$u$</font><font size = 4 color = "yellow">$) $</font><font size = 4 >$=$<font size =4 color="green">$U$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_H $</font><font size = 4 >$\bullet$</font><font size =4 color="yellow">
+$
+\begin{bmatrix} 
+g_41'\cr
+g_42'\cr 
+g_43'\cr 
+g_41'\end{bmatrix}
+_X$
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## SPLINES CÚBICAS
+
+<p align="left"><font color = "blue">Superficies de Hermite</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4>$
+G_Hx=\begin{bmatrix} 
 x(0,0) & x(0,1) & \dfrac{\partial}{\partial u} x(0,0) & \dfrac{\partial}{\partial u} x(0,1)\cr 
 x(1,0) & x(1,1) & \dfrac{\partial}{\partial s} x(1,0) & \dfrac{\partial}{\partial s} x(1,1)\cr
 \dfrac{\partial}{\partial s} x(0,0)  & \dfrac{\partial}{\partial s} x(0,1) & \dfrac{\partial^{2}}{\partial s \partial u} x(0,0) & \dfrac{\partial^{2}}{\partial s \partial u} x(0,1)\cr
 \dfrac{\partial}{\partial s} x(1,0) &\dfrac{\partial}{\partial s} x(1,1) & \dfrac{\partial^{2}}{\partial s \partial u} x(1,0) & \dfrac{\partial^{2}}{\partial s \partial u} x(1,1)\cr
-\end{bmatrix}$
-
-V:
-## SPLINES CÚBICAS
-
-
-####Superficies de Hermite
-
-
-
-<table>
-
-<tr>
-
-<td>
-
-
-<img height="300" src="fig/splineCub5.jpg"style="vertical-align: top;">
-</td>
-<td>
-
-
-$
-G_Hx=
-\begin{bmatrix} 
-
-g_11' & g_12' & g_13' & g_14'\cr
-
-g_21' & g_22' & g_23' & g_24'\cr
-g_31' & g_22' & g_33' & g_34'\cr
-
-g_41' & g_22' & g_43' & g_44'\cr
-
 \end{bmatrix}
 $
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
+<table width="350" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<br/>
+<br/>
+<br/>
+<p align="right"><font size =4 color="yellow">
+$
+G_Hx=\begin{bmatrix} 
+g_11' & g_12' & g_13' & g_14'\cr 
+g_21' & g_22' & g_23' & g_24'\cr
+g_31' & g_22' & g_33' & g_34'\cr
+g_41' & g_22' & g_43' & g_44'\cr
+\end{bmatrix}
+$
+</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 </td>
-
 </tr>
-
 </table>
 
+<img height="300" src="fig/splineCub5.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="1"-->
 
 
-
-V:
 ## SPLINES CÚBICAS
 
-
-####Superficies de Hermite/Continuidad
-<table>
-<tr>
-	<td>
-Parche 1
-
+<p align="left"><font color = "blue">Superficies de Hermite/Continuidad</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5 color="yellow">$\qquad \qquad \qquad \qquad  Parche 1$</font><font size = 5>$ \qquad \qquad \qquad \qquad \qquad $</font><font size = 5 color="yellow">$Parche 2$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="center"><font size = 5 color = "green">
 $
 \begin{bmatrix} 
-
 - & - & - & - \cr 
-
 g_21' & g_22' & g_23' & g_24'\cr
-
-- & - & - & - \cr
- 
+- & - & - & - \cr 
 g_41' & g_42' & g_43' & g_44'\cr
-
-\end{bmatrix}$
-	</td>
-	<td>
-Parche 2
-$\begin{bmatrix}
-
+\end{bmatrix}$</font><font size = 5>
+$\quad
+\begin{bmatrix} 
 g_21' & g_22' & g_23' & g_24'\cr
-
 - & - & - & - \cr
-
 kg_41' & kg_42' & kg_43' & kg_44'\cr
 - & - & - & - \cr
+\end{bmatrix}$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="center"><font size = 5>Si </font><font size = 5 color="red">$k$</font><font size = 5>$ > 0 \rightarrow G^{1} \qquad \qquad$</font><font size = 5>Si </font><font size = 5 color="red">$k$</font><font size = 5>$ = 1 \rightarrow $</font><font size = 5 color="yellow">$C^{1}$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<img height="300" src="fig/splineCub6.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
 
-\end{bmatrix}$
-	</td>
-</tr>
+
+## SPLINES CÚBICAS
+
+<table width="550" heigth="50" border="0" align ="right">
 <tr>
-	<td colspan=2>
-Si $K>0 \rightarrow G^{1}$,
-Si $K>0 \rightarrow C^{1}$
-	</td>
+<td>
+<p align="right"><font size = 4> $P($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
+$
+\begin{bmatrix}
+u^{3} & u^{2} & u & 1 \cr
+\end{bmatrix}
+$
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4> $P'($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
+$
+\begin{bmatrix}
+3u^{2} & 2u & 1 & 0 \cr
+\end{bmatrix}
+$
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4 >$ 0 \leq$</font><font size = 4 color="green">$u$</font><font size = 4>$\leq1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4> $\qquad P($</font><font size = 4 color="green">$0$</font><font size = 4>$) = $</font><font size = 4 color = "yellow">$p_k$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4> $\qquad P($</font><font size = 4 color="green">$1$</font><font size = 4>$) = $</font><font size = 4 color = "yellow">$p_k+1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4> $\qquad P'($</font><font size = 4 color="green">$0$</font><font size = 4>$) = 1/2 (1-$</font><font size = 4 color = "#00FFFF">$t$</font><font size = 4>$) $</font><font size = 4 color = "yellow">$p_k+1$</font><font size = 4>$ - $</font><font size = 4 color = "yellow">$p_k-1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 4> $\qquad P'($</font><font size = 4 color="green">$1$</font><font size = 4>$) = 1/2 (1-$</font><font size = 4 color = "#00FFFF">$t$</font><font size = 4>$) $</font><font size = 4 color = "yellow">$p_k+2$</font><font size = 4>$ - $</font><font size = 4 color = "yellow">$p_k$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5>$\quad \ $donde </font><font size = 5 color = "#00FFFF">$ t $</font><font size = 5> es el </font><font size = 5 color="#00FFFF"> parámetro de tensión</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+</td>
 </tr>
 </table>
 
-V:
+<p align="left"><font color = "blue">Splines Cardinales</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<br/>
+<p align="left"><font size = 5>Especificación con </font><font size = 5 color="green"> condiciones de frontera:</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<img height="200" src="fig/splineCub7.jpg" align ="left"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
 ## SPLINES CÚBICAS
 
-
-####Superficies de Hermite/Continuidad
-<img height="500" src="fig/splineCub6.jpg" align ="center">
-
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cardinales
-\\[P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T} = U \bullet M \bullet G \\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T}\\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet M \bullet G\\]
-
-V:
-## SPLINES CÚBICAS
-####Splines Cardinales
-
-Especificación con  condiciones de frontera:
-<img height="200" src="fig/splineCub7.jpg">
-
-> $P(0)=P_k$
-> $P(1)=P_k+1$
-> $P'(0)=1/2(1-t)P_k+1-p_k-1$
-> $P'(1)=1/2(1-t)P_k+2-p_k$
-
-> donde $t$ es el parámetro de tensión
-
-V:## SPLINES CÚBICAS
-####Splines Cardinales
-
-$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet M_C \bullet \begin{bmatrix} P_k-1 \cr P_k \cr P_k+1 \cr P_k+2 \end{bmatrix}$
+<table width="550" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="right"><font size = 4> $P($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
 $
+\begin{bmatrix}
+u^{3} & u^{2} & u & 1 \cr
+\end{bmatrix}
+$
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4> $P'($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
+$
+\begin{bmatrix}
+3u^{2} & 2u & 1 & 0 \cr
+\end{bmatrix}
+$
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4 >$ 0 \leq$</font><font size = 4 color="green">$u$</font><font size = 4>$\leq1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<p align="center"><font size = 5>
+$\quad
 M_c =\begin{bmatrix} 
 -s' & 2-s & s-2 & s\cr
 2s & s-3 & 3-2s & -s \cr
 -s & 0 & s & 0\cr
 0 & 1 & 0 & 0 \cr
-\end{bmatrix}$
+\end{bmatrix}$</font><font size = 5> $ \qquad \qquad $ Donde </font><font size = 5 color="#00FFFF"> $ s $</font><font size = 5> $= ( 1 -$ </font><font size = 5 color="#00FFFF"> $ t $</font><font size = 5>$ ) / 2$ </font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+</td>
+</tr>
+</table>
 
-Donde $s=(1-t)/2$
+<p align="left"><font color = "blue">Splines Cardinales</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<br/>
+<br/>
+<br/>
+<p align="left"><font size =4 >$P($</font><font size =4 color="green">$u$</font><font size =4>$) =$</font><font size = 4 color="green">$\begin{bmatrix} u^{3} & u^{2} & u & 1 \end{bmatrix}$</font><font size = 4 >$\bullet$</font><font size = 4 color = "#00FFFF">$M_C $</font><font size = 4 >$\bullet$</font><font size = 4 color="yellow">
+$
+\begin{bmatrix} 
+p_k-1\cr
+p_k\cr 
+p_k+1\cr 
+p_k+2\end{bmatrix}
+$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<br/>
+<p align="left"><font size =5 >$P($</font><font size = 5 color="green">$u$</font><font size =5>$)=$</font><font size = 5 color="yellow">$p_k-1$</font><font size =5 >$(-$</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u^{3}$</font><font size =5 >$+2$</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u$</font><font size =5 >$-$</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u$</font><font size =5 >$)+$</font><font size = 5 color="yellow">$p_k$</font><font size =5 >$[(2-$</font><font size = 5 color = "#00FFFF">$s$</font><font size =5 >$)$</font><font size = 5 color="green">$u^{3}$</font><font size =5 >$+($</font><font size = 5 color = "#00FFFF">$s$</font><font size =5 >$-3)$</font><font size = 5 color="green">$u^{2}$</font><font size =5>$+1]$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-V:## SPLINES CÚBICAS
-####Splines Cardinales
-$P(u)=p_k-1(-su^{3}+2su^{2}-su)+p_k[(2-s)u^{3}+(s-3)u^{2}+1]$
-$+p_k+1[(s-2)u^{3}+(3-2)u^{2}+su]+p_k+2(su^{3}-su^{2})$
+<p align="left"><font size =5>$\qquad \ +$</font><font size = 5 color="yellow">$p_k+1$</font><font size =5 >$[($</font><font size = 5 color = "#00FFFF">$s$</font><font size =5 >$-2)$</font><font size = 5 color="green">$u^{3}$</font><font size =5 >$+(3-2$</font><font size = 5 color = "#00FFFF">$s$</font><font size =5 >$)$</font><font size = 5 color="green">$u^{2}$</font><font size =5>$+$</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u$</font><font size =5 >$]+$</font><font size = 5 color="yellow">$p_k+2$</font><font size =5 >$($</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u^{3}$</font><font size =5 >$-$</font><font size = 5 color = "#00FFFF">$s$</font><font size = 5 color="green">$u^{2}$</font><font size =5 >$)$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-$=p_k-1 CAR_0(u)+p_k CAR_1(u)+p_k+1 CAR_2(u)+ p_k+2 CAR_3(u)$
+<p align="left"><font size =5>$\qquad \ =$</font><font size = 5 color="yellow">$p_k-1$</font><font size =5 color="red">$CAR_0$</font><font size =5 >$($</font><font size = 5 color="green">$u$</font><font size =5>$)+$</font><font size = 5 color="yellow">$p_k$</font><font size =5 color="red">$CAR_1$</font><font size =5 >$($</font><font size = 5 color="green">$u$</font><font size =5>$)+$</font><font size = 5 color="yellow">$p_k+1$</font><font size =5 color="red">$CAR_2$</font><font size =5 >$($</font><font size = 5 color="green">$u$</font><font size =5>$)+$</font><font size = 5 color="yellow">$p_k+2$</font><font size =5 color="red">$CAR_3$</font><font size =5 >$($</font><font size = 5 color="green">$u$</font><font size =5>$)+$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-Los polinomios $CAR_k(u)$ para $k = 0,1,2,3$ son las  funciones  de  combinación
+<p align="left"><font size =5>$\quad $ Los polinomios </font><font size =5 color="red">$CAR_k$</font><font size =5 >$($</font><font size = 5 color="green">$u$</font><font size =5>$) $ para </font><font size =5 color="red">$k$</font><font size =5> $= 0,1,2,3$ son las </font><font size =5 color="red">$funciones \ de \ combinación.$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
 
-V:
 ##SPLINE CÚBICAS
-
-####Splines Kochanek-Bartels
-Especificación con condiciones de frontera:
-
-<font size=5>
-$P(0)=p_k$
-
-$P(1)=p_k+1$
-$P'(0)=1/2(1−t)[(1+b)(1−c)(p_k−p_k−1)+(1−b)(1+c)(p_k+1−p_k)]$
-$P'(1)=1/2(1−t)[(1+b)(1+c)(p_k+1−p_k)+(1−b)(1−c)(p_k+2−p_k+1)]$
-</font>
-
-Donde:
-
-t es el parámetro de tensión
-
-b es el parámetro de sesgo : controla la distancia que cada curva se inclina en cada sección.
-
-c es el parámetro de tensión : Del vector tangente a lo largo de las fronteras de las secciones.
-
-
-H:
-
-## CURVAS Y SUPERFICIES DE BEZIER
-
-1. Curvas de Pierre Bezier
-
-2. Propiedades
-3. Técnicas de Diseño de Curvas de Bezier
-4. Curvas Cúbicas de Bezier
-
-5. Superficies de Bezier
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-$P(u)=(x(u),Y(u),z(u))^{T}, 0 \leq u \leq 1$
-
->Tenemos $n+1$ puntos de control de coordenadas: $P_k=(x_k,y_k,z_y), k=0,1,2,....,n$
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-Especificación con funciones de combinacion
-
-BEZ= BEZ <sub>k,n</sub>
-
-$P(u)= \sum P_k BEZ(u), k=0,1,2,...,n $
-
-* $P(u)= \sum x_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum y_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum z_k BEZ(u), k=0,1,2,...,n $
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-$BEZ(u)=C(n,k)u^{k}(1-u)^{n-k}$
-
-$BEZ(u)=(1-u)BEZ$<sub>k,n-1</sub>$(u)+u BEZ$<sub>k-1,n-1</sub>$(u), n > k \ge 1$
-
-$BEZ$<sub>k,k</sub>$(u)=u^{k}$
-
-$BEZ$<sub>0,k</sub>$(u)=u^{k}$
-
-$C(n,k)=n!/(k!(n-k)!)$
-
-$C(n,k)=C(n,k-1)(n-k+1)/k,n>k$
-
-
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-####Propiedades
-1. Una curva de Bezier es un polinomio de grado n (uno menos que el número de puntos de control)
-
-2. La curva siempre pasa a través del primer y último puntos de control
-    1. $P(0)=p_0$
-,  $P(1)=p_n$
-
-3. Asimismo
-$P'(0)=-n p_0 +n p_1$
-, $P'(1)=-n p$<sub>n-1</sub>$ +n p_n$
- Es decir, la tangente de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-4. También: $\sum BEZ$<sub>k,n</sub>$(u)=1, k=0,1,2,...,n$ De esto se tiene que la curva de Bezier cae dentro del casco convexo de los puntos de control.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-####Técnicas de Diseño de Curvas de Bezier
-
-1. Las curvas cerradas se pueden generar al especificar el primer y ultimo punto de control en la misma posición.
-2. Al especificar múltiples puntos de control en la misma posición se obtiene mas peso para la posición.
-3. La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-
-
-
-
-V:
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Técnicas de Diseño de Curvas de Bezier:
-Empalme de 2 secciones
-Propiedad 3
-: La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-Ejemplo para continuidad
-:$G^{0},G^{1},C^{1}$
-
-
-
-<img height="300" src="fig/curSupBez1.jpg">
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Curvas Cúbicas de Bezier
-
-Tomando $n=3$ ($4$ puntos de control):
-$P_k=(x_k,y_k,z_k), k=0,1,2,3$
-
-Especificación con funciones de Combinación:
-
-1. $BEZ$<sub>0,3</sub>$(u)=(1-u)^{3}$
-2. $BEZ$<sub>1,3</sub>$(u)=3u(1-u)^{2}$
-3. $BEZ$<sub>2,3</sub>$(u)=3u^{2}(1-u)$
-4. $BEZ$<sub>3,3</sub>$(u)=u^{3}$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Curvas Cúbicas de Bezier
-
-Especificación con matríz característica:
-<table>
+<table width="550" heigth="50" border="0" align ="right">
 <tr>
-	<td>
-$P(u)=\begin{bmatrix}u^{3} & u^{2} & u & 1 \end{bmatrix}
- \bullet M_Bez \bullet \begin{bmatrix}
- p_0 \cr p_1 \cr p_2 \cr
- p_3 \cr \end{bmatrix}
+<td>
+<p align="right"><font size = 4> $P($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
 $
-	</td>
-	<td>
-$M_Bez =\begin{bmatrix}
- -1 & 3 & -3 & 1 \cr
- 3 & -6 & 3 & 0 \cr -3 & 3 & 0 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix}
+\begin{bmatrix}
+u^{3} & u^{2} & u & 1 \cr
+\end{bmatrix}
 $
-
-	</td>
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4> $P'($</font><font size = 4 color="green">$u$</font><font size = 4>$) = $</font><font size = 4 color = "green">
+$
+\begin{bmatrix}
+3u^{2} & 2u & 1 & 0 \cr
+\end{bmatrix}
+$
+</font><font size = 4>$\bullet$</font><font size = 4 color="#00FFFF">
+$
+\begin{bmatrix}
+a & b & c & d \cr
+\end{bmatrix}
+$
+</font><font size = 4>$^{T} = $</font><font size = 4 color="green">$ U $</font><font size = 4>$\bullet $</font><font size = 4 color="#00FFFF">$M$</font><font size = 4>$\bullet $</font><font size = 4 color="yellow">$G$</font></p> <!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="right"><font size = 4 >$ 0 \leq$</font><font size = 4 color="green">$u$</font><font size = 4>$\leq1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+</td>
 </tr>
 </table>
 
+<p align="left"><font color = "blue">Splines Kochanek-Bartels</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<p align="left"><font size =5>Especificación con </font><font size = 5 color = "green"> condiciones de frontera:</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
+<p align="left"><font size =5 >$P($</font><font size = 5 color="green">$0$</font><font size =5>$)=$</font><font size = 5 color="yellow">$p_k$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size =5 >$P($</font><font size = 5 color="green">$1$</font><font size =5>$)=$</font><font size = 5 color="yellow">$p_k+1$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size =5 >$P'($</font><font size = 5 color="green">$0$</font><font size =5>$)= 1/2(1-$</font><font size = 5 color = "#00FFFF">$t$</font><font size =5 >$)[(1+$</font><font size = 5 color = "#00FFFF">$b$</font><font size =5 >$)(1-$</font><font size = 5 color = "#00FFFF">$c$</font><font size =5 >$)($</font><font size = 5 color="yellow">$p_k$</font><font size =5 >$-$</font><font size = 5 color="yellow">$p_k-1$</font><font size =5 >$)+(1-$</font><font size = 5 color = "#00FFFF">$b$</font><font size =5 >$)(1+$</font><font size = 5 color = "#00FFFF">$c$</font><font size =5 >$)($</font><font size = 5 color="yellow">$p_k+1$</font><font size =5 >$-$</font><font size = 5 color="yellow">$p_k$</font><font size =5 >$)]$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-V:
+<p align="left"><font size =5 >$P'($</font><font size = 5 color="green">$1$</font><font size =5>$)= 1/2(1-$</font><font size = 5 color = "#00FFFF">$t$</font><font size =5 >$)[(1+$</font><font size = 5 color = "#00FFFF">$b$</font><font size =5 >$)(1+$</font><font size = 5 color = "#00FFFF">$c$</font><font size =5 >$)($</font><font size = 5 color="yellow">$p_k+1$</font><font size =5 >$-$</font><font size = 5 color="yellow">$p_k$</font><font size =5 >$)+(1-$</font><font size = 5 color = "#00FFFF">$b$</font><font size =5 >$)(1-$</font><font size = 5 color = "#00FFFF">$c$</font><font size =5 >$)($</font><font size = 5 color="yellow">$p_k+2$</font><font size =5 >$-$</font><font size = 5 color="yellow">$p_k+1$</font><font size =5 >$)]$</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left"><font size =5 >donde:</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5 color = "#00FFFF">$t $ </font><font size =5 >es el </font><font size = 5 color = "#00FFFF">parámetro de tensión</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5 color = "#00FFFF">$b $ </font><font size =5 >es el </font><font size = 5 color = "#00FFFF">parámetro de sesgo </font><font size =5 >: controla la distancia que cada curva se inclina en cada sección.</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left"><font size = 5 color = "#00FFFF">$t $ </font><font size =5 >es el </font><font size = 5 color = "#00FFFF">parámetro de tensión </font><font size =5 >: Del vector tangente a lo largo de las fronteras de las secciones.</font></p><!-- .element: class="fragment" data-fragment-index="1"-->
+
 
 
 ## CURVAS Y SUPERFICIES DE BEZIER
-#### Superficies de Bezier
-
-$x(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>x</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-$y(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>y</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-$z(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>z</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-
-
-
-
-H:## CURVAS Y SUPERFICIES DE B-SPLINE
-1. Curvas de B-Spline
-2. Uniformes y Periódicas
-3. Cúbicas y Periódicas
-4. Uniformes y Abiertas
-5. No Uniformes
-
-6. Superficies de B-Spline
-
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-	
-####Curvas de B-Spline
-Ventajas respecto a las curvas de Bezier: 
-1. El grado del polinomio se puede determinar independientemente del número de puntos de control.
-2. Permiten control local
-Desventaja: complejidad.
-
-Tenemos $n+1$ puntos de control de coordenadas:
-	$p_k=(
-x_k,y_k,z_k), 
-k = 0,1,2,...,n$
-
-Definición:$P(u)= \sum  p_k B$<sub>k,d</sub>$(u), k=0,1,2,..,n$
-	
-$2 \leq d \leq n+1 $ 
-valor fijo
-	
-$u_min \leq u \leq u_max$
-
-
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-	
-####Curvas de B-Spline/ Ejemplo
-$n=4, d=4$
-
-<img height="200" src="fig/curSupB-Spl1.jpg">
-
-$S_3$
- es definida por $p_0,p_1,p_2,p_3$
-
-$S_4$
- es definida por $p_1,p_2,p_3,p_4$
-
-$U$<sub>min</sub>$ = u_3$, $U$<sub>max</sub>$ = u_5$ Vector de nudo de $n+d+1$ (9) pos:
-$\begin{bmatrix} u_0 & u_1 & u_2 & u_3 & u_4 & u_5 & u_6 & u_7 & u_8 \end{bmatrix}$
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Curvas de B-Spline
-Especificación con funciones de combinación (Cox-deBoor):
-$P(u)=\sum p_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-
-1. $x(u)=\sum x_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-2. $y(u)=\sum y_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-3. $z(u)=\sum z_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Curvas de B-Spline
-Especificación con funciones de combinación (Cox-deBoor)/2:
-
-$B$<sub>k,d</sub> $(u) = (u-u_k)  (u$ <sub>k+d-1</sub> $-u_k)B$ <sub>k,d-1</sub>
-
-$+(u$<sub>k+d</sub>$-u)/(u$<sub>k+d</sub>$-u$<sub>k+1</sub>$)B$<sub>k+1,d-1</sub>
-
-$B$<sub>k,1</sub>$(u) = 1$, si $u_k \le u\le u$<sub>k+1</sub>, $0$ de otro modo.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Propiedades
-
-1. La curva resultante es un polinomio de grado $d-1$ y continuidad $C^{d-2}$
-2. $n+1$ puntos de control y funciones de combinación
-3. Cada funcion de combinación $B$<sub>k,d</sub> se define sobre $d$
- subintervalos del rango total de $u$, empezando con el valor de
- nudo $u_k$
-4. El rango del parámetro $u$ se divide en $n+d$
- subintervalos entre los valores $n+d+1$ que se especifican en el vector de nudo
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-####Propiedades
-
-5. Con el vector de nudo de $n+d+1$ pos: $\begin{Bmatrix} u_0, \ u_1, \ ...,u_n+d \end{Bmatrix} $ la curva que resulta se define únicamente en el intervalo que va desde el valor de nudo $u$<sub>d-1</sub>$(=u$<sub>min</sub>$)$ hasta el valor $u$<sub>n+1</sub>$(=u$<sub>max</sub>$)$ Es decir, se tienen $:n-d+2$ secciones de curva.
-6. Cada sección de curva ( entre 2 valores de nudo sucesivos ) está influenciada por $d$ puntos de control
-7. La mayoría de los puntos de control afecta $d$
- secciones de curva
-8. Para cualquier valor de $u$ en el intervalo desde $u$<sub>d-1</sub> hasta $u$<sub>n+1</sub> se tiene: 
-$B$<sub>k,d</sub>$(u)=1$, para $k=0$ hasta $n$
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Especificación
-
-1. Puntos de Control
-1. Funciones de Combinación
-	1. $d$
-	2.Vector de Nudo
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-####Uniformes y Periódicas: Definición, Propiedades y Ejemplo
-
-Definición:
-
-El espaciado entre los valores de nudo es constante.
-
-Propiedades:
-
-
-1. Posee funciones periódicas de combinación
-2. $B$<sub>k,d</sub>$(u) = B$<sub>k-1,d</sub>$(u + \nabla u)+ B$<sub>k+2,d</sub>$(u+2\nabla u)$
-donde $ \nabla u $ es la distancia entre valores de nudo adyacentes
-
-Ejemplo:
-
-$n=d=3$
- y $\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6 \cr \end{Bmatrix} $
- se tienen las stes.: funciones de combinación
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-<img height="600" src="fig/curSupB-Spl2.jpg">
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-Para $d=4$ y $n=3$ se tiene el siguiente vector de nudo:
-$\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6, \ 7 \cr \end{Bmatrix}$
- y podemos calcular las funciones de combinación.
-
-Tambien, se pueden especificar mediante condiciones de frontera:
-<font size=5>
-<table>
+<br/>
+<br/>
+<p align="left">
+	<font color = "blue">1. Curvas de Pierre Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+<br/>
+<p align="left">
+	<font color = "blue">2. Propiedades</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
+<br/>
+<p align="left">
+	<font color = "blue">3. Técnicas de Diseño de Curvas de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
+<br/>
+<p align="left">
+	<font color = "blue">4. Curvas Cúbicas de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
+<br/>
+<p align="left">
+	<font color = "blue">5. Superficies de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<p align="left">
+	<font color = "blue">1. Curvas de Pierre Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)=(x($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$),y($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$),z($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{T} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad $ Tenemos $ n+1 $ </font>
+	<font size ="4" color="yellow"> puntos de control </font>
+	<font size = 4> de coordenadas</font> </p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4>$0 \leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad $ </font>
+	<font size ="4" color="yellow">$ p_k $</font>
+	<font size = 4>(</font>
+	<font size ="4" color="yellow">$x_k$</font>
+	<font size = 4>,</font>
+	<font size ="4" color="yellow">$y_k$</font>
+	<font size = 4>,</font>
+	<font size ="4" color="yellow">$ z_k$</font>
+	<font size = 4>),</font>
+	<font size = 4>$ \quad \ \qquad $ </font>
+	<font size ="4" color="yellow">$k$</font>
+	<font size = 4>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4>Especificación con </font>
+	<font size = 4 color = "red"> funciones de combinación:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$, k=0,1,2,...,n$</font>
+	<font size = 8>$ \longrightarrow$</font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=$</font>
+	<font size = 4 color = "#00FFFF">$C($ </font>
+	<font size = 4>$n,k$</font>
+	<font size = 4 color = "#00FFFF">$)$ </font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$^{k}(1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{n-k}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="green">$\qquad \qquad 0$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$1$</font>
+	<font size = 5>$ \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad $ </font>
+	<font size = 8 color="green">$\downarrow$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 8 color="green">$\downarrow \qquad $</font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=( 1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)$</font>
+	<font size = 4 color="red">$BEZ_k,n-1($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$+$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$BEZ_k-1,n-1($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $x($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$x_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$, k=0,1,2,...,n  \qquad $</font>
+	<font size = 4 color="red">$BEZ_k,k($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$^{k} \quad $</font>
+	<font size = 4 color="red">$BEZ_0,k($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=(1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{k}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $y($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$y_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$, k=0,1,2,...,n \qquad \qquad \qquad $</font>
+	<font size = 4 color = "#00FFFF">$C($ </font>
+	<font size = 4>$n,k$</font>
+	<font size = 4 color = "#00FFFF">$)$ </font>
+	<font size = 4>$=n!/(k!(n-k)!)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $z($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$z_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$, k=0,1,2,...,n \qquad \qquad \qquad \qquad \qquad$</font>
+	<font size = 8 color="green">$\downarrow $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="green">$ \qquad \qquad 0$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color="green">$1 \qquad \qquad \qquad \qquad \qquad $</font>
+	<font size = 4 color = "#00FFFF">$C($ </font>
+	<font size = 4>$n,k$</font>
+	<font size = 4 color = "#00FFFF">$)$ </font>
+	<font size = 4>$=$</font>
+	<font size = 4 color = "#00FFFF">$C($ </font>
+	<font size = 4>$n,k-1$</font>
+	<font size = 4 color = "#00FFFF">$)$ </font>
+	<font size = 4>$(n-k+1)/k \ n>k$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<table width="550" heigth="50" border="0" align ="right">
 <tr>
-	<td>
-$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d\end{bmatrix}^{T}$
-$P(u)=\begin{bmatrix} 3 u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d\end{bmatrix}^{T}$
-$0 \le u \le 1$
-	</td>
-	<td>
-$P(0)=1/6 (P_0 + 4 P_1 +P_2)$
-$P(1)=1/6 (P_1 + 4 P_2 +P_3)$
-$P'(0)=1/2 (P_2-P_0)$
-$P'(0)=1/2 (P_3-P_1)$
-	</td>
+<td>
+<p align="left">
+	<font size = 5>Tenemos $ n+1 $ </font>
+	<font size = 5 color="yellow"> puntos de control </font>
+	<font size = 5> de coordenadas:</font>
+	<font size = 5 color="yellow">$\quad p_k $</font>
+	<font size = 5>(</font>
+	<font size = 5 color="yellow">$x_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$y_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$ z_k$</font>
+	<font size = 5>),</font>
+	<font size = 5>$ \quad \ \qquad $ </font>
+	<font size = 5 color="yellow">$k$</font>
+	<font size = 5>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 </tr>
+</td>
 </table>
-</font>
 
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-
-$P(u)=\begin{bmatrix}
- u^{3} \ u^{2} \ u \ 1 \end{bmatrix} \bullet M_B \bullet \begin{bmatrix}p_0 \cr
- p_1 \cr
- p_2 \cr p_3 \cr
- \end{bmatrix}
-$
-
-$M_B=1/6 \begin{bmatrix}-1 & 3 & -3 & 1 \cr3 & -6 & 3 & 0 \cr
-3 & 0 & 3 & 0 \cr
- 1 & 4 & 1 & 0 \cr\end{bmatrix}
-$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-
-$B$<sub>0,3</sub>$(u)=1/6(1-U)^{3}$
-
-$B$<sub>1,3</sub>$(u)=1/6(3U^{3}- 6 U^{2} + 4)$
-
-$B$<sub>2,3</sub>$(u)=1/6(-3U^{3} + 3 U^{2} + 3 U +1)$
-
-$B$<sub>3,3</sub>$(u)=1/6 U^{3}$
-
-$0 \le u \le 1$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Uniformes y Abiertas / Definición, Propiedades y Ejemplo
-
-Definición:
-
-
-El espaciado entre los valores de nudo es uniforme, excepto en los extremos,donde los valores de nudo se repiten $d$ veces.
-
-Propiedades:
-
-1. Cálculo del vector de nudo $u_j$: 
-    * $0$ , para $0 \leq j \leq d$
-    * $j-d+1$ para $d \leq j \leq n$
-    * $n-d+2$ para 
-$j>n$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Uniformes y Abiertas / Definición, Propiedades y Ejemplo / 2
-
-1. Si $d=n+1$, tenemos las splines de BEZIER.Todos los val. de nudo son 0 o 1.
-
-
-Ejemplos:
-
-1. 
-$d=2$ y $n=3$,$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 3 \cr \end{Bmatrix}$
-
-2. $d=4$ y $n=3$
-,$\begin{Bmatrix} 0, \ 0, \ 0, \ 0, \ 1, \ 1, \ 1, \ 1  \end{Bmatrix}$, BEZIER.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes/Definición, Propiedades y Ejemplo
-
-
-Definición:
-
-El espaciado entre los valores de nudo no es uniforme y algunos valores se pueden repetir
-
-Propiedades:
-
-
-Proporcionan mayor flexibilidad
-
-Ejemplos:
-
-1.$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 8, \ 8.5 \cr \end{Bmatrix} $
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes Racionales Cúbicas/Definición, Propiedades
-
-$x(u)=X(u)/W(u)$,
-$y(u)=Y(u)/W(u)$,
-$z(u)=Z(u)/W(u)$
-
-Donde 
-	$X(u),Y(u),Z(u)$ son curvas polinómicas cuyos puntos de control
- se encuentran definidos en coordenadas homogéneas
-
-
-se puede pensar enb la curva como definida en el espacio homogéneo, como: $P(u)=[X(u) \ Y(u) \ Z(u) \ W(u)],$ como de costumbre, pasar del espacio homogéneo a 3D equivale dividir por $W(u)$.
-
-Cualquier curva no racional puede ser transformada en una racional al agregarle $W(u)=1$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes Racionales Cúbicas/Definición, Propiedades
-
-
-Los polinomios en la curva racional pueden ser Hermite, Bezier o de cualquier tipo. Cuando son B-Spline se tiene NURBS.
-
-Estas curvas son invariantes incluso respecto de transformaciones de perspectiva
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Conversión entre representaciones de Spline
-
-
-<table>
+<table width="350" heigth="30" border="0" align ="left">
 <tr>
-	<td>
-Curva 1
-\\[G_1\\]
-\\[M_1\\]
-	</td>
-	<td>
-\\[ \rightarrow \\]
-	</td>
-	<td>
-\\[ U \bullet G_1 \bullet M_1 = U \bullet G_2 \bullet M_2\\]
-\\[ G_1 \bullet M_1 = U \bullet G_2\\]
-\\[ G_2 = M^{-1}_2 \bullet M_1\\]
-	</td>
-	<td>
-\\[ \leftarrow \\]
-	</td>
-	<td>
-Curva 2
-\\[G_12=?\\]
-\\[M_2\\]
-	</td>
+<td>
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$,$</font>
+	<font size = 4>$k=0,1,2,..,n$</font>
+	<font size = 4>$ \quad 0$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 </tr>
+</td>
 </table>
-Nota: Para convertir una curva de B-Spline (ya que esta no posee matríz basica explícita), se debe primero convertir a Bezier.
 
-V:
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font color = "blue">Propiedades</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>1. Una curva de Bezier es un polinomio de grado n (uno menos que el número de puntos de control)</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>2. La curva siempre pasa a través del primer y último puntos de control</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$0$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="yellow">$p_0 \qquad \qquad $ </font>
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$1$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="yellow">$p_n$ </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>3. Asimismo</font>
+	<font size = 5>$ \quad \quad P'($</font>
+	<font size = 5 color="green">$0$</font>
+	<font size = 5>$)=-n$</font>
+	<font size = 5 color="yellow">$p_0$</font>
+	<font size = 5>$+n$</font>
+	<font size = 5 color="yellow">$p_1$</font>
+	<font size = 5>$\quad \quad \ \ P($</font>
+	<font size = 5 color="green">$1$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="yellow">$p_n$ </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>Es decir, la tangente de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>4. También: $\qquad \sum$</font>
+	<font size = 5 color="red">$BEZ_k,n($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color="red">$)$</font>
+	<font size = 5>$=1 \qquad k=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>De esto se tiene que la curva de Bezier cae dentro del casco convexo de los puntos de control.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<p align="left">
+	<font color = "blue">Técnicas de Diseño de Curvas de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="550" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="left">
+	<font size = 5>Tenemos $ n+1 $ </font>
+	<font size = 5 color="yellow"> puntos de control </font>
+	<font size = 5> de coordenadas:</font>
+	<font size = 5 color="yellow">$\quad p_k $</font>
+	<font size = 5>(</font>
+	<font size = 5 color="yellow">$x_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$y_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$ z_k$</font>
+	<font size = 5>),</font>
+	<font size = 5>$ \quad \ \qquad $ </font>
+	<font size = 5 color="yellow">$k$</font>
+	<font size = 5>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<table width="350" heigth="30" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$,$</font>
+	<font size = 4>$k=0,1,2,..,n$</font>
+	<font size = 4>$ \quad 0$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font size = 5>1. Las curvas cerradas se pueden generar al especificar el primer y ultimo punto de control en la misma posición.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<p align="left">
+	<font size = 5>2. Al especificar múltiples puntos de control en la misma posición se obtiene mas peso para la posición.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<p align="left">
+	<font size = 5>1. </font>
+	<font size = 5 color = "blue">Propiedad 3</font>
+	<font size = 5>: La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<p align="left">
+	<font color = "blue">Técnicas de Diseño de Curvas de Bezier: </font>
+	<font size = 5 color = "green">Empalme de 2 secciones</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<p align="left">
+	<font size = 5 color = "blue">Propiedad 3</font>
+	<font size = 5>: La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "green">Ejemplo para continuidad</font>
+	<font size = 5>: $ G^{0}$</font>
+	<font size = 5 color = "green">$, $</font>
+	<font size = 5>$ G^{1}$</font>
+	<font size = 5 color = "green">$, $</font>
+	<font size = 5 color = "yellow">$ C^{1}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<img height="300" src="fig/curSupBez1.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<p align="left">
+	<font color = "blue">Curvas Cúbicas de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="550" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="center">
+	<font size = 5>Tenemos $ n+1 $ </font>
+	<font size = 5 color="yellow"> puntos de control </font>
+	<font size = 5> de coordenadas:</font>
+	<font size = 5 color="yellow">$\quad p_k $</font>
+	<font size = 5>(</font>
+	<font size = 5 color="yellow">$x_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$y_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$ z_k$</font>
+	<font size = 5>),</font>
+	<font size = 5>$ \quad \ \qquad $ </font>
+	<font size = 5 color="yellow">$k$</font>
+	<font size = 5>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 4 color="red">$BEZ_0,3($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=(1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{3}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 4 color="red">$BEZ_1,3($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=3$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$(1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{2}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 4 color="red">$BEZ_2,3($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=3$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$^{2}(1-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 4 color="red">$BEZ_3,3($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=3$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$^{3}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<table width="350" heigth="30" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$BEZ_k,n($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$,$</font>
+	<font size = 4>$k=0,1,2,..,n$</font>
+	<font size = 4>$ \quad 0$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<p align="left">
+	<font size = 5>Especificación con </font>
+	<font size = 5 color = "red"> funciones de combinación: </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<p align="left">
+	<font size = 5>Especificación con </font>
+	<font size = 5 color = "#00FFFF"> matríz característica: </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="green">$
+		\begin{bmatrix}
+		u^{3} & u^{2} & u & 1 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color = "#00FFFF">$M_Bez$</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color="yellow">$
+		\begin{bmatrix}
+		p_0 \cr
+		p_1 \cr
+		p_2 \cr
+		p_3 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5 color = "#00FFFF">$\qquad M_Bez$</font>
+	<font size = 5 >$
+		=\begin{bmatrix}
+		-1 & 3 & -3 & 1 \cr
+		3 & -6 & 3 & 0 \cr
+		-3 & 3 & 0 & 0 \cr
+		1 & 0 & 0 & 0 \cr
+		\end{bmatrix}
+		$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE BEZIER
+
+<br/>
+<p align="left">
+	<font color = "blue">Superficies de Bezier</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<br/>
+<br/>
+<br/>
+<p align="center">
+	<font>$x($</font>
+	<font color="green">$s,u$</font>
+	<font>$)=$</font>
+	<font color="green">$S$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B$</font>
+	<font>$\bullet $</font>
+	<font color="yellow">$G_Bx'$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B ^{T}$</font>
+	<font color="green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font>$y($</font>
+	<font color="green">$s,u$</font>
+	<font>$)=$</font>
+	<font color="green">$S$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B$</font>
+	<font>$\bullet $</font>
+	<font color="yellow">$G_By'$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B^{T}$</font>
+	<font color="green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font>$z($</font>
+	<font color="green">$s,u$</font>
+	<font>$)=$</font>
+	<font color="green">$S$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B$</font>
+	<font>$\bullet $</font>
+	<font color="yellow">$G_Bz'$</font>
+	<font >$\bullet $</font>
+	<font color = "#00FFFF">$M_B ^{T}$</font>
+	<font color="green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
 
 
 ## CURVAS Y SUPERFICIES DE B-SPLINE
 
+<br/>
+<p align="left">
+	<font color = "blue">1. Curvas de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
 
-####Superficies de B-Spline
+<br/>
+<p align="left">
+	<font color = "blue">2. Uniformes y Periódicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="2"-->
 
-$x(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>x</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
+<br/>
+<p align="left">
+	<font color = "blue">3. Cúbicas y Periódicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="3"-->
 
-$y(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>y</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
+<br/>
+<p align="left">
+	<font color = "blue">4. Uniformes y Abiertas</font>
+</p><!-- .element: class="fragment" data-fragment-index="4"-->
 
-$z(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>z</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
+<br/>
+<p align="left">
+	<font color = "blue">5. No Uniformes</font>
+</p><!-- .element: class="fragment" data-fragment-index="5"-->
+
+<br/>
+<p align="left">
+	<font color = "blue">6. Superficies de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="6"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<p align="left">
+	<font color = "blue">1. Curvas de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="green">Ventajas respecto a las curvas de Bezier: $ \ $</font>
+	<font size = 5> 1. El grado del polinomio se puede determinar independientemente del número de puntos de control.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5> 2. Permiten control local $ \ $</font>
+	<font size = 5 color="green"> Desventaja $ \ $</font>
+	<font size = 5> 1. Complejidad.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="550" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="right">
+	<font size = 5>Tenemos $ n+1 $ </font>
+	<font size = 5 color="yellow"> puntos de control </font>
+	<font size = 5> de coordenadas:</font>
+	<font size = 5 color="yellow">$\quad p_k $</font>
+	<font size = 5>(</font>
+	<font size = 5 color="yellow">$x_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$y_k$</font>
+	<font size = 5>,</font>
+	<font size = 5 color="yellow">$ z_k$</font>
+	<font size = 5>),</font>
+	<font size = 5>$ \quad \ \qquad $ </font>
+	<font size = 5 color="yellow">$k$</font>
+	<font size = 5>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+<img height="200" src="fig/curSupB-Spl1.jpg" align ="right"><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<p align="right">
+	<font size = 5 color="green">$S_3 \ $</font>
+	<font size = 5> es definida por </font>
+	<font size = 5 color="yellow">$p_0,p_1,p_2,p_3$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 5 color="green">$S_4 \ $</font>
+	<font size = 5> es definida por </font>
+	<font size = 5 color="yellow">$p_1,p_2,p_3,p_4$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<table width="400" heigth="30" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 5 color = "blue">Definición $ \ $</font>
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$B_k,d($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$,$</font>
+	<font size = 4>$\qquad \qquad \qquad \qquad k=0,1,2,..,n$</font>
+	<font size = 4>$\qquad \qquad \qquad \ 2 \leq$</font>
+	<font size = 4 color="red">$d$</font>
+	<font size = 4>$\leq n+1 \ $</font>
+	<font size = 4 color="red"> valor fijo</font>
+	<font size = 4 color="#00FFFF">$\qquad \qquad \qquad \quad u_min \leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="#00FFFF">$\leq u_max$</font>	
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "blue">Ejemplo</font>
+	<font size = 4>$ \qquad n=4 \qquad \qquad$</font>
+	<font size = 4 color = "red">$d$</font>
+	<font size = 4>$=4$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="#00FFFF">Vector de nudo </font>
+	<font size = 5> de $n+$</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$+1 (9) $ pos:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 7 color="#00FFFF">$ \swarrow \qquad \searrow $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 color="#00FFFF">$u_min \qquad \qquad \qquad u_max$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</tr>
+</td>
+</table>
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<p align="left">
+	<font color = "blue">1. Curvas de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)=(x($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$),y($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$),z($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)^{T} \qquad \qquad \qquad \qquad \qquad \qquad $ Tenemos $ n+1 $ </font>
+	<font size ="4" color="yellow"> puntos de control </font>
+	<font size = 4> de coordenadas</font> </p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4>$0 \leq$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$\leq$</font>
+	<font size = 4 color="green">$1$</font>
+	<font size = 4>$ \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad $ </font>
+	<font size = 4 color="yellow">$ p_k $</font>
+	<font size = 4>(</font>
+	<font size = 4 color="yellow">$x_k$</font>
+	<font size = 4>,</font>
+	<font size = 4 color="yellow">$y_k$</font>
+	<font size = 4>,</font>
+	<font size = 4 color="yellow">$ z_k$</font>
+	<font size = 4>),</font>
+	<font size = 4>$ \quad \ \qquad $ </font>
+	<font size = 4 color="yellow">$k$</font>
+	<font size = 4>$=0,1,2,...,n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4>Especificación con </font>
+	<font size = 4 color = "red"> funciones de combinación (Cox-deBoor):</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 4> $P($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)= \sum $</font>
+	<font size = 4 color="yellow">$p_k$ </font>
+	<font size = 4 color="red">$B_k,d($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$, k=0,1,2,...,n$</font>
+	<font size = 5 color="green">$ \searrow$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 5 color="green">$u_min$</font>
+	<font size = 5>$ \leq $</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ \leq $</font>
+	<font size = 5 color="green">$u_max \qquad \qquad $</font>
+	<font size = 4 color="red">$B_k,d($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$=($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$-$</font>
+	<font size = 4 color = "#00FFFF">$u_k$ </font>
+	<font size = 4>$)/($</font>
+	<font size = 4 color = "#00FFFF">$u_k+d-1$ </font>
+	<font size = 4>$-$</font>
+	<font size = 4 color = "#00FFFF">$u_k$ </font>
+	<font size = 4>$)$</font>
+	<font size = 4 color="red">$B_k,d-1($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 4>$+($</font>
+	<font size = 4 color = "#00FFFF">$u_k+d$ </font>
+	<font size = 4>$-$</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$)/($</font>
+	<font size = 4 color = "#00FFFF">$u_k+d$ </font>
+	<font size = 4>$-$</font>
+	<font size = 4 color = "#00FFFF">$u_k+1$ </font>
+	<font size = 4>$)$</font>
+	<font size = 4 color="red">$B_k+1,d-1($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="400" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="center">
+	<font size = 8 color="green">$ \downarrow $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 4 color="red">$B_k,d($</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4 color="red">$)$</font>
+	<font size = 4>$= \quad 1, $</font>
+	<font size = 5> si $ \ $</font>
+	<font size = 4 color = "#00FFFF">$u_k$ </font>
+	<font size = 4>$ \leq $</font>
+	<font size = 4 color="green">$u$</font>
+	<font size = 4>$ \leq $</font>
+	<font size = 4 color = "#00FFFF">$u_k+1$ </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5>$ \qquad $</font>
+	<font size = 4>$0,$</font> 
+	<font size = 5> de otro modo</font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<table width="400" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 3> $x($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3>$)= \sum $</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="yellow">$x_k$ </font>
+	<font size = 3 color="red">$B_k,d($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="red">$)$</font>
+	<font size = 3>$, k=0,1,2,...,n$</font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 3> $y($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3>$)= \sum $</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="yellow">$y_k$ </font>
+	<font size = 3 color="red">$B_k,d($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="red">$)$</font>
+	<font size = 3>$, k=0,1,2,...,n$</font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 3> $z($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3>$)= \sum $</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="yellow">$z_k$ </font>
+	<font size = 3 color="red">$B_k,d($</font>
+	<font size = 3 color="green">$u$</font>
+	<font size = 3 color="red">$)$</font>
+	<font size = 3>$, k=0,1,2,...,n$</font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 color="green">$u_m$$_i$$_n$</font>
+	<font size = 5>$ \leq $</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$ \leq $</font>
+	<font size = 5 color="green">$u_m$$_a$$_x$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Propiedades</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+<p align="left">
+	<font size = 5>1. La curva resultante es un polinomio de grado </font>
+	<font size = 5 color="red">$ \ d $</font>
+	<font size = 5>$-1 $ y continuidad $C$</font>
+	<font size = 5 color="red">$^{d}$</font>
+	<font size = 5>$^{-2}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>2.$ \ n+1 \ $puntos de control y</font>
+	<font size = 5 color="red">funciones de combinación</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>3. Cada </font>
+	<font size = 5 color="red">funcion de combinación $ \ B_k$, $_d$</font>
+	<font size = 5 color="red">$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color="red">$) \ $</font>
+	<font size = 5> se define sobre </font>
+	<font size = 5 color="red">$ \ d \ $</font>
+	<font size = 5> subintervalos del rango total de </font>
+	<font size = 5 color="green">$ \ u \ $</font>
+	<font size = 5> , empezando con el valor de</font>
+	<font size = 5 color = "#00FFFF"> nudo $ \ u_k$ </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>4. El rango del parámetro </font>
+	<font size = 5 color="green">$ \ u \ $</font>
+	<font size = 5> se divide en $ \ n+$</font>
+	<font size = 5 color="red">$d \ $</font>
+	<font size = 5> subintervalos entre los valores $\ n+$</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$+1 \ $ que se especifican en el vector de nudo</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>5. Con el </font>
+	<font size = 5 color = "#00FFFF">vector de nudo </font>
+	<font size = 5> de $\ n+ \ $</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$+1 \ pos: $</font>
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} u_0, \ u_1, \ ...,u_n+d \cr \end{Bmatrix} \ $</font>
+	<font size = 5> la curva que resulta se define únicamente en el intervalo que va desde el valor de nudo </font>
+	<font size = 5 color = "#00FFFF">$ \ u_d$$- $$_1(=u_m$$_i$$_n) \ $</font>
+	<font size = 5> hasta el valor </font>
+	<font size = 5 color = "#00FFFF">$ \ u_n$$+ $$_1(=u_m$$_a$$_x). \ $</font>
+	<font size = 5> Es decir, se tienen $: \ n-$</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$+2 \ $ secciones de curva.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Propiedades</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+</br>
+<p align="left">
+	<font size = 5>6. Cada sección de curva $ \ ($ entre </font>
+	<font size = 5 color = "#00FFFF"> 2 valores de nudo </font>
+	<font size = 5> sucesivos $ \ )$ está influenciada por </font>
+	<font size = 5 color="red">$ \ d \ $</font>
+	<font size = 5 color="yellow"> puntos de control</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>7. La mayoría de los puntos de control afecta </font>
+	<font size = 5 color="red">$ \ d \ $</font>
+	<font size = 5 > secciones de curva</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>8. Para cualquier valor de </font>
+	<font size = 5 color="green">$ \ u \ $</font>
+	<font size = 5> en el intervalo desde </font>
+	<font size = 5 color = "#00FFFF">$ \ u_d$$+ $$_1 \ $</font>
+	<font size = 5 > hasta </font>
+	<font size = 5 color = "#00FFFF">$ \ u_n$$+ $$_1 \ $</font>
+	<font size = 5 > se tiene: </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="red">$B_k$$, $$d($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color="red">$)$</font>
+	<font size = 5>$=1, \ $ para </font> 
+	<font size = 5 color="red">$ \ k$</font>
+	<font size = 5>$=0 \ $ hasta $ \ n$ </font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Especificación</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+</br>
+</br>
+<p align="center">
+	<font size = 7 color = "yellow">1) Puntos de Control</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 7 color = "red">2) Funciones de Combinación</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 7 >$ \qquad \qquad \quad  \ $ -</font>
+	<font size = 7 color = "red">$ \ d$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 7 >-</font>
+	<font size = 7 color = "#00FFFF"> Vector de Nudo</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<p align="left">
+	<font color = "blue">Uniformes y Periódicas / </font>
+	<font color = "red"> Definición, Propiedades y Ejemplo</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "red"> Definición:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >El espaciado entre los </font>
+	<font size = 5 color = "#00FFFF"> valores de nudo </font>
+	<font size = 5 > es constante.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5 color = "red"> Propiedades:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >1. Posee </font>
+	<font size = 5 color = "red"> funciones </font>
+	<font size = 5 color = "#00FFFF"> periódicas </font>
+	<font size = 5 color = "red"> de combinación </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >2. </font>
+	<font size = 5 color="red">$ \ B_k$$, $$_d($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 color="red">$)$</font>
+	<font size = 5>$=$</font> 
+	<font size = 5 color="red">$B_k$$+$$_1$$, $$_d($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$+$</font> 
+	<font size = 5 color = "#00FFFF">$ \nabla u$</font>
+	<font size = 5 color="red">$)$</font>
+	<font size = 5>$+$</font> 
+	<font size = 5 color="red">$B_k$$+$$_2$$, $$_d($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$+2$</font> 
+	<font size = 5 color = "#00FFFF">$ \nabla u$</font>
+	<font size = 5 color="red">$)$</font>
+	<font size = 5>$,$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>donde </font>
+	<font size = 5 color = "#00FFFF">$ \nabla u \ $</font>
+	<font size = 5> es la distancia entre valores de nudo adyacentes</font> 
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5 color = "red"> Ejemplo:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5>$n=$</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$=3 \ $</font>
+	<font size = 5> y </font>
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6 \cr \end{Bmatrix} \ $</font>
+	<font size = 5>$,\ $ se tienen las stes.: $ \ $</font>
+	<font size = 5 color="red"> funciones de combinación </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<img height="600" src="fig/curSupB-Spl2.jpg" align ="center"><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Cúbicas y Periódicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>Para $ \ $</font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5>$=4 \ $ y $ \ n=3 $ se tiene el siguiente </font>
+	<font size = 5 color = "#00FFFF"> vector de nudo:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6, \ 7 \cr \end{Bmatrix} \ $</font>
+	<font size = 5> y podemos calcular las </font>
+	<font size = 5 color="red"> funciones de combinación </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+<p align="left">
+	<font size = 5>Tambien, se pueden especificar mediante </font>
+	<font size = 5 color="green"> condiciones de frontera:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+<table width="400" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="left">
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$0$</font>
+	<font size = 5>$)=1/6($</font>
+	<font size = 5 color = "yellow">$p_0$</font>
+	<font size = 5>$+4$</font>
+	<font size = 5 color = "yellow">$p_1$</font>
+	<font size = 5>$+$</font>
+	<font size = 5 color = "yellow">$p_2$</font>
+	<font size = 5>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$1$</font>
+	<font size = 5>$)=1/6($</font>
+	<font size = 5 color = "yellow">$p_1$</font>
+	<font size = 5>$+4$</font>
+	<font size = 5 color = "yellow">$p_2$</font>
+	<font size = 5>$+$</font>
+	<font size = 5 color = "yellow">$p_3$</font>
+	<font size = 5>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$P'($</font>
+	<font size = 5 color="green">$0$</font>
+	<font size = 5>$)=1/2($</font>
+	<font size = 5 color = "yellow">$p_2$</font>
+	<font size = 5>$-$</font>
+	<font size = 5 color = "yellow">$p_0$</font>
+	<font size = 5>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>$P'($</font>
+	<font size = 5 color="green">$1$</font>
+	<font size = 5>$)=1/2($</font>
+	<font size = 5 color = "yellow">$p_3$</font>
+	<font size = 5>$-$</font>
+	<font size = 5 color = "yellow">$p_1$</font>
+	<font size = 5>$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+</br>
+<table width="550" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+		$
+		\begin{bmatrix}
+		u^{3} \ u^{2} \ u \ 1 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+		$
+		\begin{bmatrix}
+		a \ b \ c \ d \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5> $P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+		$
+		\begin{bmatrix}
+		3u^{2} \ 2u \ 1 \ 0 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+		$
+		\begin{bmatrix}
+		a \ b \ c \ d \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >$ 0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<table width="500" heigth="50" border="0" align ="right">
+<tr>
+<td>
+<p align="right">
+	<font size = 5> $P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+		$
+		\begin{bmatrix}
+		u^{3} \ u^{2} \ u \ 1 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+		$
+		\begin{bmatrix}
+		a \ b \ c \ d \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 5> $P'($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$) = $</font>
+	<font size = 5 color = "green">
+		$
+		\begin{bmatrix}
+		3u^{2} \ 2u \ 1 \ 0 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet$</font>
+	<font size = 5 color="#00FFFF">
+		$
+		\begin{bmatrix}
+		a \ b \ c \ d \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$^{T}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="right">
+	<font size = 5 >$ 0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="right">
+	<font size = 5 color="#00FFFF">$M_B=$</font>
+	<font size = 5 >
+		$1/6
+		\begin{bmatrix}
+		-1 & 3 & -3 & 1 \cr
+		3 & -6 & 3 & 0 \cr
+		3 & 0 & 3 & 0 \cr
+		1 & 4 & 1 & 0 \cr
+		\end{bmatrix}
+		$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<p align="left">
+	<font color = "blue">Cúbicas y Periódicas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+</br>
+<p align="left">
+	<font size = 5>$P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=$</font>
+	<font size = 5 color="green">$
+		\begin{bmatrix}
+		u^{3} \ u^{2} \ u \ 1 \cr
+		\end{bmatrix}
+		$</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color = "#00FFFF">$M_B$</font>
+	<font size = 5>$\bullet $</font>
+	<font size = 5 color="yellow">$
+		\begin{bmatrix}
+		p_0 \cr
+		p_1 \cr
+		p_2 \cr
+		p_3 \cr
+		\end{bmatrix}
+		$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<table width="550" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="left">
+	<font size = 5 color="red">$B_0$$,$$_3$</font>
+	<font size = 5>$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=1/6(1-$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)^{3}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="red">$B_1$$,$$_3$</font>
+	<font size = 5>$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=1/6(3$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{3}-6$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{2}+4)$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="red">$B_2$$,$$_3$</font>
+	<font size = 5>$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=1/6(-3$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{3}+3$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{2}+3$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$+1)$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color="red">$B_3$$,$$_3$</font>
+	<font size = 5>$($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$)=1/6$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$^{3}$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >$ 0 \leq$</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5>$\leq1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<p align="left">
+	<font color = "blue">Uniformes y Abiertas</font>
+	<font color = "red"> Definición, Propiedades y Ejemplo</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "red"> Definición:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >El espaciado entre los </font>
+	<font size = 5 color = "#00FFFF"> valores de nudo </font>
+	<font size = 5 > es uniforme, excepto en los extremos, donde los </font>
+	<font size = 5 color = "#00FFFF"> valores de nudo </font>
+	<font size = 5 > se repiten </font>
+	<font size = 5 color="red">$ \ d \ $</font>
+	<font size = 5 > veces. </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "red"> Propiedades:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >1. Cálculo del vector de nudo </font>
+	<font size = 5 color = "#00FFFF">$ \ u_j$</font>
+	<font size = 5 >$: 0, \qquad \qquad$ para $ \ 0 \leq $</font>
+	<font size = 5 color = "#00FFFF">$j$</font>
+	<font size = 5>$<$</font>
+	<font size = 5 color="red">$d$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >$ \qquad \qquad \qquad \qquad \qquad$</font>
+	<font size = 5 color = "#00FFFF">$j$</font>
+	<font size = 5>$-$</font>
+	<font size = 5 color = "red">$d$</font>
+	<font size = 5>$+1, \ \ \qquad$ para </font>
+	<font size = 5 color="red">$ \ d$</font>
+	<font size = 5>$\leq$</font>
+	<font size = 5 color = "#00FFFF">$j$</font>
+	<font size = 5>$\leq n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >$ \qquad \qquad \qquad \qquad \qquad n-$</font>
+	<font size = 5 color = "red">$d$</font>
+	<font size = 5>$+2, \ \ \qquad$ para </font>
+	<font size = 5 color = "#00FFFF">$ \ j$</font>
+	<font size = 5>$>n$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >2. Si </font>
+	<font size = 5 color="red">$d$</font>
+	<font size = 5 >$=n+1, $ tenemos las splines de </font>
+	<font size = 5 color="green"> BEZIER. </font>
+	<font size = 5 > Todos los val. de nudo son 0 o 1.</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 color = "red"> Ejemplos:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>1. </font>
+	<font size = 5 color="red">$ \ d$</font>
+	<font size = 5>$=2 \ $ y $ \ n=3, \quad$</font>
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 3 \cr \end{Bmatrix} \ $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>2. </font>
+	<font size = 5 color="red">$ \ d$</font>
+	<font size = 5>$=4 \ $ y $ \ n=3, \quad$</font>
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} 0, \ 0, \ 0, \ 0, \ 1, \ 1, \ 1, \ 1 \cr \end{Bmatrix} \ , $</font>
+	<font size = 5 color="green"> BEZIER. </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">No Uniformes /</font>
+	<font color = "red"> Definición, Propiedades y Ejemplo</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5 color = "red"> Definición:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left">
+	<font size = 5 >El espaciado entre los </font>
+	<font size = 5 color = "#00FFFF"> valores de nudo </font>
+	<font size = 5 > no es uniforme y algunos valores se pueden repetir</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5 color = "red"> Propiedades:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+<p align="left">
+	<font size = 5 > Proporcionan mayor flexibilidad</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+<p align="left">
+	<font size = 5 color = "red"> Ejemplos:</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>1. </font>
+	<font size = 5 color = "#00FFFF">$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 8, \ 8.5 \cr \end{Bmatrix} \ $</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+<p align="left">
+	<font color = "blue">No Uniformes Racionales Cúbicas/</font>
+	<font color = "red"> Definición, Propiedades</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 >$x($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)=X($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)/W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$),$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 >$y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)=Y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)/W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$),$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 >$z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)=Z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)/W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >Donde </font>
+	<font size = 5 >$X($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$),Y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$),Z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$), $ son curvas polinómicas cuyos </font>
+	<font size = 5 color = "yellow"> puntos de control</font>
+	<font size = 5 >$ se encuentran definidos en </font>
+	<font size = 5 color = "yellow"> coordenadas homogéneas</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >Se puede pensar enb la curva como definida en el espacio homogéneo, como: </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >$P($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)=[X($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$) \ Y($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$) \ Z($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$) \ W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)], $ como de costumbre, pasar del espacio homogéneo a $ \ 3-d \ $ equivale dividir por $W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$).$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5 >Cualquier curva no racional puede ser transformada en una racional al agregarle $W($</font>
+	<font size = 5 color="green">$u$</font>
+	<font size = 5 >$)=1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>Los polinomios en la curva racional pueden ser Hermite, Bezier o de cualquier tipo. Cuando son B-Spline se tiene </font>
+	<font size = 5 color = "#00FFFF"> NURBS</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="left">
+	<font size = 5>Estas curvas son </font>
+	<font size = 5 color = "#00FFFF"> invariantes </font>
+	<font size = 5> incluso respecto de </font>
+	<font size = 5 color = "#00FFFF"> transformaciones de perspectiva</font>	
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Conversión entre representaciones de Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+<table width="80" heigth="50" border="0" align ="right">
+<tr>
+<td>
+</br>
+</br>
+<p align="center">
+	<font size = 5 color="green">Curva2</font>
+	<font size = 5 color="yellow">$G_2=?$</font>
+	<font size = 5 color="#00FFFF">$M_2$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+</br>
+</br>
+<table width="80" heigth="50" border="0" align ="left">
+<tr>
+<td>
+<p align="center">
+	<font size = 5 color="green">Curva1 $ \ $</font>
+	<font size = 5 color="yellow">$G_1$</font>
+	<font size = 5 color="#00FFFF">$M_1$</font>
+</p> <!-- .element: class="fragment" data-fragment-index="1"-->
+</tr>
+</td>
+</table>
+
+<p align="center">
+	<font size = 7 color = "green">$\longleftarrow$</font>
+	<font size = 5 color = "green">$U$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G_1$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M_1$</font>
+	<font size = 5 >$=$</font>
+	<font size = 5 color = "green">$U$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G_2$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M_2$</font>
+	<font size = 7 color = "green">$\longrightarrow$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 color = "yellow">$G_1$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M_1$</font>
+	<font size = 5 >$=$</font>
+	<font size = 5 color = "green">$U$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "yellow">$G_2$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font size = 5 color = "yellow">$G_2$</font>
+	<font size = 5 >$=$</font>
+	<font size = 5 color = "#00FFFF">$M^{-1}$$_2$</font>
+	<font size = 5 >$\bullet$</font>
+	<font size = 5 color = "#00FFFF">$M_1$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+</br>
+</br>
+
+<p align="center">
+	<font size = 5 color = "green">Nota: </font>
+	<font size = 5 > Para convertir una curva de </font>
+	<font size = 5 color = "green"> B-Spline </font>
+	<font size = 5 >$( $ya que esta no posee matríz basica explícita$)$, se debe primero convertir a </font>
+	<font size = 5 color = "green"> Bezier </font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+
+## CURVAS Y SUPERFICIES DE B-SPLINE
+
+</br>
+<p align="left">
+	<font color = "blue">Superficies de B-Spline</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+</br>
+</br>
+</br>
+<p align="center">
+	<font>$x($</font>
+	<font size color = "green">$s,u$</font>
+	<font>$)=$</font>
+	<font color = "green">$S$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M_B$$_S$</font>
+	<font>$\bullet$</font>
+	<font color = "yellow">$G'$$_B$$_S$$_x$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M^{T}$$_B$$_S$</font>
+	<font color = "green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font>$y($</font>
+	<font size color = "green">$s,u$</font>
+	<font>$)=$</font>
+	<font color = "green">$S$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M_B$$_S$</font>
+	<font>$\bullet$</font>
+	<font color = "yellow">$G'$$_B$$_S$$_y$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M^{T}$$_B$$_S$</font>
+	<font color = "green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
+
+<p align="center">
+	<font>$z($</font>
+	<font size color = "green">$s,u$</font>
+	<font>$)=$</font>
+	<font color = "green">$S$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M_B$$_S$</font>
+	<font>$\bullet$</font>
+	<font color = "yellow">$G'$$_B$$_S$$_z$</font>
+	<font>$\bullet$</font>
+	<font color = "#00FFFF">$M^{T}$$_B$$_S$</font>
+	<font color = "green">$U^{T}$</font>
+</p><!-- .element: class="fragment" data-fragment-index="1"-->
