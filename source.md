@@ -52,10 +52,10 @@ Representación Cartesiana
 <br/>
 Representación Paramétrica
 \\[ x= r \times \cos \varphi \times \cos \theta \\]
+\\[-\pi \leq \varphi \leq \pi \\]
 \\[y=r \times \cos \varphi \times \sin \theta \\]
+\\[-\pi/2 \leq \theta \leq \pi/2 \\]
 \\[z=r \times \sin \varphi \\]
-\\[-\pi/2 \leq \varphi \leq \pi/2 \\]
-\\[-\pi \leq \theta \leq \pi \\]
 	</td>
 </tr>
 </table>
@@ -192,9 +192,9 @@ V:## REPRESENTACIONES DE SPLINE
 ###Introducción
 Usos:
 
-1. Digitacilación de trazos (Curvas de Interpolación)
-1. Especificación de trayectorias de animación (Curvas de Interpolación)
-1. Herramienta de diseño para superficies de los objetos CAD (Curvas de aproximación)
+1. Digitacilación de trazos. (Curvas de Interpolación)
+1. Especificación de trayectorias de animación. (Curvas de Interpolación)
+1. Herramienta de diseño para superficies de los objetos. CAD(Curvas de aproximación)
 
 Ventaja:
 
@@ -207,7 +207,7 @@ V:## REPRESENTACIONES DE SPLINE
 
 
 ###Introducción
-<img height="250" src="fig/nociones.png">
+<img height="250" src="fig/intro2.jpg">
 
 1. La curva realiza la interpolación.
 2. La curva  aproxima la interpolación.
@@ -218,7 +218,7 @@ V:## REPRESENTACIONES DE SPLINE
 
 V:
 ## REPRESENTACIONES DE SPLINE
-###Definición del problema
+###Deficición del problema
 <img height="200" src="fig/repSpline4.jpg">
 
 Se pueden tener 1 o varias secciones de spline.
@@ -951,8 +951,7 @@ Los polinomios $CAR_k(u)$ para $k = 0,1,2,3$ son las  funciones  de  combinació
 
 V:
 ##SPLINE CÚBICAS
-
-####Splines Kochanek-Bartels
+####Splines Kochanek-Bartels
 Especificación con condiciones de frontera:
 
 <font size=5>
