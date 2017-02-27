@@ -34,20 +34,41 @@ H:
  
 H:
 
-## Intro
+## Intro: idea
 
 > Find the piecewise interpolation polynomial(s) that best approximate a given a set of _control points_
-
-### Use cases
-
-<li class="fragment"> As _drawing_ tool
-<li class="fragment"> _Animation_ curves
-<li class="fragment"> CAD tool to _model_ objects  
 
 ### Advantages
 
 <li class="fragment"> Compact representation
 <li class="fragment"> Affine transformations of the curve <-> transformation on the control points
+
+V:
+
+## Intro: use cases
+### Drawing tool
+
+<figure>
+    <img height='400' src='fig/inkscape.png'/>
+    <figcaption>Inkscape</figcaption>
+</figure>
+
+V:
+
+## Intro: use cases
+### Animation curves
+
+<video controls data-autoplay loop src="vid/animation.ogv"></video>
+
+V:
+
+## Intro: use cases
+### CAD
+
+<figure>
+    <img height='400' src='fig/surface_model.png'/>
+    <figcaption>Surface model</figcaption>
+</figure>
 
 V:
 
