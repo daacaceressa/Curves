@@ -166,8 +166,8 @@ V:
 
 Since there's $n+1$ control points then we have:
 
-1. $n$ piecewise sections
-1. $4n$ polynomial coeficients (unknowns)
+1. $n$ piecewise sections<!-- .element: class="fragment" data-fragment-index="1"-->
+1. $4n$ polynomial coeficients (unknowns)<!-- .element: class="fragment" data-fragment-index="2"-->
 
 V:
 
@@ -177,12 +177,12 @@ V:
 
 Specification from $C^{2}$: Since there's $n+1$ control points then it follows:
 
-1. For each $n-1$ intermediate control points we have $4$ equations ($4n-4$ equations in total):
-  * Positions
-  * 1st and 2nd derivatives
-2. For the 2 extreme control points we have 
-  * Positions
-  * The second derivatives should be 0
+1. For each $n-1$ intermediate control points we have $4$ equations ($4n-4$ equations in total):<!-- .element: class="fragment" data-fragment-index="1"-->
+  * Positions (2 equations)
+  * 1st and 2nd derivatives (2 equations)
+2. For the 2 extreme control points we have $2$ equations ($4$ in total):<!-- .element: class="fragment" data-fragment-index="2"-->
+  * Positions (2 equations)
+  * The second derivatives should be 0 (2 equations)
   
 Details [here](http://mathworld.wolfram.com/CubicSpline.html)
 
