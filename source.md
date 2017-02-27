@@ -211,325 +211,55 @@ H:
 
 ## Cubic Hermit splines
 
+<div class="ulist">
+    <img src="fig/splineCub2.jpg" alt="pipeline" width="30%" style="float: right">
+    <ul style="width: 30%;">
+        $P(u)=a u^{3} + b u^{2} + c u + d , 0 \leq u \leq 1$
+        
+        \\[P(u) = 
+        \begin{bmatrix}
+	u^{3} & u^{2} & u & 1 \cr
+        \end{bmatrix}
+	\bullet	\begin{bmatrix}
+	a & b & c & d \cr	
+        \end{bmatrix}\\]
+        
+        \\[P(u) = U \bullet C\\]
+        
+        \\[ P'(u) = \begin{bmatrix}
+	3u^{2} & 2u & 1 & 0 \cr
+	\end{bmatrix}
+	\bullet \begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}\\]
+        
+        \\[P'(u) = U' \bullet C\\]
+    </ul>
+</div>
+
+We get the following equations:<!-- .element: class="fragment" data-fragment-index="1"-->
+1. $p_k = P(0) = d$<!-- .element: class="fragment" data-fragment-index="2"-->
+1. $p_{k+1} = P(1) = a+b+c+d$<!-- .element: class="fragment" data-fragment-index="3"-->
+1. $Dp_k = P'(0) = c$<!-- .element: class="fragment" data-fragment-index="4"-->
+1. $Dp_{k+1}= P'(1) = 3a + 2b + c$<!-- .element: class="fragment" data-fragment-index="5"-->
+
+V:
+
+## Cubic Hermit splines
+
 H:
 
 ## Bézier curves
 
 H:
 
-## REPRESENTACIONES DE SPLINE
-
-
-###Continuidad 
-####Geométrica
-<table>
-<tr>
-	<td>
-$G^{0}$: Si los segmentos se unen. 
-$G^{1}$: Si (ademas de $G^{0}$) las direcciones de los vectores tangentes, aunque no necesariamente las magnitudes, son iguales.
-	</td>
-	<td>
-Cada sección: $P(u) = (x(u), y(u), z(u))^{T}$
-$u_1 \leq u \leq u_2$
-	</td>
-<tr>
-</table>
-
-
-V:
-## REPRESENTACIONES DE SPLINE
-
-
-###Continuidad
-####Paramétrica
-<table>
-<tr>
-	<td>
-$C^{n}$: Si $d^{n}/d u^{n}P(u)$, son iguales (la enésima derivada en magnitud y dirección)
-	</td>
-	<td>
-Cada sección: $P'(u) = (x'(u), y'(u), z'(u))^{T}$
-$u_1 \leq u \leq u_2$
-	</td>
-<tr>
-</table>
-
-V:## REPRESENTACIONES DE SPLINE
-###Continuidad
-Reglas:
-
-1. $C^{1} \rightarrow G^{1}$ pero no al revés.
-1. Si $n > m$ entonces $C^{n} \rightarrow C^{m}$
-
-Excepción de la R1:
-<center>
-<table>
-<tr>
-<td>
-<img height="280" src="fig/repSpline5.jpg">
-</td>
-<td>
-<img height="280" src="fig/repSpline6.jpg">
-</td>
-</tr>
-</table>
-</center>
-
-
-V:## REPRESENTACIONES DE SPLINE
-
-
-###Continuidad
-Existen 3 modos equivalentes:
-
-1. Conjunto de condiciones de frontera
-2. Matriz característica de la Spline
-3. Funciones de combinación
-
-
-
-H:
-
-## TIPOS DE INTERPOLACIÓN DE SPLINE
-
-1. Spline Cúbicas
-2. Curvas y Superficies de Bezier
-3. Curvas y Superficies de B-Spline
-
-
-
-V:
-
-## SPLINE CÚBICAS
-
-
-
-1. Spline Cúbicas Naturales
-2. Hermite
-3. Spline Cardinales
-4. Splines de Kochanek-Bartels
-
-
-
-V:
-## SPLINE CÚBICAS
-
-
-
-Definicion del $P_b$. en el caso de polinonios cúbicos. $P(u)=(x(u),y(u),z(u))^{T}$, $u_1 \leq u \leq u_2$
-
-Para cada sección de la Spline:
-
-\\[x(u) = a_x u^{3} + b_x u^{2} + c_x u + d_x\\]
-\\[y(u) = a_y u^{3} + b_y u^{2} + c_y u + d_y\\]
-\\[z(u) = a_z u^{3} + b_z u^{2} + c_z u + d_z\\]
-
-$0 \leq u \leq 1$
-
-
-V:
-## SPLINE CÚBICAS
-
-
-
-Vectorialmente tenemos: 
-$P(u)=a u^{3} + b u^{2} + c u + d , 0 \leq u \leq 1$
-
-Entonces: 
-\\[P(u) = 
-\begin{bmatrix}
-	u^{3} & u^{2} & u & 1 \cr
- \end{bmatrix}
-	\bullet	\begin{bmatrix}
-	a & b & c & d \cr
-\end{bmatrix}^{T} = U \bullet C\\]
-\\[ P'(u) = \begin{bmatrix}
-	3u^{2} & 2u & 1 & 0 \cr
-	\end{bmatrix}
-	\bullet \begin{bmatrix}
-	a & b & c & d \cr
-	\end{bmatrix}
-^{T},  0 \leq u \leq 1\\]
-
-Tenemos $n+1$ puntos de control de coordenadas:  $P_k = (x_k,y_k,z_k),  k = 0,1,2,...,n$
-
-
-
-V:
-## SPLINE CÚBICAS
-Definicion del $P_b$. en el caso de polinomios cubicos:
-Ahora:
-\\[C=M \bullet G \\]
-Donde:
-\\[G = \begin{bmatrix} G_x & G_y & G_z \end{bmatrix} = \begin{bmatrix} 
-g_1x & g_1y & g_1z \cr 
-	g_2x & g_2y & g_2z \cr
-	g_3x & g_2y & g_3z \cr
-	g_4x & g_2y & g_4z \cr
-	\end{bmatrix}\\]
-
-V:
-## SPLINE CÚBICAS
-\\[
-M=\begin{bmatrix} 
-	m_11 & m_12 & m_13 & m_14 \cr 
-	m_21 & m_22 & m_23 & m_24 \cr
-	m_31 & m_23 & m_33 & m_34 \cr
-	m_41 & m_24 & m_43 & m_44 \cr
-	\end{bmatrix}\\]
-
-Tanto $M$ como $G$ varían para cada tipo de curva. 
-$M$ es la matríz basica y $G$ es la matríz de restricciones o condiciones geométricas
-Se tiene entonces: $P(u) = U \bullet M  \bullet G$
-
-
-
-V:
-## SPLINE CÚBICAS
-####Superficies paramétricas bicúbicas
-
-Generalización de la curva: 
-\\[P(u) =  U \bullet M  \bullet G \\]
-(donde el vector geométrico $G$ es una constante)
- 
-1. Tomemos $s$ por $u$, $P(s) = S \bullet M  \bullet G$
-2. Dejemos variar los puntos en $G$ en 3D a lo largo de un camino parametrizado en $u$
-:
-\\[P(s,u) = S \bullet M  \bullet G(u)\\]
-
-
-V:
-## SPLINE CÚBICAS
-####Superficies paramétricas bicúbicas
-Donde:
-
-\\[G(u)=\begin{bmatrix} 
-G_1(u)\cr G_2(u)\cr G_3(u)\cr G_4(u)\end{bmatrix}\\]
-Para un valor fijo 
-$u_1 , P(s,u_1)$ es una curva porque
-	$G (u_1)$
- es constante. Haciendo $ 0 \leq u \leq 1 $ se obtiene la familia de curvas que conforman la superficie.
-
-V:
 ## SPLINES CÚBICAS
 
-####Superficies paramétricas bicúbicas
-
-Tomando el caso en que $G_i(u)$ son cúbicas, se tiene que cada una puede ser representada como:
-
-$G_i(u) = U \bullet M \bullet G $
-
-donde $G_i = \begin{pmatrix} g_i1' & g_i2' & g_i3' & g_i4' \cr \end{pmatrix}^{T}$ 
-
-V:
-## SPLINES CÚBICAS
-
-####Superficies paramétricas bicúbicas
-
-transponiendo y reemplazando se obtiene:
-$P(s,u)=S \bullet M \bullet \begin{bmatrix} 
-g_11' & g_12' & g_13' & g_14'\cr 
-g_21' & g_22' & g_23' & g_24'\cr
-g_31' & g_22' & g_33' & g_34'\cr
-g_41' & g_22' & g_43' & g_44'\cr
-\end{bmatrix} \bullet
-M^{T} \bullet U^{T} $
-
-$= S \bullet M \bullet G' \bullet M^{T} \bullet U^{T}$
-
-$ 0 \leq s,u \leq 1 $
-
-V:
-## SPLINES CÚBICAS
-
-####Superficies paramétricas bicúbicas
-
-Escrito separadamente para cada coordenada se tiene:
- 
-
-\\[x(s,u)=S \bullet M \bullet G_x' \bullet M^{T} \bullet U^{T}\\]
-\\[y(s,u)=S \bullet M \bullet G_y' \bullet M^{T} \bullet U^{T}\\]
-\\[z(s,u)=S \bullet M \bullet G_z' \bullet M^{T} \bullet U^{T}\\]
-
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
-
-
-$P(u) = \begin{bmatrix}
-u^{3} \ u^{2} \ u \ 1 \cr
-\end{bmatrix}
- \bullet \begin{bmatrix}
- a \ b \ c \ d \cr
- \end{bmatrix}
- ^{T} = U \bullet C$
-
-$P'(u) =\begin{bmatrix}
-	3u^{2} & 2u & 1 & 0 \cr
-	\end{bmatrix} \bullet \begin{bmatrix}
- a \ b \ c \ d \cr\end{bmatrix} 
-^{T}$
- 
-$\ 0 \leq s,u \leq 1 $
-
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
-
-
-<img height="100" src="fig/splineCub1.jpg">
-
-Especificación con 
-condiciones de frontera: $C^{2}$
-
-Si se tienen $n+1$ puntos de control: 
-
-1. $n$
- secciones curvas a ajusta
-1. $4n$
- coeficientes polinómicos (incógnitas)
-
-1. $4n-4$
-	 ecuaciones ( las 2 secciones a cada lado de un punto de control deven tener la $1a$ y la $2a$ derivadas iguales: para 
-	$n-1$
-	puntos,
-	$4$
- ecuaciones por punto )
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cúbicas Naturales
-
-
-1. Las posiciones 
-$p_0$
- Y $p_n$
- nos dan
- $2$ ecuaciones mas
-
-1. Las otras 
-$2$ ecuaciones se pueden establecer al definir como $0$ las segundas derivadas en $p_0$
- y $p_n$
-
-V:## SPLINES CÚBICAS
-
-
-
-####Splines de Hermite
-
-
-
+###Splines de Hermite
 
 Especificación con 
 condiciones de frontera:
  
-
-
 <img height="150" src="fig/splineCub2.jpg">
 
 1. $p_k = P(0) = d$
