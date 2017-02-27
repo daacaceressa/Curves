@@ -1,234 +1,240 @@
-﻿## INDICE
-1. Introducción.
-2. Superficies Cuádricas.
-3. Supercuádricos.
+﻿<section id="themes">
+	<h2>Themes</h2>
+		<p>
+			Set your presentation theme: <br>
+			<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+                        <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+		</p>
+</section>
 
-4. Representaciones de Spline.
+H:
 
-5. Metodos de Interpolación de Spline.
-6. Spline Racionales.
+# Curves
 
-7. Conversión entre representaciones de Spline.
+Jean Pierre Charalambos
 
-8. Despliegue de curvas  y superficies de Spline.
+H:
 
+# Index
 
-H: ### INTRODUCCIÓN: Líneas y Superficies Curvas
+ 1. Intro<!-- .element: class="fragment" data-fragment-index="1"-->
+ 2. Cubic natural splines<!-- .element: class="fragment" data-fragment-index="2"-->
+ 3. Cubic Hermit splines<!-- .element: class="fragment" data-fragment-index="3"-->
+ 4. Bézier curves<!-- .element: class="fragment" data-fragment-index="4"-->
+ 
+H:
 
-Entrada: 
-Conjunto de funciones matemáticas
-<img height="500" src="fig/intro1.jpg">
+## Intro
 
+> Find the piecewise interpolation polynomial(s) that best approximate a given a set of _control points_
 
-V: 
-### INTRODUCCIÓN: Líneas y Superficies Curvas
+### Use cases
 
+<li class="fragment"> As _drawing_ tool
+<li class="fragment"> _Animation_ curves
+<li class="fragment"> CAD tool to _model_ objects  
 
-Entrada:  Conjunto de Puntos de Coordenadas
+### Advantages
 
-
-<img height="500" src="fig/intro2.jpg"/> 
-
-
-
-
-H: 
-## SUPERFICIES CUADRICAS
-
-<table>
-<tr>
-	<td>
-Esfera
-<br/>
-<img height="350" src="fig/superfic1.jpg" >
-<br/>
-Parametros:
-r, $\theta$, $\varphi$
-	</td>
-	<td>
-
-Representación Cartesiana
-\\[x^{2} + y^{2} + z^{2} = r^{2}\\]
-<br/>
-Representación Paramétrica
-\\[ x= r \times \cos \varphi \times \cos \theta \\]
-\\[y=r \times \cos \varphi \times \sin \theta \\]
-\\[z=r \times \sin \varphi \\]
-\\[-\pi/2 \leq \varphi \leq \pi/2 \\]
-\\[-\pi \leq \theta \leq \pi \\]
-	</td>
-</tr>
-</table>
-
-
-
-V: 
-
-## SUPERFICIES CUADRICAS
-
-<table>
-<tr>
-	<td>
-Elipsoide
-<br/>
-
-<img height="350" src="fig/superfic2.jpg">
-No Olvidar el Toro
-	</td>
-	<td>
-Representación Cartesiana:
-\\[(x/r_x)^{2}+(y/r_y)^{2} + (z/r_z)^{2} = 1 \\]
-<br/>
-Representación Paramétrica:
-\\[x=r_x \times \cos \varphi \times \cos \theta \\]
-\\[y=r_y \times \cos \varphi \times \sin \theta \\]
-\\[z=r_z \times \sin \varphi \\]
-\\[-\pi/2 \leq \varphi \leq \pi/2 \\]
-\\[-\pi \leq \theta \leq \pi \\]
-	</td>
-</tr>
-
-</table> 
-
-H: 
-
-
-
-## SUPERCUADRICOS
-###Concepto: 
-
-<img height="500" src="fig/supercuad1.jpg">
-
-
-
-V: 
-## SUPERCUADRICOS
-### Superelipse 
-Representación Cartesiana:
-\\[ (x/r_x)^{2/S} + (y/r_y)^{2/S}=1\\]
-<br/>
-Representación Paramétrica:
-\\[x= r_x \times \cos ^{S} \theta \\]
-\\[y= r_y \times \sin ^{S} \theta \\]
-
-
-\\[-\pi \leq \theta \leq \pi \\]
-
-Con $S = 1$ obtenemos una elipse ordinaria.
-
-
-
-V: 
-## SUPERCUADRICOS
-
-
-###Superelipsoide
-<table><tr>
-	<td>
-Con $S_1=S_2=1$ obtenemos una elipsoide ordinaria. 
-	</td>
-	<td>
-Representación Cartesiana:
-\\[((x/r_x)^{2/S2} + (y/r_y)^{2/S2})^{S2/S1} (z/r_z)^{2/S1} = 1\\]
-<br/>
-Representación Paramétrica:
-<table>
-<tr>
-<td>
-\\[x= r_x \times \cos^{S1} \varphi \times \cos^{S2} \theta\\]
-\\[y= r_y \times \cos^{S1} \varphi \times \sin ^{S2} \theta\\]
-\\[z= r_z \times \sin^{S1} \varphi \\]
-</td>
-<td>
-<br/>
-\\[-\pi/2 \leq \varphi \leq \pi/2\\]
-\\[-\pi \leq \theta \leq \pi\\]
-</td>
-</tr>
-</table>
-	</td>
-</tr><table>
-
-	
-
-
-
-H:## REPRESENTACIONES DE SPLINE
-
-
-EJEMPLO
-
-
-<canvas id="canvas1" width="600" height="400"></canvas>
-
-
-
-
-
-V:## REPRESENTACIONES DE SPLINE
-
-
-EJEMPLO
-<canvas id="canvas2"></canvas>
-
-
+<li class="fragment"> Compact representation
+<li class="fragment"> Affine transformations of the curve <-> transformation on the control points
 
 V:
-## REPRESENTACIONES DE SPLINE
-1. Introducción.
-2. Definición del Problema.
-3. Continuidad.
-4. Modos de Especificación.
 
+## Intro: General notions
 
+<img height="300" src="fig/nociones.png">
 
-V:## REPRESENTACIONES DE SPLINE
-###Introducción
-
-<img height="500" src="fig/repSpline1.jpg"/>
-
-
-V:## REPRESENTACIONES DE SPLINE
-###Introducción
-Usos:
-
-1. Digitacilación de trazos (Curvas de Interpolación)
-1. Especificación de trayectorias de animación (Curvas de Interpolación)
-1. Herramienta de diseño para superficies de los objetos CAD (Curvas de aproximación)
-
-Ventaja:
-
-La curva se modifica y manipula (trasladar, girar y escalar) solo en los puntos de control.
-
-
-
-
-V:## REPRESENTACIONES DE SPLINE
-
-
-###Introducción
-<img height="250" src="fig/nociones.png">
-
-1. La curva realiza la interpolación.
-2. La curva  aproxima la interpolación.
-3. Casco convexo.
-4. Grafica de control.
-
-
+1. Curve fits the interpolation<!-- .element: class="fragment" data-fragment-index="1"-->
+2. Curve approximates the interpolation<!-- .element: class="fragment" data-fragment-index="2"-->
+3. Convex hull<!-- .element: class="fragment" data-fragment-index="3"-->
+4. Control polygon<!-- .element: class="fragment" data-fragment-index="4"-->
 
 V:
-## REPRESENTACIONES DE SPLINE
-###Definición del problema
+
+## Intro: Problem statement
+
 <img height="200" src="fig/repSpline4.jpg">
 
-Se pueden tener 1 o varias secciones de spline.
-Cada sección de la Spline se puede definir paramétricamente así: $P(u) = ( x(u), y(u), z(u) )^{T}$ , $u_1 \leq u \leq u_2$
-
-La derivada de $P(u)$ es el vector tangente paramétrico de la curva: $P'(u) = ( x'(u), y'(u), z'(u) )^{T} $ , $u_1 \leq u \leq u_2$
-
-
+<li class="fragment"> One or several curve section -> piecewise spline
+<li class="fragment"> For each piecewise section: $P(u) = ( x(u), y(u), z(u) )^{T}$ , $u_1 \leq u \leq u_2$
+<li class="fragment"> $P'(u) = ( x'(u), y'(u), z'(u) )^{T} $ , $u_1 \leq u \leq u_2$ defines the tangent parametric vector of the curve
 
 V:
+
+## Intro: Continuity
+
+### Geometric
+
+$G^{0}$: if the sections extreme points meet at the same place<!-- .element: class="fragment" data-fragment-index="1"-->
+
+$G^{1}$: if (besides $G^{0}$) the vector tangents directions (but no the magnitudes) are the same<!-- .element: class="fragment" data-fragment-index="2"-->
+
+### Parametric
+
+$C^{n}$: if $d^{n}/d u^{n}P(u)$, are the same for both sections
+
+V:
+
+## Intro: Continuity
+
+It follows that:
+
+1. $C^{1} \rightarrow G^{1}$ but not the other way around<!-- .element: class="fragment" data-fragment-index="1"-->
+1. If $n > m$ then $C^{n} \rightarrow C^{m}$<!-- .element: class="fragment" data-fragment-index="2"-->
+
+Exception to 1:
+<center>
+<table>
+<tr>
+<td>
+<img height="280" src="fig/repSpline5.jpg">
+</td>
+<td>
+<img height="280" src="fig/repSpline6.jpg">
+</td>
+</tr>
+</table>
+</center>
+<!-- .element: class="fragment" data-fragment-index="3"-->
+
+H:
+
+## Cubic natural splines: problem statement
+
+$P(u)=(x(u),y(u),z(u))^{T}$, $u_1 \leq u \leq u_2$
+
+For each spline section:
+
+\\[x(u) = a_x u^{3} + b_x u^{2} + c_x u + d_x\\]
+\\[y(u) = a_y u^{3} + b_y u^{2} + c_y u + d_y\\]
+\\[z(u) = a_z u^{3} + b_z u^{2} + c_z u + d_z\\]
+
+$0 \leq u \leq 1$
+
+V:
+
+## Cubic natural splines: problem statement
+
+Which may be written vectorially as:
+
+$P(u)=a u^{3} + b u^{2} + c u + d , 0 \leq u \leq 1$
+
+hence
+
+\\[P(u) = 
+\begin{bmatrix}
+	u^{3} & u^{2} & u & 1 \cr
+\end{bmatrix}
+	\bullet	\begin{bmatrix}
+	a & b & c & d \cr
+\end{bmatrix}^{T} = U \bullet C\\]
+\\[ P'(u) = \begin{bmatrix}
+	3u^{2} & 2u & 1 & 0 \cr
+	\end{bmatrix}
+	\bullet \begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+^{T} = U' \bullet C\\]
+\\[ P''(u) = \begin{bmatrix}
+	6u & 2 & 0 & 0 \cr
+	\end{bmatrix}
+	\bullet \begin{bmatrix}
+	a & b & c & d \cr
+	\end{bmatrix}
+^{T} = U'' \bullet C\\]
+
+$0 \leq u \leq 1$
+
+We have $n+1$ control points: $P_k = (x_k,y_k,z_k),  k = 0,1,2,...,n$
+
+V:
+
+## Cubic natural splines: problem statement
+
+<img height="200" src="fig/splineCub1.jpg">
+
+Since there's $n+1$ control points then we have:
+
+1. $n$ piecewise sections
+1. $4n$ polynomial coeficients (unknowns)
+
+V:
+
+## Cubic natural splines: solution
+
+<img height="200" src="fig/splineCub1.jpg">
+
+Specification from $C^{2}$: Since there's $n+1$ control points then it follows:
+
+1. For each $n-1$ intermediate control points we have $4$ equations ($4n-4$ equations in total):
+  * Positions
+  * 1st and 2nd derivatives
+2. For the 2 extreme control points we have 
+  * Positions
+  * The second derivatives should be 0
+  
+Details [here](http://mathworld.wolfram.com/CubicSpline.html)
+
+V:
+
+## Cubic natural splines: problem statement
+
+Now $C$ may be decomposed as: $C=M \bullet G$, where
+
+\\[G = \begin{bmatrix} G_x & G_y & G_z \end{bmatrix} = \begin{bmatrix} 
+g_1x & g_1y & g_1z \cr 
+	g_2x & g_2y & g_2z \cr
+	g_3x & g_2y & g_3z \cr
+	g_4x & g_2y & g_4z \cr
+	\end{bmatrix}\\]
+
+\\[
+M=\begin{bmatrix} 
+	m_11 & m_12 & m_13 & m_14 \cr 
+	m_21 & m_22 & m_23 & m_24 \cr
+	m_31 & m_23 & m_33 & m_34 \cr
+	m_41 & m_24 & m_43 & m_44 \cr
+	\end{bmatrix}
+\\]
+	
+V:
+## SPLINE CÚBICAS
+
+\[
+\begin{bmatrix}m_{11} & m_{12} & m_{13} & m_{14}\\
+m_{21} & m_{22} & m_{23} & m_{24}\\
+m_{31} & m_{32} & m_{33} & m_{34}\\
+m_{41} & m_{42} & m_{43} & m_{44}
+\end{bmatrix}
+\]
+
+Tanto $M$ como $G$ varían para cada tipo de curva. 
+$M$ es la matríz basica y $G$ es la matríz de restricciones o condiciones geométricas
+Se tiene entonces: $P(u) = U \bullet M  \bullet G$
+
+----
+
+H:
+
+## Cubic Hermit splines
+
+H:
+
+## Bézier curves
+
+H:
+
 ## REPRESENTACIONES DE SPLINE
 
 
