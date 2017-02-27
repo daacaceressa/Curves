@@ -186,45 +186,6 @@ Specification from $C^{2}$: Since there's $n+1$ control points then it follows:
   
 Details [here](http://mathworld.wolfram.com/CubicSpline.html)
 
-V:
-
-## Cubic natural splines: problem statement
-
-Now $C$ may be decomposed as: $C=M \bullet G$, where
-
-\\[G = \begin{bmatrix} G_x & G_y & G_z \end{bmatrix} = \begin{bmatrix} 
-g_1x & g_1y & g_1z \cr 
-	g_2x & g_2y & g_2z \cr
-	g_3x & g_2y & g_3z \cr
-	g_4x & g_2y & g_4z \cr
-	\end{bmatrix}\\]
-
-\\[
-M=\begin{bmatrix} 
-	m_11 & m_12 & m_13 & m_14 \cr 
-	m_21 & m_22 & m_23 & m_24 \cr
-	m_31 & m_23 & m_33 & m_34 \cr
-	m_41 & m_24 & m_43 & m_44 \cr
-	\end{bmatrix}
-\\]
-	
-V:
-## SPLINE CÚBICAS
-
-\[
-\begin{bmatrix}m_{11} & m_{12} & m_{13} & m_{14}\\
-m_{21} & m_{22} & m_{23} & m_{24}\\
-m_{31} & m_{32} & m_{33} & m_{34}\\
-m_{41} & m_{42} & m_{43} & m_{44}
-\end{bmatrix}
-\]
-
-Tanto $M$ como $G$ varían para cada tipo de curva. 
-$M$ es la matríz basica y $G$ es la matríz de restricciones o condiciones geométricas
-Se tiene entonces: $P(u) = U \bullet M  \bullet G$
-
-----
-
 H:
 
 ## Cubic Hermit splines
