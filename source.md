@@ -103,7 +103,7 @@ $G^{1}$: if (besides $G^{0}$) the vector tangents directions (but no the magnitu
 
 ### Parametric
 
-$C^{n}$: if $d^{n}/d u^{n}P(u)$, are the same for both sections
+$C^{n}$: if $d^{n}/d u^{n}P(u)$, are the same for both sections<!-- .element: class="fragment" data-fragment-index="3"-->
 
 V:
 
@@ -246,6 +246,122 @@ We get the following equations:<!-- .element: class="fragment" data-fragment-ind
 V:
 
 ## Cubic Hermit splines
+
+1. $p_k = P(0) = d$
+1. $p_{k+1} = P(1) = a+b+c+d$
+1. $Dp_k = P'(0) = c$
+1. $Dp_{k+1}= P'(1) = 3a + 2b + c$
+
+which may be written as:
+
+$\begin{bmatrix} p_k \cr p_k+1 \cr
+ Dp_k \cr Dp_k+1 \cr \end{bmatrix} = \begin{bmatrix}
+	0 & 0 & 0 & 1 \cr
+ 1 & 1 & 1 & 1 \cr
+ 0 & 0 & 1 & 0 \cr 4 & 2 & 1 & 0 \cr
+ \end{bmatrix}
+ \begin{bmatrix} 
+	a \cr 
+	b \cr
+	c \cr
+	d \cr
+	\end{bmatrix}
+$
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+V:
+
+## Cubic Hermit splines
+
+Solving for $C$, we get:
+
+
+\\[\begin{bmatrix} 
+a \cr 
+b \cr
+ c \cr
+ d \cr
+ \end{bmatrix}
+ = 
+\begin{bmatrix}
+ 2 & -2 & 1 & 1 \cr
+ -3 & 3 & -2 & -1 \cr
+ 0 & 0 & 1 & 0 \cr
+ 1 & 0 & 0 & 0 \cr
+ \end{bmatrix} \bullet \begin{bmatrix} 
+ p_k \cr 
+p_k+1 \cr
+ Dp_k \cr
+ Dp_k+1 \cr
+ \end{bmatrix}
+ \\]
+
+
+V:
+
+## Cubic Hermit splines
+
+Hermite matrix:
+<table>
+<tr>
+	<td>
+\\[M_H =
+\begin{bmatrix}
+ 2 & -2 & 1 & 1 \cr
+ -3 & 3 & -2 & -1 \cr
+	0 & 0 & 1 & 0 \cr
+ 1 & 0 & 0 & 0 \cr
+ \end{bmatrix}\\]
+	</td>
+</tr>
+</table>
+
+$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})$
+$+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$
+$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$, where $l=k+1$
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+The polynomials $H_i(u)$, for $i= 0,1,2,3$, are the Hermite basis functions
+<!-- .element: class="fragment" data-fragment-index="2"-->
+
+V:
+
+## Cubic Hermit splines: examples and continuity
+
+<table>
+<tr>
+	<td>
+Curve family
+	</td>
+	<td colspan=3>
+Continuty between curves
+	</td>
+</tr>
+<tr>
+	<td>
+
+<img height="300" src="fig/splineCub3.jpg" style="vertical-align: top;">
+	</td>
+	<td>
+Curve 1
+$
+\begin{bmatrix} P(0) \cr P(1) \cr
+ P'(0) \cr P'(1)\cr
+ \end{bmatrix}$
+
+	</td>
+	<td>
+Curve 2
+$\begin{bmatrix} P(1) \cr P(2) \cr k P'(1) \cr
+ P'(2)\cr
+\end{bmatrix}$
+	</td>
+	<td>
+Si $k > 0 \rightarrow G^{1}$ 
+Si $k = 1 \rightarrow C^{1}$
+	</td>
+</tr>
+</table>
 
 H:
 
