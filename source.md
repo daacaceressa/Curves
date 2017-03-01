@@ -214,7 +214,7 @@ H:
 <div class="ulist">
     <img src="fig/splineCub2.jpg" alt="pipeline" width="30%" style="float: right">
     <ul style="width: 30%;">
-        $P(u)=a u^{3} + b u^{2} + c u + d , 0 \leq u \leq 1$
+        $P(u)=a u^{3} + b u^{2} + c u + d, 0 \leq u \leq 1$
         
         \\[P(u) = 
         \begin{bmatrix}
@@ -254,8 +254,8 @@ V:
 
 which may be written as:
 
-$\begin{bmatrix} p_k \cr p_k+1 \cr
- Dp_k \cr Dp_k+1 \cr \end{bmatrix} = \begin{bmatrix}
+`$\begin{bmatrix} p_k \cr p_{k+1} \cr
+ Dp_k \cr Dp_{k+1} \cr \end{bmatrix} = \begin{bmatrix}
 	0 & 0 & 0 & 1 \cr
  1 & 1 & 1 & 1 \cr
  0 & 0 & 1 & 0 \cr 4 & 2 & 1 & 0 \cr
@@ -266,7 +266,7 @@ $\begin{bmatrix} p_k \cr p_k+1 \cr
 	c \cr
 	d \cr
 	\end{bmatrix}
-$
+$`
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 V:
@@ -275,7 +275,7 @@ V:
 
 Solving for $C$, we get:
 
-\\[\begin{bmatrix} 
+`$\begin{bmatrix} 
 a \cr 
 b \cr
  c \cr
@@ -289,11 +289,11 @@ b \cr
  1 & 0 & 0 & 0 \cr
  \end{bmatrix} \bullet \begin{bmatrix} 
  p_k \cr 
-p_k+1 \cr
+ p_{k+1} \cr
  Dp_k \cr
- Dp_k+1 \cr
+ Dp_{k+1} \cr
  \end{bmatrix}
- \\]
+ $`
 
 
 V:
@@ -315,15 +315,17 @@ Hermite matrix:
 </tr>
 </table>
 
-$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$, where $l=k+1$
+`$P(u) = p_k(2u^{3}-3u^{2}+1)+p_{k+1}(-2u^{3}+3u^{2})$`
+        `$+ Dp_k(u^{3}-2u^{2}+u)+Dp_{k+1}(u^{3}-u^{2})$`
 
 V:
 
 ## Cubic Hermit splines
 
-$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$, where $l=k+1$
+`$P(u) = p_k(2u^{3}-3u^{2}+1)+p_{k+1}(-2u^{3}+3u^{2})$`
+        `$+ Dp_k(u^{3}-2u^{2}+u)+Dp_{k+1}(u^{3}-u^{2})$`
 
-$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$
+`$P(u) = p_k H_0(u)+p_{k+1} H_1(u)+Dp_k H_2(u)+Dp_{k+1} H_3(u)$`
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 The polynomials $H_i(u)$, for $i= 0,1,2,3$, are the Hermite basis functions:
@@ -380,14 +382,14 @@ V:
 
 <img height="300" src="fig/splineCub7.jpg">
 
-if in a Hermite splines we choose $P(0)$, $P(1)$, $P'(0)$ and $P'(1)$ to be:
+if within a Hermite spline we choose $P(0)$, $P(1)$, $P'(0)$ and $P'(1)$ to be:
 
 1. $P(0)=P_k$
 1. $P(1)=P_{k+1}$
 1. $P'(0)=1/2(1-t)P_{k+1}-P_k-1$ 
 1. $P'(1)=1/2(1-t)P_{k+2}-P_k$
 
-where $t$ $\in([0,1]$ is the _tension_ parameter
+where $t$ $\in([0,1]$ is the _tension_ parameter, we get a _Cardinal_ spline
 
 For $t=0$ we get the [Catmull-Rom spline](https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Catmull.E2.80.93Rom_spline)
 
@@ -395,7 +397,8 @@ V:
 
 ## Cubic Hermit splines: Cardinal splines
 
-$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet M_C \bullet \begin{bmatrix} P_k-1 \cr P_k \cr P_k+1 \cr P_k+2 \end{bmatrix}$
+`$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet M_C \bullet \begin{bmatrix} P_{k-1} \cr P_k \cr P_{k+1} \cr P_{k+2} \end{bmatrix}$`
+
 $
 M_c =\begin{bmatrix} 
 -s & 2-s & s-2 & s\cr
@@ -410,10 +413,10 @@ V:
 
 ## Cubic Hermit splines: Cardinal splines
 
-$P(u)=p_k-1(-su^{3}+2su^{2}-su)+p_k[(2-s)u^{3}+(s-3)u^{2}+1]$
-$+p_k+1[(s-2)u^{3}+(3-2)u^{2}+su]+p_k+2(su^{3}-su^{2})$
+`$P(u)=p_{k-1}(-su^{3}+2su^{2}-su)+p_k[(2-s)u^{3}+(s-3)u^{2}+1]$`
+`$+p_{k+1}[(s-2)u^{3}+(3-2)u^{2}+su]+p_{k+2}(su^{3}-su^{2})$`
 
-$=p_k-1 CAR_0(u)+p_k CAR_1(u)+p_k+1 CAR_2(u)+ p_k+2 CAR_3(u)$
+`$=p_{k-1} CAR_0(u)+p_k CAR_1(u)+p_{k+1} CAR_2(u)+ p_{k+2} CAR_3(u)$`
 
 The polynomials $CAR_k(u)$, for $i= 0,1,2,3$, are the Cardinal basis functions
 
@@ -421,443 +424,15 @@ H:
 
 ## Bézier curves
 
-H:
+$P(u)=(x(u),y(u),z(u))^{T}, 0 \leq u \leq 1$
 
-## SPLINES CÚBICAS
+We have $n+1$ control points: $P_k=(x_k,y_k,z_k), k=0,1,2,....,n$
 
-###Splines de Hermite
+`$P(u)= \sum P_k BEZ_{k,n}(u), k=0,1,2,...,n$`
 
-Especificación con 
-condiciones de frontera:
- 
-<img height="150" src="fig/splineCub2.jpg">
-
-1. $p_k = P(0) = d$
-1. $p_{k+1} = P(1) = a+b+c+d$
-1. $Dp_k = P'(0) = c$
-1. $Dp_{k+1}= P'(1) = 3a + 2b + c$
-
-
-V:## SPLINES CÚBICAS
-
-
-
-####Splines de Hermite
-
-1. $ P(0) = p_k$ 
-1. $ P(1) = p_{k+1}$
-1. $P'(0) = Dp_k$ (Derivada en el punto $p_k$)
-
-1. $P'(1) = Dp_k+1 $ (Derivada en el punto $p_k+1$ )
-
-$\begin{bmatrix} p_k \cr p_k+1 \cr
- Dp_k \cr Dp_k+1 \cr \end{bmatrix} = \begin{bmatrix}
-	0 & 0 & 0 & 1 \cr
- 1 & 1 & 1 & 1 \cr
- 0 & 0 & 1 & 0 \cr 4 & 2 & 1 & 0 \cr
- \end{bmatrix}
- \begin{bmatrix} 
-	a \cr 
-	b \cr
-	c \cr
-	d \cr
-	\end{bmatrix}
-$
-
-V:
-
-## SPLINES CÚBICAS
-
-
-####Splines de Hermite
-
-
-\\[\begin{bmatrix} 
-a \cr 
-b \cr
- c \cr
- d \cr
- \end{bmatrix}
- = 
-\begin{bmatrix}
- 2 & -2 & 1 & 1 \cr
- -3 & 3 & -2 & -1 \cr
- 0 & 0 & 1 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix} \bullet \begin{bmatrix} 
- p_k \cr 
-p_k+1 \cr
- Dp_k \cr
- Dp_k+1 \cr
- \end{bmatrix}
- \\]
-
-
-V:
-
-## SPLINES CÚBICAS
-
-
-####Splines de Hermite
-
-Matriz de Hermite:
-<table>
-<tr>
-	<td>
-\\[M_H =
-\begin{bmatrix}
- 2 & -2 & 1 & 1 \cr
- -3 & 3 & -2 & -1 \cr
-	0 & 0 & 1 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix}\\]
-	</td>
-	<td>
-$l=k+1$
-	</td>
-</tr>
-</table>
-$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})$
-$+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$
-$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$
-Donde los polinomios $H_i(u)$ para $k= 0,1,2,3$ son las funciones de combinación.
-
-
-
-V:
-## SPLINES CÚBICAS 
-####Splines de Hermite / ejemplos / continuidad entre secciones
-<table>
-<tr>
-	<td>
-Familia de curvas:
-	</td>
-	<td colspan=3>
-Continuidad entre curvas:
-	</td>
-</tr>
-<tr>
-	<td>
-
-<img height="250" src="fig/splineCub3.jpg" style="vertical-align: top;">
-	</td>
-	<td>
-Curva 1
-$
-\begin{bmatrix} P(0) \cr P(1) \cr
- P'(0) \cr P'(1)\cr
- \end{bmatrix}$
-
-	</td>
-	<td>
-Curva 2
-$\begin{bmatrix} P(1) \cr P(2) \cr k P'(1) \cr
- P'(2)\cr
-\end{bmatrix}$
-	</td>
-	<td>
-Si $k > 0 \rightarrow G^{1}$ 
-Si $k = 1 \rightarrow C^{1}$
-	</td>
-</tr>
-</table>
-
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-<img height="400" src="fig/splineCub4.jpg">
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-Desarrollando para la coordenada x:
-\\[x(s,u)=S \bullet M_H \bullet G_Hx(u) = S \bullet M_H \bullet 
-\begin{bmatrix} 
-p_k(u)\cr
-p_k+1(u)\cr 
-Dp_k(u)\cr 
-Dp_k+1(u)\end{bmatrix}
-_X \\]
-
-V:
-
-
-## SPLINES CÚBICAS
-
-####Superficies de Hermite
-
-\\[P(s,u)=S \bullet M_H \bullet G(u)\\]
-Donde 
-\\[G(u)=\begin{bmatrix} 
-G_1(u)\cr 
-G_2(u)\cr 
-G_3(u)\cr 
-G_4(u)\end{bmatrix}\\]
-
-> El parche cúbico es una interpolación cúbica entre $p_k(u) =P(0,u)$ y $P_k+1(u) =P(1,u)$ o, alternativamente, entre $P(s,0)$ y $P(s,1)$
-
-
-
-V:
-## SPLINES CÚBICAS
-#### Superficies de Hermite
-Como:
-$G_i(u)=u \bullet M \bullet G'_i$, donde $G'_i=\begin{array} (( g_i1' \ g_i2' \ g_i3' \ g_i4' )\end{array}^{T}$ Entonces es el vector geométrico  se puede representar en la forma de hermite asi:
-
-
-V:
-## SPLINES CÚBICAS
-#### Superficies de Hermite
-<table>
-<tr>
-	<td>
-
-$P_k (u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_11'\cr
-g_12'\cr 
-g_13'\cr 
-g_11'\end{bmatrix}
-_X$
-	</td>
-	<td>
-
-$P_l (u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_21'\cr
-g_22'\cr 
-g_23'\cr 
-g_21'\end{bmatrix}
-_X$
-	</td>
-</tr>
-<tr>
-	<td>
-$DP_k(u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_31'\cr
-g_32'\cr 
-g_33'\cr 
-g_31'\end{bmatrix}
-_X$
-	</td>
-	<td>
-$DP_l(u)=U \bullet M_H \bullet 
-\begin{bmatrix} 
-g_41'\cr
-g_42'\cr 
-g_43'\cr 
-g_41'\end{bmatrix}
-_X$
-	</td>
-</tr>
-</table>
-
-> $l=k+1$
-
-V:#### Superficies de Hermite
-
-$P(s,u)=S \bullet M \bullet G(u)$ donde $
-G(u)=\begin{bmatrix} 
-G_1(u)\cr 
-G_2(u)\cr 
-G_3(u)\cr 
-G_4(u)\end{bmatrix}
-$
-
-$P(s,u) = S  \bullet M \bullet G' \bullet M^{T} \bullet U^{T} , 0 \leq s,u \leq 1$
-
-
-$G_H = \begin{bmatrix} 
-g_11' & g_12' & g_13' & g_14' \cr 
-g_21' & g_22' & g_23' & g_24' \cr
-g_31' & g_22' & g_33' & g_34' \cr
-g_41' & g_22' & g_43' & g_44' \cr
-\end{bmatrix}$
-
-
-V:
-## SPLINES CÚBICAS
-
-
-####Superficies de Hermite
-$G_Hx=\begin{bmatrix} 
-x(0,0) & x(0,1) & \dfrac{\partial}{\partial u} x(0,0) & \dfrac{\partial}{\partial u} x(0,1)\cr 
-x(1,0) & x(1,1) & \dfrac{\partial}{\partial s} x(1,0) & \dfrac{\partial}{\partial s} x(1,1)\cr
-\dfrac{\partial}{\partial s} x(0,0)  & \dfrac{\partial}{\partial s} x(0,1) & \dfrac{\partial^{2}}{\partial s \partial u} x(0,0) & \dfrac{\partial^{2}}{\partial s \partial u} x(0,1)\cr
-\dfrac{\partial}{\partial s} x(1,0) &\dfrac{\partial}{\partial s} x(1,1) & \dfrac{\partial^{2}}{\partial s \partial u} x(1,0) & \dfrac{\partial^{2}}{\partial s \partial u} x(1,1)\cr
-\end{bmatrix}$
-
-V:
-## SPLINES CÚBICAS
-
-
-####Superficies de Hermite
-
-
-
-<table>
-
-<tr>
-
-<td>
-
-
-<img height="300" src="fig/splineCub5.jpg"style="vertical-align: top;">
-</td>
-<td>
-
-
-$
-G_Hx=
-\begin{bmatrix} 
-
-g_11' & g_12' & g_13' & g_14'\cr
-
-g_21' & g_22' & g_23' & g_24'\cr
-g_31' & g_22' & g_33' & g_34'\cr
-
-g_41' & g_22' & g_43' & g_44'\cr
-
-\end{bmatrix}
-$
-
-</td>
-
-</tr>
-
-</table>
-
-
-
-
-V:
-## SPLINES CÚBICAS
-
-
-####Superficies de Hermite/Continuidad
-<table>
-<tr>
-	<td>
-Parche 1
-
-$
-\begin{bmatrix} 
-
-- & - & - & - \cr 
-
-g_21' & g_22' & g_23' & g_24'\cr
-
-- & - & - & - \cr
- 
-g_41' & g_42' & g_43' & g_44'\cr
-
-\end{bmatrix}$
-	</td>
-	<td>
-Parche 2
-$\begin{bmatrix}
-
-g_21' & g_22' & g_23' & g_24'\cr
-
-- & - & - & - \cr
-
-kg_41' & kg_42' & kg_43' & kg_44'\cr
-- & - & - & - \cr
-
-\end{bmatrix}$
-	</td>
-</tr>
-<tr>
-	<td colspan=2>
-Si $K>0 \rightarrow G^{1}$,
-Si $K>0 \rightarrow C^{1}$
-	</td>
-</tr>
-</table>
-
-V:
-## SPLINES CÚBICAS
-
-
-####Superficies de Hermite/Continuidad
-<img height="500" src="fig/splineCub6.jpg" align ="center">
-
-
-
-V:
-## SPLINES CÚBICAS
-####Splines Cardinales
-\\[P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T} = U \bullet M \bullet G \\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T}\\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet M \bullet G\\]
-
-V:
-## SPLINES CÚBICAS
-####Splines Cardinales
-
-Especificación con  condiciones de frontera:
-<img height="200" src="fig/splineCub7.jpg">
-
-> $P(0)=P_k$
-> $P(1)=P_k+1$
-> $P'(0)=1/2(1-t)P_k+1-p_k-1$
-> $P'(1)=1/2(1-t)P_k+2-p_k$
-
-> donde $t$ es el parámetro de tensión
-
-V:## SPLINES CÚBICAS
-####Splines Cardinales
-
-$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet M_C \bullet \begin{bmatrix} P_k-1 \cr P_k \cr P_k+1 \cr P_k+2 \end{bmatrix}$
-$
-M_c =\begin{bmatrix} 
--s' & 2-s & s-2 & s\cr
-2s & s-3 & 3-2s & -s \cr
--s & 0 & s & 0\cr
-0 & 1 & 0 & 0 \cr
-\end{bmatrix}$
-
-Donde $s=(1-t)/2$
-
-V:## SPLINES CÚBICAS
-####Splines Cardinales
-$P(u)=p_k-1(-su^{3}+2su^{2}-su)+p_k[(2-s)u^{3}+(s-3)u^{2}+1]$
-$+p_k+1[(s-2)u^{3}+(3-2)u^{2}+su]+p_k+2(su^{3}-su^{2})$
-
-$=p_k-1 CAR_0(u)+p_k CAR_1(u)+p_k+1 CAR_2(u)+ p_k+2 CAR_3(u)$
-
-Los polinomios $CAR_k(u)$ para $k = 0,1,2,3$ son las  funciones  de  combinación
-
-
-V:
-##SPLINE CÚBICAS
-
-####Splines Kochanek-Bartels
-Especificación con condiciones de frontera:
-
-<font size=5>
-$P(0)=p_k$
-
-$P(1)=p_k+1$
-$P'(0)=1/2(1−t)[(1+b)(1−c)(p_k−p_k−1)+(1−b)(1+c)(p_k+1−p_k)]$
-$P'(1)=1/2(1−t)[(1+b)(1+c)(p_k+1−p_k)+(1−b)(1−c)(p_k+2−p_k+1)]$
-</font>
-
-Donde:
-
-t es el parámetro de tensión
-
-b es el parámetro de sesgo : controla la distancia que cada curva se inclina en cada sección.
-
-c es el parámetro de tensión : Del vector tangente a lo largo de las fronteras de las secciones.
+* $P(u)= \sum x_k BEZ(u), k=0,1,2,...,n $
+* $P(u)= \sum y_k BEZ(u), k=0,1,2,...,n $
+* $P(u)= \sum z_k BEZ(u), k=0,1,2,...,n $
 
 
 H:
