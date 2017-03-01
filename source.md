@@ -275,7 +275,6 @@ V:
 
 Solving for $C$, we get:
 
-
 \\[\begin{bmatrix} 
 a \cr 
 b \cr
@@ -377,7 +376,53 @@ Si $k = 1 \rightarrow C^{1}$
 
 V:
 
-## Cubic Hermit splines: cardinal
+## Cubic Hermit splines: Cardinal splines
+
+\\[P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T} = U \bullet M \bullet G \\]
+\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T}\\]
+\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet M \bullet G\\]
+
+V:
+
+## Cubic Hermit splines: Cardinal splines
+
+<img height="300" src="fig/splineCub7.jpg">
+
+1. $P(0)=P_k$
+1. $P(1)=P_{k+1}$
+1. $P'(0)=1/2(1-t)P_{k+1}-P_k-1$ 
+1. $P'(1)=1/2(1-t)P_{k+2}-P_k$
+
+where $t$ $\in([0,1]$ is the _tension_ parameter
+
+For $t=0$ we get the [Catmull-Rom spline](https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Catmull.E2.80.93Rom_spline)
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+V:
+
+## Cubic Hermit splines: Cardinal splines
+
+$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet M_C \bullet \begin{bmatrix} P_k-1 \cr P_k \cr P_k+1 \cr P_k+2 \end{bmatrix}$
+$
+M_c =\begin{bmatrix} 
+-s & 2-s & s-2 & s\cr
+2s & s-3 & 3-2s & -s \cr
+-s & 0 & s & 0\cr
+0 & 1 & 0 & 0 \cr
+\end{bmatrix}$
+
+where $s=(1-t)/2$
+
+V:
+
+## Cubic Hermit splines: Cardinal splines
+
+$P(u)=p_k-1(-su^{3}+2su^{2}-su)+p_k[(2-s)u^{3}+(s-3)u^{2}+1]$
+$+p_k+1[(s-2)u^{3}+(3-2)u^{2}+su]+p_k+2(su^{3}-su^{2})$
+
+$=p_k-1 CAR_0(u)+p_k CAR_1(u)+p_k+1 CAR_2(u)+ p_k+2 CAR_3(u)$
+
+The polynomials $CAR_k(u)$, for $i= 0,1,2,3$, are the Cardinal basis functions
 
 H:
 
