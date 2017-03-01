@@ -378,15 +378,9 @@ V:
 
 ## Cubic Hermit splines: Cardinal splines
 
-\\[P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T} = U \bullet M \bullet G \\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d \end{bmatrix}^{T}\\]
-\\[P'(u)=\begin{bmatrix} 3u^{2} & 2u & 1 & 0\end{bmatrix} \bullet M \bullet G\\]
-
-V:
-
-## Cubic Hermit splines: Cardinal splines
-
 <img height="300" src="fig/splineCub7.jpg">
+
+if in a Hermite splines we choose $P(0)$, $P(1)$, $P'(0)$ and $P'(1)$ to be:
 
 1. $P(0)=P_k$
 1. $P(1)=P_{k+1}$
@@ -396,7 +390,6 @@ V:
 where $t$ $\in([0,1]$ is the _tension_ parameter
 
 For $t=0$ we get the [Catmull-Rom spline](https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Catmull.E2.80.93Rom_spline)
-<!-- .element: class="fragment" data-fragment-index="1"-->
 
 V:
 
