@@ -316,13 +316,25 @@ Hermite matrix:
 </tr>
 </table>
 
-$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})$
-$+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$
-$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$, where $l=k+1$
+$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$, where $l=k+1$
+
+V:
+
+## Cubic Hermit splines
+
+$P(u) = p_k(2u^{3}-3u^{2}+1)+p_l(-2u^{3}+3u^{2})+Dp_k(u^{3}-2u^{2}+u)+Dp_l(u^{3}-u^{2})$, where $l=k+1$
+
+$P(u) = p_k H_0(u)+p_l H_1(u)+Dp_k H_2(u)+Dp_l H_3(u)$
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
-The polynomials $H_i(u)$, for $i= 0,1,2,3$, are the Hermite basis functions
+The polynomials $H_i(u)$, for $i= 0,1,2,3$, are the Hermite basis functions:
 <!-- .element: class="fragment" data-fragment-index="2"-->
+
+<figure>
+    <img height='400' src='fig/hermite_basis.png'/>
+    <figcaption>$H_0(u)$ (red), $H_1(u)$ (blue), $H_2(u)$, (green) and $H_3(u)$ (cyan)</figcaption>
+</figure>
+<!-- .element: class="fragment" data-fragment-index="3"-->
 
 V:
 
@@ -362,6 +374,10 @@ Si $k = 1 \rightarrow C^{1}$
 	</td>
 </tr>
 </table>
+
+V:
+
+## Cubic Hermit splines: cardinal
 
 H:
 
