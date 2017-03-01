@@ -214,26 +214,9 @@ H:
 <div class="ulist">
     <img src="fig/splineCub2.jpg" alt="pipeline" width="30%" style="float: right">
     <ul style="width: 30%;">
-        $P(u)=a u^{3} + b u^{2} + c u + d, 0 \leq u \leq 1$
-        
-        \\[P(u) = 
-        \begin{bmatrix}
-	u^{3} & u^{2} & u & 1 \cr
-        \end{bmatrix}
-	\bullet	\begin{bmatrix}
-	a & b & c & d \cr	
-        \end{bmatrix}\\]
-        
-        \\[P(u) = U \bullet C\\]
-        
-        \\[ P'(u) = \begin{bmatrix}
-	3u^{2} & 2u & 1 & 0 \cr
-	\end{bmatrix}
-	\bullet \begin{bmatrix}
-	a & b & c & d \cr
-	\end{bmatrix}\\]
-        
-        \\[P'(u) = U' \bullet C\\]
+        $P(u)=a u^{3} + b u^{2} + c u + d$
+        $P'(u)=3a u^{2} + 2b u + c + 0$
+        $0 \leq u \leq 1$
     </ul>
 </div>
 
