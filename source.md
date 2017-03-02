@@ -405,7 +405,7 @@ The polynomials $CAR_k(u)$, for $i= 0,1,2,3$, are the Cardinal basis functions
 
 H:
 
-## Bézier curves
+## Bézier curves: definition
 
 $P(u)=(x(u),y(u),z(u))^{T}, 0 \leq u \leq 1$
 
@@ -413,10 +413,91 @@ We have $n+1$ control points: $P_k=(x_k,y_k,z_k), k=0,1,2,....,n$
 
 `$P(u)= \sum P_k BEZ_{k,n}(u), k=0,1,2,...,n$`
 
-* $P(u)= \sum x_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum y_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum z_k BEZ(u), k=0,1,2,...,n $
+<li class="fragment"> `$P(u)= \sum x_k BEZ_{k,n}(u), k=0,1,2,...,n$`
+<li class="fragment"> `$P(u)= \sum y_k BEZ_{k,n}(u), k=0,1,2,...,n$`
+<li class="fragment"> `$P(u)= \sum z_k BEZ_{k,n}(u), k=0,1,2,...,n$`
 
+V:
+
+## Bézier curves: Bernstein polynomials
+
+`$BEZ_{k,n}(u)=C(n,k)u^{k}(1-u)^{n-k}$`
+
+`$BEZ_{k,n}(u)=(1-u)BEZ_{k,n-1}(u)+u BEZ_{k-1,n-1}(u), n > k \ge 1$`<!-- .element: class="fragment" data-fragment-index="1"-->
+
+`$BEZ_{k,k}(u)=u^{k}$`<!-- .element: class="fragment" data-fragment-index="2"-->
+
+`$BEZ_{0,k}(u)=(1-u)^{k}$`<!-- .element: class="fragment" data-fragment-index="3"-->
+
+`$C(n,k)=n!/(k!(n-k)!)$`<!-- .element: class="fragment" data-fragment-index="4"-->
+
+`$C(n,k)=C(n,k-1)(n-k+1)/k,n>k$`<!-- .element: class="fragment" data-fragment-index="5"-->
+
+V:
+
+## Bézier curves: Properties
+
+1. A Bézier curve is a polynomial of degree $n$ (one less than the total number of control points)<!-- .element: class="fragment" data-fragment-index="1"-->
+2. The curve interpolates the first and last control points<!-- .element: class="fragment" data-fragment-index="2"-->
+    1. $P(0)=p_0$
+    2. $P(1)=p_n$
+3. The tangent at the extreme control points lies along the line defined by the extreme point and the one adjacent to it<!-- .element: class="fragment" data-fragment-index="3"-->
+    1. `$P'(0)=-n p_0 +n p_1$`
+    2. `$P'(1)=-n p_{n-1} + n p_n$`
+4. The curve lies within the (control points) convex hull<!-- .element: class="fragment" data-fragment-index="4"-->
+    * `$\sum BEZ_{k,n}(u)=1, k=0,1,2,...,n$`
+    
+    
+V:
+
+## Bézier curves: Design techniques
+
+Empalme de 2 secciones
+
+> Property 3: The tangent at the extreme control points lies along the line defined by the extreme point and the one adjacent to it
+
+Example for $(G^{0}, G^{1} and) C^{1}$ continuity
+
+<img height="300" src="fig/curSupBez1.jpg">
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+V:
+
+## Bézier curves: Cubic splines
+
+Let $n=3$ ($4$ control points): $P_k=(x_k,y_k,z_k), k=0,1,2,3$, we get:
+
+1. `$BEZ_{0,3}(u)=(1-u)^{3}$`
+2. `$BEZ_{1,3}(u)=3u(1-u)^{2}$`
+3. `$BEZ_{2,3}(u)=3u^{2}(1-u)$`
+4. `$BEZ_{3,3}(u)=u^{3}$`
+
+V:
+
+## Bézier curves: Cubic splines
+
+Which is the same as:
+
+<table>
+<tr>
+	<td>
+`$P(u)=\begin{bmatrix}u^{3} & u^{2} & u & 1 \end{bmatrix}
+ \bullet M_{Bez} \bullet \begin{bmatrix}
+ p_0 \cr p_1 \cr p_2 \cr
+ p_3 \cr \end{bmatrix}
+$`
+	</td>
+	<td>
+`$M_{Bez} =\begin{bmatrix}
+ -1 & 3 & -3 & 1 \cr
+ 3 & -6 & 3 & 0 \cr -3 & 3 & 0 & 0 \cr
+ 1 & 0 & 0 & 0 \cr
+ \end{bmatrix}
+$`
+
+	</td>
+</tr>
+</table>
 
 H:
 
