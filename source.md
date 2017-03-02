@@ -478,26 +478,18 @@ V:
 
 Which is the same as:
 
-<table>
-<tr>
-	<td>
 `$P(u)=\begin{bmatrix}u^{3} & u^{2} & u & 1 \end{bmatrix}
  \bullet M_{Bez} \bullet \begin{bmatrix}
  p_0 \cr p_1 \cr p_2 \cr
  p_3 \cr \end{bmatrix}
 $`
-	</td>
-	<td>
+
 `$M_{Bez} =\begin{bmatrix}
  -1 & 3 & -3 & 1 \cr
  3 & -6 & 3 & 0 \cr -3 & 3 & 0 & 0 \cr
  1 & 0 & 0 & 0 \cr
  \end{bmatrix}
 $`
-
-	</td>
-</tr>
-</table>
 
 H:
 
