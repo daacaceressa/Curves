@@ -530,3 +530,5 @@ H:
 
 ## References
 
+1. [Mathematics of Computer Graphics and Virtual Environments](https://www.youtube.com/channel/UCfO67kOKUqVlos7IUANDPHw)
+2. [Pyramid Algorithms, Goldman](https://www.elsevier.com/books/pyramid-algorithms/goldman/978-1-55860-354-7)
