@@ -282,8 +282,8 @@ b \cr
 V:
 
 ## Cubic Hermit splines
+### Matrix form
 
-Hermite matrix:
 <table>
 <tr>
 	<td>
@@ -316,7 +316,7 @@ The polynomials $H_i(u)$, for $i= 0,1,2,3$, are the Hermite basis functions:
 
 <figure>
     <img height='400' src='fig/hermite_basis.png'/>
-    <figcaption>$H_0(u)$ (red), $H_1(u)$ (blue), $H_2(u)$, (green) and $H_3(u)$ (cyan)</figcaption>
+    <figcaption>$H_0(u)$ (red), $H_1(u)$ (blue), $H_2(u)$ (green), and $H_3(u)$ (cyan)</figcaption>
 </figure>
 <!-- .element: class="fragment" data-fragment-index="3"-->
 
@@ -405,6 +405,22 @@ The polynomials $CAR_k(u)$, for $i= 0,1,2,3$, are the Cardinal basis functions
 
 H:
 
+## Bézier curves: De Casteljau algorithm
+
+<section>
+	<iframe width="420" height="345" src="http://www.youtube.com/embed/YATikPP2q70"></iframe>
+</section>
+
+V:
+
+## Bézier curves: overview
+
+<section>
+	<iframe width="420" height="345" src="http://www.youtube.com/embed/2HvH9cmHbG4"></iframe>
+</section>
+
+V:
+
 ## Bézier curves: definition
 
 $P(u)=(x(u),y(u),z(u))^{T}, 0 \leq u \leq 1$
@@ -437,24 +453,24 @@ V:
 
 ## Bézier curves: Properties
 
-1. A Bézier curve is a polynomial of degree $n$ (one less than the total number of control points)<!-- .element: class="fragment" data-fragment-index="1"-->
-2. The curve interpolates the first and last control points<!-- .element: class="fragment" data-fragment-index="2"-->
+1. A Bézier curve can be split into two Bézier curves<!-- .element: class="fragment" data-fragment-index="1"-->
+2. A Bézier curve is a polynomial of degree $n$ (one less than the total number of control points)<!-- .element: class="fragment" data-fragment-index="2"-->
+3. The curve interpolates the first and last control points<!-- .element: class="fragment" data-fragment-index="3"-->
     1. $P(0)=p_0$
     2. $P(1)=p_n$
-3. The tangent at the extreme control points lies along the line defined by the extreme point and the one adjacent to it<!-- .element: class="fragment" data-fragment-index="3"-->
+4. The start and end of the curve is tangental to the start and end section of the control polygon<!-- .element: class="fragment" data-fragment-index="4"-->
     1. `$P'(0)=-n p_0 +n p_1$`
     2. `$P'(1)=-n p_{n-1} + n p_n$`
-4. The curve lies within the (control points) convex hull<!-- .element: class="fragment" data-fragment-index="4"-->
+5. The curve lies within the (control points) convex hull<!-- .element: class="fragment" data-fragment-index="5"-->
     * `$\sum BEZ_{k,n}(u)=1, k=0,1,2,...,n$`
-    
-    
+        
 V:
 
 ## Bézier curves: Design techniques
 
-Joining Bezier segments
+Joining Bézier segments
 
-> Property 3: The tangent at the extreme control points lies along the line defined by the extreme point and the one adjacent to it
+> Property 3: The start and end of the curve is tangental to the start and end section of the control polygon
 
 Example for $(G^{0}, G^{1} and) C^{1}$ continuity
 
@@ -486,15 +502,16 @@ The polynomials $BEZ_{i,3}(u)$, for $i= 0,1,2,3$, are the Bezier basis functions
 
 <figure>
     <img height='400' src='fig/bezier_basis.png'/>
-    <figcaption>$BEZ_{0,3}(u)$ (blue), $BEZ_{1,3}(u)$ (green), $BEZ_{2,3}(u)$, (red) and $BEZ_{3,3}(u)$ (cyan)</figcaption>
+    <figcaption>`$BEZ_{0,3}(u)$` (blue), `$BEZ_{1,3}(u)$` (green), `$BEZ_{2,3}(u)$` (red) and `$BEZ_{3,3}(u)$` (cyan)</figcaption>
 </figure>
 <!-- .element: class="fragment" data-fragment-index="3"-->
 
 V:
 
 ## Bézier curves: Cubic splines
+### Matrix form
 
-Which is the same as:
+... which is the same as:
 
 `$P(u)=\begin{bmatrix}u^{3} & u^{2} & u & 1 \end{bmatrix}
  \bullet M_{Bez} \bullet \begin{bmatrix}
@@ -511,504 +528,5 @@ $`
 
 H:
 
-## CURVAS Y SUPERFICIES DE BEZIER
+## References
 
-1. Curvas de Pierre Bezier
-
-2. Propiedades
-3. Técnicas de Diseño de Curvas de Bezier
-4. Curvas Cúbicas de Bezier
-
-5. Superficies de Bezier
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-$P(u)=(x(u),Y(u),z(u))^{T}, 0 \leq u \leq 1$
-
->Tenemos $n+1$ puntos de control de coordenadas: $P_k=(x_k,y_k,z_y), k=0,1,2,....,n$
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-Especificación con funciones de combinacion
-
-BEZ= BEZ <sub>k,n</sub>
-
-$P(u)= \sum P_k BEZ(u), k=0,1,2,...,n $
-
-* $P(u)= \sum x_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum y_k BEZ(u), k=0,1,2,...,n $
-* $P(u)= \sum z_k BEZ(u), k=0,1,2,...,n $
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-	
-####Curvas de Pierre Bezier
-$BEZ(u)=C(n,k)u^{k}(1-u)^{n-k}$
-
-$BEZ(u)=(1-u)BEZ$<sub>k,n-1</sub>$(u)+u BEZ$<sub>k-1,n-1</sub>$(u), n > k \ge 1$
-
-$BEZ$<sub>k,k</sub>$(u)=u^{k}$
-
-$BEZ$<sub>0,k</sub>$(u)=u^{k}$
-
-$C(n,k)=n!/(k!(n-k)!)$
-
-$C(n,k)=C(n,k-1)(n-k+1)/k,n>k$
-
-
-
-V:## CURVAS Y SUPERFICIES DE BEZIER
-####Propiedades
-1. Una curva de Bezier es un polinomio de grado n (uno menos que el número de puntos de control)
-
-2. La curva siempre pasa a través del primer y último puntos de control
-    1. $P(0)=p_0$
-,  $P(1)=p_n$
-
-3. Asimismo
-$P'(0)=-n p_0 +n p_1$
-, $P'(1)=-n p$<sub>n-1</sub>$ +n p_n$
- Es decir, la tangente de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-4. También: $\sum BEZ$<sub>k,n</sub>$(u)=1, k=0,1,2,...,n$ De esto se tiene que la curva de Bezier cae dentro del casco convexo de los puntos de control.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-####Técnicas de Diseño de Curvas de Bezier
-
-1. Las curvas cerradas se pueden generar al especificar el primer y ultimo punto de control en la misma posición.
-2. Al especificar múltiples puntos de control en la misma posición se obtiene mas peso para la posición.
-3. La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-
-
-
-
-V:
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Técnicas de Diseño de Curvas de Bezier:
-Empalme de 2 secciones
-Propiedad 3
-: La tangente  de la curva en el extremo está a lo largo de la línea que une ese extremo al punto de control adyacente.
-
-Ejemplo para continuidad
-:$G^{0},G^{1},C^{1}$
-
-
-
-<img height="300" src="fig/curSupBez1.jpg">
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Curvas Cúbicas de Bezier
-
-Tomando $n=3$ ($4$ puntos de control):
-$P_k=(x_k,y_k,z_k), k=0,1,2,3$
-
-Especificación con funciones de Combinación:
-
-1. $BEZ$<sub>0,3</sub>$(u)=(1-u)^{3}$
-2. $BEZ$<sub>1,3</sub>$(u)=3u(1-u)^{2}$
-3. $BEZ$<sub>2,3</sub>$(u)=3u^{2}(1-u)$
-4. $BEZ$<sub>3,3</sub>$(u)=u^{3}$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-
-####Curvas Cúbicas de Bezier
-
-Especificación con matríz característica:
-<table>
-<tr>
-	<td>
-$P(u)=\begin{bmatrix}u^{3} & u^{2} & u & 1 \end{bmatrix}
- \bullet M_Bez \bullet \begin{bmatrix}
- p_0 \cr p_1 \cr p_2 \cr
- p_3 \cr \end{bmatrix}
-$
-	</td>
-	<td>
-$M_Bez =\begin{bmatrix}
- -1 & 3 & -3 & 1 \cr
- 3 & -6 & 3 & 0 \cr -3 & 3 & 0 & 0 \cr
- 1 & 0 & 0 & 0 \cr
- \end{bmatrix}
-$
-
-	</td>
-</tr>
-</table>
-
-
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE BEZIER
-#### Superficies de Bezier
-
-$x(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>x</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-$y(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>y</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-$z(s,u)=S \bullet M_B \bullet G'$<sub>B<sub>z</sub></sub>$ \bullet M^{T}_B \bullet U^{T}$
-
-
-
-
-
-H:## CURVAS Y SUPERFICIES DE B-SPLINE
-1. Curvas de B-Spline
-2. Uniformes y Periódicas
-3. Cúbicas y Periódicas
-4. Uniformes y Abiertas
-5. No Uniformes
-
-6. Superficies de B-Spline
-
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-	
-####Curvas de B-Spline
-Ventajas respecto a las curvas de Bezier: 
-1. El grado del polinomio se puede determinar independientemente del número de puntos de control.
-2. Permiten control local
-Desventaja: complejidad.
-
-Tenemos $n+1$ puntos de control de coordenadas:
-	$p_k=(
-x_k,y_k,z_k), 
-k = 0,1,2,...,n$
-
-Definición:$P(u)= \sum  p_k B$<sub>k,d</sub>$(u), k=0,1,2,..,n$
-	
-$2 \leq d \leq n+1 $ 
-valor fijo
-	
-$u_min \leq u \leq u_max$
-
-
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-	
-####Curvas de B-Spline/ Ejemplo
-$n=4, d=4$
-
-<img height="200" src="fig/curSupB-Spl1.jpg">
-
-$S_3$
- es definida por $p_0,p_1,p_2,p_3$
-
-$S_4$
- es definida por $p_1,p_2,p_3,p_4$
-
-$U$<sub>min</sub>$ = u_3$, $U$<sub>max</sub>$ = u_5$ Vector de nudo de $n+d+1$ (9) pos:
-$\begin{bmatrix} u_0 & u_1 & u_2 & u_3 & u_4 & u_5 & u_6 & u_7 & u_8 \end{bmatrix}$
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Curvas de B-Spline
-Especificación con funciones de combinación (Cox-deBoor):
-$P(u)=\sum p_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-
-1. $x(u)=\sum x_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-2. $y(u)=\sum y_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-3. $z(u)=\sum z_k B$<sub>k,d</sub>$(u), k=0,1,2...n$, $u$<sub>min</sub>$ \le u \le u$<sub>max</sub>
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Curvas de B-Spline
-Especificación con funciones de combinación (Cox-deBoor)/2:
-
-$B$<sub>k,d</sub> $(u) = (u-u_k)  (u$ <sub>k+d-1</sub> $-u_k)B$ <sub>k,d-1</sub>
-
-$+(u$<sub>k+d</sub>$-u)/(u$<sub>k+d</sub>$-u$<sub>k+1</sub>$)B$<sub>k+1,d-1</sub>
-
-$B$<sub>k,1</sub>$(u) = 1$, si $u_k \le u\le u$<sub>k+1</sub>, $0$ de otro modo.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Propiedades
-
-1. La curva resultante es un polinomio de grado $d-1$ y continuidad $C^{d-2}$
-2. $n+1$ puntos de control y funciones de combinación
-3. Cada funcion de combinación $B$<sub>k,d</sub> se define sobre $d$
- subintervalos del rango total de $u$, empezando con el valor de
- nudo $u_k$
-4. El rango del parámetro $u$ se divide en $n+d$
- subintervalos entre los valores $n+d+1$ que se especifican en el vector de nudo
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-####Propiedades
-
-5. Con el vector de nudo de $n+d+1$ pos: $\begin{Bmatrix} u_0, \ u_1, \ ...,u_n+d \end{Bmatrix} $ la curva que resulta se define únicamente en el intervalo que va desde el valor de nudo $u$<sub>d-1</sub>$(=u$<sub>min</sub>$)$ hasta el valor $u$<sub>n+1</sub>$(=u$<sub>max</sub>$)$ Es decir, se tienen $:n-d+2$ secciones de curva.
-6. Cada sección de curva ( entre 2 valores de nudo sucesivos ) está influenciada por $d$ puntos de control
-7. La mayoría de los puntos de control afecta $d$
- secciones de curva
-8. Para cualquier valor de $u$ en el intervalo desde $u$<sub>d-1</sub> hasta $u$<sub>n+1</sub> se tiene: 
-$B$<sub>k,d</sub>$(u)=1$, para $k=0$ hasta $n$
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Especificación
-
-1. Puntos de Control
-1. Funciones de Combinación
-	1. $d$
-	2.Vector de Nudo
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-####Uniformes y Periódicas: Definición, Propiedades y Ejemplo
-
-Definición:
-
-El espaciado entre los valores de nudo es constante.
-
-Propiedades:
-
-
-1. Posee funciones periódicas de combinación
-2. $B$<sub>k,d</sub>$(u) = B$<sub>k-1,d</sub>$(u + \nabla u)+ B$<sub>k+2,d</sub>$(u+2\nabla u)$
-donde $ \nabla u $ es la distancia entre valores de nudo adyacentes
-
-Ejemplo:
-
-$n=d=3$
- y $\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6 \cr \end{Bmatrix} $
- se tienen las stes.: funciones de combinación
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-<img height="600" src="fig/curSupB-Spl2.jpg">
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-Para $d=4$ y $n=3$ se tiene el siguiente vector de nudo:
-$\begin{Bmatrix} 0, \ 1, \ 2, \ 3, \ 4, \ 5, \ 6, \ 7 \cr \end{Bmatrix}$
- y podemos calcular las funciones de combinación.
-
-Tambien, se pueden especificar mediante condiciones de frontera:
-<font size=5>
-<table>
-<tr>
-	<td>
-$P(u)=\begin{bmatrix} u^{3} & u^{2} & u & 1\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d\end{bmatrix}^{T}$
-$P(u)=\begin{bmatrix} 3 u^{2} & 2u & 1 & 0\end{bmatrix} \bullet \begin{bmatrix} a & b & c & d\end{bmatrix}^{T}$
-$0 \le u \le 1$
-	</td>
-	<td>
-$P(0)=1/6 (P_0 + 4 P_1 +P_2)$
-$P(1)=1/6 (P_1 + 4 P_2 +P_3)$
-$P'(0)=1/2 (P_2-P_0)$
-$P'(0)=1/2 (P_3-P_1)$
-	</td>
-</tr>
-</table>
-</font>
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-
-$P(u)=\begin{bmatrix}
- u^{3} \ u^{2} \ u \ 1 \end{bmatrix} \bullet M_B \bullet \begin{bmatrix}p_0 \cr
- p_1 \cr
- p_2 \cr p_3 \cr
- \end{bmatrix}
-$
-
-$M_B=1/6 \begin{bmatrix}-1 & 3 & -3 & 1 \cr3 & -6 & 3 & 0 \cr
-3 & 0 & 3 & 0 \cr
- 1 & 4 & 1 & 0 \cr\end{bmatrix}
-$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####Cúbicas y Periódicas
-
-
-$B$<sub>0,3</sub>$(u)=1/6(1-U)^{3}$
-
-$B$<sub>1,3</sub>$(u)=1/6(3U^{3}- 6 U^{2} + 4)$
-
-$B$<sub>2,3</sub>$(u)=1/6(-3U^{3} + 3 U^{2} + 3 U +1)$
-
-$B$<sub>3,3</sub>$(u)=1/6 U^{3}$
-
-$0 \le u \le 1$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Uniformes y Abiertas / Definición, Propiedades y Ejemplo
-
-Definición:
-
-
-El espaciado entre los valores de nudo es uniforme, excepto en los extremos,donde los valores de nudo se repiten $d$ veces.
-
-Propiedades:
-
-1. Cálculo del vector de nudo $u_j$: 
-    * $0$ , para $0 \leq j \leq d$
-    * $j-d+1$ para $d \leq j \leq n$
-    * $n-d+2$ para 
-$j>n$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-####Uniformes y Abiertas / Definición, Propiedades y Ejemplo / 2
-
-1. Si $d=n+1$, tenemos las splines de BEZIER.Todos los val. de nudo son 0 o 1.
-
-
-Ejemplos:
-
-1. 
-$d=2$ y $n=3$,$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 3 \cr \end{Bmatrix}$
-
-2. $d=4$ y $n=3$
-,$\begin{Bmatrix} 0, \ 0, \ 0, \ 0, \ 1, \ 1, \ 1, \ 1  \end{Bmatrix}$, BEZIER.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes/Definición, Propiedades y Ejemplo
-
-
-Definición:
-
-El espaciado entre los valores de nudo no es uniforme y algunos valores se pueden repetir
-
-Propiedades:
-
-
-Proporcionan mayor flexibilidad
-
-Ejemplos:
-
-1.$\begin{Bmatrix} 0, \ 0, \ 1, \ 2, \ 3, \ 8, \ 8.5 \cr \end{Bmatrix} $
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes Racionales Cúbicas/Definición, Propiedades
-
-$x(u)=X(u)/W(u)$,
-$y(u)=Y(u)/W(u)$,
-$z(u)=Z(u)/W(u)$
-
-Donde 
-	$X(u),Y(u),Z(u)$ son curvas polinómicas cuyos puntos de control
- se encuentran definidos en coordenadas homogéneas
-
-
-se puede pensar enb la curva como definida en el espacio homogéneo, como: $P(u)=[X(u) \ Y(u) \ Z(u) \ W(u)],$ como de costumbre, pasar del espacio homogéneo a 3D equivale dividir por $W(u)$.
-
-Cualquier curva no racional puede ser transformada en una racional al agregarle $W(u)=1$
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-####No Uniformes Racionales Cúbicas/Definición, Propiedades
-
-
-Los polinomios en la curva racional pueden ser Hermite, Bezier o de cualquier tipo. Cuando son B-Spline se tiene NURBS.
-
-Estas curvas son invariantes incluso respecto de transformaciones de perspectiva
-
-
-
-
-V:## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Conversión entre representaciones de Spline
-
-
-<table>
-<tr>
-	<td>
-Curva 1
-\\[G_1\\]
-\\[M_1\\]
-	</td>
-	<td>
-\\[ \rightarrow \\]
-	</td>
-	<td>
-\\[ U \bullet G_1 \bullet M_1 = U \bullet G_2 \bullet M_2\\]
-\\[ G_1 \bullet M_1 = U \bullet G_2\\]
-\\[ G_2 = M^{-1}_2 \bullet M_1\\]
-	</td>
-	<td>
-\\[ \leftarrow \\]
-	</td>
-	<td>
-Curva 2
-\\[G_12=?\\]
-\\[M_2\\]
-	</td>
-</tr>
-</table>
-Nota: Para convertir una curva de B-Spline (ya que esta no posee matríz basica explícita), se debe primero convertir a Bezier.
-
-V:
-
-
-## CURVAS Y SUPERFICIES DE B-SPLINE
-
-
-####Superficies de B-Spline
-
-$x(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>x</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
-
-$y(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>y</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
-
-$z(s,u)=S \bullet M$<sub>BS</sub>$ \bullet G'$<sub>BS<sub>z</sub></sub>$ \bullet M^{T}$<sub>BS</sub>$ U^{T}$
