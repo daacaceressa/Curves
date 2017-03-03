@@ -303,7 +303,7 @@ Hermite matrix:
 
 V:
 
-## Cubic Hermit splines
+## Cubic Hermit splines: Basis functions
 
 `$P(u) = p_k(2u^{3}-3u^{2}+1)+p_{k+1}(-2u^{3}+3u^{2})$`
         `$+ Dp_k(u^{3}-2u^{2}+u)+Dp_{k+1}(u^{3}-u^{2})$`
@@ -452,7 +452,7 @@ V:
 
 ## Bézier curves: Design techniques
 
-Empalme de 2 secciones
+Joining Bezier segments
 
 > Property 3: The tangent at the extreme control points lies along the line defined by the extreme point and the one adjacent to it
 
@@ -464,6 +464,7 @@ Example for $(G^{0}, G^{1} and) C^{1}$ continuity
 V:
 
 ## Bézier curves: Cubic splines
+### Basis functions
 
 Let $n=3$ ($4$ control points): $P_k=(x_k,y_k,z_k), k=0,1,2,3$, we get:
 
@@ -471,6 +472,23 @@ Let $n=3$ ($4$ control points): $P_k=(x_k,y_k,z_k), k=0,1,2,3$, we get:
 2. `$BEZ_{1,3}(u)=3u(1-u)^{2}$`
 3. `$BEZ_{2,3}(u)=3u^{2}(1-u)$`
 4. `$BEZ_{3,3}(u)=u^{3}$`
+
+`$P(u) = p_0 BEZ_{0,3}(u) + p_1 BEZ_{1,3}(u) + p_2 BEZ_{2,3}(u) + p_3 BEZ_{3,3}(u)$`
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+V:
+
+## Bézier curves: Cubic splines
+### Basis functions
+
+The polynomials $BEZ_{i,3}(u)$, for $i= 0,1,2,3$, are the Bezier basis functions:
+<!-- .element: class="fragment" data-fragment-index="2"-->
+
+<figure>
+    <img height='400' src='fig/bezier_basis.png'/>
+    <figcaption>$BEZ_{0,3}(u)$ (blue), $BEZ_{1,3}(u)$ (green), $BEZ_{2,3}(u)$, (red) and $BEZ_{3,3}(u)$ (cyan)</figcaption>
+</figure>
+<!-- .element: class="fragment" data-fragment-index="3"-->
 
 V:
 
