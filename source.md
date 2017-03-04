@@ -105,29 +105,10 @@ $G^{1}$: if (besides $G^{0}$) the vector tangents directions (but no the magnitu
 
 $C^{n}$: if $d^{n}/d u^{n}P(u)$, are the same for both sections<!-- .element: class="fragment" data-fragment-index="3"-->
 
-V:
+### Observation
 
-## Intro: Continuity
-
-It follows that:
-
-1. $C^{1} \rightarrow G^{1}$ but not the other way around<!-- .element: class="fragment" data-fragment-index="1"-->
-1. If $n > m$ then $C^{n} \rightarrow C^{m}$<!-- .element: class="fragment" data-fragment-index="2"-->
-
-Exception to 1:
-<center>
-<table>
-<tr>
-<td>
-<img height="280" src="fig/repSpline5.jpg">
-</td>
-<td>
-<img height="280" src="fig/repSpline6.jpg">
-</td>
-</tr>
-</table>
-</center>
-<!-- .element: class="fragment" data-fragment-index="3"-->
+1. $C^{1} \rightarrow G^{1}$ but not the other way around<!-- .element: class="fragment" data-fragment-index="4"-->
+1. If $n > m$ then $C^{n} \rightarrow C^{m}$<!-- .element: class="fragment" data-fragment-index="5"-->
 
 H:
 
