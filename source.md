@@ -36,11 +36,13 @@ H:
 
 ## Intro: idea
 
-> Find the piecewise interpolation polynomial(s) that best approximate a given a set of _control points_
+> Find the piecewise interpolation polynomial(s) of degree $n$ that best approximate a given a set of _control points_
 
 ### Advantages
 
 <li class="fragment"> Compact representation
+<li class="fragment"> The curve can have up to $n-1$ slope changes
+<li class="fragment"> Make use of (parametric) linear interpolation: `$P(u) = P_0(1-u) + P_1(u), 0 \leq u \leq 1$` gives the point in the line defined from $P_0$ to $P_1$
 <li class="fragment"> Affine transformations of the curve <-> transformation on the control points
 
 V:
