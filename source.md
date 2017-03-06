@@ -42,7 +42,7 @@ H:
 
 <li class="fragment"> Compact representation
 <li class="fragment"> The curve can have up to $n-1$ slope changes
-<li class="fragment"> Make use either of a _linear combination_ of a set of _basis functions_, or recursive (parametric) _linear interpolation_ (`$P(u) = (P_0(1-u) + P_1(u), 0 \leq u \leq 1$` gives the point in the line defined from $P_0$ to $P_1$)
+<li class="fragment"> Make use either of a _linear combination_ of a set of _basis functions_, or recursive (parametric) _linear interpolation_ (`$P(u) = P_0(1-u) + P_1u, 0 \leq u \leq 1$` gives the point in the line defined from $P_0$ to $P_1$)
 <li class="fragment"> Affine transformations of the curve <-> transformation on the control points
 
 V:
@@ -400,17 +400,13 @@ H:
 
 ## Bézier curves: De Casteljau algorithm
 
-<section>
-	<iframe width="420" height="345" src="http://www.youtube.com/embed/YATikPP2q70"></iframe>
-</section>
+Check this [video](http://www.youtube.com/embed/YATikPP2q70)
 
 V:
 
 ## Bézier curves: overview
 
-<section>
-	<iframe width="420" height="345" src="http://www.youtube.com/embed/2HvH9cmHbG4"></iframe>
-</section>
+Check also this [one](http://www.youtube.com/embed/2HvH9cmHbG4)
 
 V:
 
