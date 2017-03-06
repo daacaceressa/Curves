@@ -74,6 +74,16 @@ V:
 
 V:
 
+## Intro: use cases
+### Fonts
+
+<figure>
+    <img height='400' src='fig/bezier_font.png'/>
+    <figcaption>Font modelling</figcaption>
+</figure>
+
+V:
+
 ## Intro: General notions
 
 <img height="300" src="fig/nociones.png">
