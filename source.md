@@ -234,7 +234,7 @@ which may be written as:
  Dp_k \cr Dp_{k+1} \cr \end{bmatrix} = \begin{bmatrix}
 	0 & 0 & 0 & 1 \cr
  1 & 1 & 1 & 1 \cr
- 0 & 0 & 1 & 0 \cr 4 & 2 & 1 & 0 \cr
+ 0 & 0 & 1 & 0 \cr 3 & 2 & 1 & 0 \cr
  \end{bmatrix}
  \begin{bmatrix} 
 	a \cr 
