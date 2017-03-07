@@ -360,10 +360,10 @@ V:
 
 if within a Hermite spline we choose $P(0)$, $P(1)$, $P'(0)$ and $P'(1)$ to be:
 
-1. $P(0)=P_k$
-1. $P(1)=P_{k+1}$
-1. $P'(0)=1/2(1-t)P_{k+1}-P_k-1$ 
-1. $P'(1)=1/2(1-t)P_{k+2}-P_k$
+1. `$P(0)=P_k$`
+1. `$P(1)=P_{k+1}$`
+1. `$P'(0)=1/2(1-t)(P_{k+1}-P_{k-1})$`
+1. `$P'(1)=1/2(1-t)(P_{k+2}-P_k)$`
 
 where $t$ $\in([0,1]$ is the _tension_ parameter, we get a _Cardinal_ spline
 
