@@ -521,6 +521,10 @@ H:
 
 1. [Mathematics of Computer Graphics and Virtual Environments](https://www.youtube.com/channel/UCfO67kOKUqVlos7IUANDPHw)
 2. [Pyramid Algorithms, Goldman](https://www.elsevier.com/books/pyramid-algorithms/goldman/978-1-55860-354-7)
+3. Some linear equation solvers:
+	* [Apache commons math](http://commons.apache.org/proper/commons-math/)
+	* [Matrix](http://introcs.cs.princeton.edu/java/95linear/Matrix.java.html)
+	* [Papaya library](http://adilapapaya.com/papayastatistics/)
 
 H:
 
